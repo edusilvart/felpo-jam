@@ -14,6 +14,14 @@ config/name="FELPO JAM"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://bus_layout.tres"
+
+[autoload]
+
+SFX_MANAGER="*res://singletons/sfx_manager.gd"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
