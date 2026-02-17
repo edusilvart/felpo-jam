@@ -29,11 +29,11 @@ func enter_state() -> void:
 	
 	parent.pivot.scale = Vector3(0.7, 1.3, 1)
 	parent.flip_node.rotation.z = deg_to_rad(15 * -direction.x)
-	tween = get_tree().create_tween()
+	tween = get_tree().create_tween().set_parallel(true)
 	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(parent.pivot, 'scale', Vector3.ONE, 0.2)
-	tween.tween_property(parent.flip_node, 'rotation', Vector3.ZERO, 0.2)
+	tween.tween_property(parent.flip_node, 'rotation', Vector3.ZERO, 0.5)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed('attack_blue'):

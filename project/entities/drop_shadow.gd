@@ -3,9 +3,9 @@ extends RayCast3D
 
 @onready var shadow_sprite = get_node('ShadowSprite')
 var distance : float = 0
-var offset : float = 0.01
+var offset : float = 0.02
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if is_colliding():
 		shadow_sprite.visible = true
 		shadow_sprite.global_position = get_collision_point() + Vector3(0, offset, 0)

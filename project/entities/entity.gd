@@ -17,10 +17,14 @@ var jump_force : float = 6 * jump_force_ratio
 var weight : float = 20 * weight_ratio
 
 var looking_right : bool = true
+var prev_vel : Vector3
 
 func apply_movement(move_dir : Vector2, new_accel : float, delta: float) -> void:
 	velocity.x = move_toward(velocity.x, move_dir.x, new_accel * delta)
 	velocity.z = move_toward(velocity.z, move_dir.y, new_accel * delta)
+	
+	prev_vel = velocity
+	
 	move_and_slide()
 
 func apply_gravity(delta) -> void:

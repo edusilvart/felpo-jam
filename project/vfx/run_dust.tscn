@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://edhohnuugwu5"]
+
+[ext_resource type="Script" path="res://vfx/vfx.gd" id="1_2cihh"]
+[ext_resource type="Texture2D" uid="uid://d4nssxl56ygmg" path="res://vfx/textures/oval.png" id="2_vs1q0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_03nh1"]
+transparency = 1
+shading_mode = 0
+specular_mode = 2
+disable_ambient_light = true
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_vs1q0")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_p1a4p"]
+material = SubResource("StandardMaterial3D_03nh1")
+
+[sub_resource type="Curve" id="Curve_qpueb"]
+max_value = 2.0
+_data = [Vector2(0, 0), 0.0, 5.94058, 0, 0, Vector2(1, 2), 0.172592, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_fpoix"]
+_data = [Vector2(0, 0.461538), 0.0, 2.93407, 0, 0, Vector2(1, 0), -2.60806, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_mtm1v"]
+offsets = PackedFloat32Array(0.373333, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Dust" type="Node3D"]
+script = ExtResource("1_2cihh")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+emitting = false
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.4
+mesh = SubResource("QuadMesh_p1a4p")
+direction = Vector3(0, 0, -1)
+gravity = Vector3(0, -10, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+damping_min = 6.0
+damping_max = 10.0
+damping_curve = SubResource("Curve_qpueb")
+scale_amount_min = 0.0
+scale_amount_max = 0.6
+scale_amount_curve = SubResource("Curve_fpoix")
+color_ramp = SubResource("Gradient_mtm1v")

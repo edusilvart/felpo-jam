@@ -71,4 +71,4 @@ current = true
 fov = 45.0
 
 [node name="Professora" parent="." instance=ExtResource("3_6m57i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.689723, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)

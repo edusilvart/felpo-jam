@@ -2,6 +2,10 @@ extends State
 # player ON GROUND
 
 
+
+@onready var land_dust = preload('res://vfx/land_dust.tscn')
+@onready var run_dust = preload('res://vfx/run_dust.tscn')
+
 var current_anim = ''
 var new_anim = ''
 var tween : Tween
@@ -11,11 +15,15 @@ func enter_state() -> void:
 	
 	if prev_state == 'Jump' or prev_state == 'Fall':
 		new_anim = 'Idle'
-		parent.pivot.scale = Vector3(1.2, 0.8, 1)
+		parent.pivot.scale = Vector3(1.3, 0.7, 1)
 		tween = get_tree().create_tween()
 		tween.set_trans(Tween.TRANS_CUBIC)
 		tween.set_ease(Tween.EASE_OUT)
 		tween.tween_property(parent.pivot, 'scale', Vector3.ONE, 0.2)
+		
+		var dust = land_dust.instantiate()
+		parent.get_parent().add_child(dust)
+		dust.start(parent.pivot.global_position)
 	else:
 		new_anim = 'Idle'
 
@@ -41,6 +49,11 @@ func update_state(delta : float) -> void:
 	
 	if dir_input != Vector2.ZERO:
 		new_anim = 'Run'
+		if parent.prev_vel.length() < 0.5:
+			var dust = run_dust.instantiate()
+			parent.get_parent().add_child(dust)
+			dust.look_at(parent.pivot.global_position, Vector3.UP)
+			dust.start(parent.pivot.global_position)
 	else:
 		new_anim = 'Idle'
 	

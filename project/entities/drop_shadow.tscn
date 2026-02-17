@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dpcpaader3cv2"]
 
-[ext_resource type="Texture2D" uid="uid://yvxdte1run5x" path="res://icon.svg" id="1_3pswv"]
 [ext_resource type="Script" path="res://entities/drop_shadow.gd" id="1_sk6i2"]
+[ext_resource type="Texture2D" uid="uid://ih11ijxlwpwo" path="res://vfx/textures/circle.png" id="2_404tn"]
 
 [node name="DropShadow" type="RayCast3D"]
 target_position = Vector3(0, -0.5, 0)
@@ -11,8 +11,8 @@ script = ExtResource("1_sk6i2")
 [node name="ShadowSprite" type="Sprite3D" parent="."]
 transform = Transform3D(0.875, 0, 0, 0, -3.82475e-08, 0.875, 0, -0.875, -3.82475e-08, 0, 0, 0)
 modulate = Color(0, 0, 0, 1)
-pixel_size = 0.003
-texture = ExtResource("1_3pswv")
+double_sided = false
+texture = ExtResource("2_404tn")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
