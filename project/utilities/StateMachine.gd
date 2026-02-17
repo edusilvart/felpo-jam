@@ -25,6 +25,7 @@ func _ready() -> void:
 			child.set_process_unhandled_input(false)
 	
 	state = get_child(0)
+	await parent.ready
 	set_state(get_child(0).name)
 
 func set_state(newState: String) -> void:
