@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ckfti4r3wec5h"]
+[gd_scene load_steps=23 format=3 uid="uid://ckfti4r3wec5h"]
 
 [ext_resource type="Script" path="res://entities/professora/professora.gd" id="1_cb7gf"]
 [ext_resource type="Texture2D" uid="uid://yvxdte1run5x" path="res://icon.svg" id="1_pxin8"]
@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://dpcpaader3cv2" path="res://entities/drop_shadow.tscn" id="7_jhtld"]
 [ext_resource type="Script" path="res://entities/attack.gd" id="7_qq5e1"]
 [ext_resource type="PackedScene" uid="uid://12lpbcxnno48" path="res://entities/hitbox.tscn" id="8_afmb4"]
+[ext_resource type="Script" path="res://entities/hit.gd" id="9_4jv71"]
 [ext_resource type="PackedScene" uid="uid://c3odqfkbyxwl5" path="res://entities/hurtbox.tscn" id="9_q1tcf"]
+[ext_resource type="Script" path="res://entities/death.gd" id="10_fsmok"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_d33cd"]
 height = 0.379445
@@ -205,20 +207,6 @@ tracks/3/keys = {
 "update": 1,
 "values": [true, false, true]
 }
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("StateMachine/Blue_03")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.433333),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"unlock_input"
-}]
-}
 
 [sub_resource type="Animation" id="Animation_rtl7i"]
 resource_name = "Idle"
@@ -358,17 +346,14 @@ double_sided = false
 texture = ExtResource("1_pxin8")
 
 [node name="Hitbox" parent="Flip" instance=ExtResource("8_afmb4")]
-collision_layer = 0
+unique_name_in_owner = true
+collision_layer = 16
 collision_mask = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Flip/Hitbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.505044, 0, 0)
 shape = SubResource("BoxShape3D_yx1wv")
 disabled = true
-
-[node name="Hit" type="Node" parent="."]
-
-[node name="Death" type="Node" parent="."]
 
 [node name="StateMachine" type="Node" parent="."]
 unique_name_in_owner = true
@@ -387,6 +372,7 @@ script = ExtResource("6_y11v4")
 
 [node name="Blue_01" type="Node" parent="StateMachine"]
 script = ExtResource("7_qq5e1")
+knockback_power = 3.0
 movement_speed = Vector2(2, 0)
 movement_duration = 0.233
 movement_curve = SubResource("Curve_wdcjb")
@@ -394,6 +380,7 @@ chain = 2
 
 [node name="Blue_02" type="Node" parent="StateMachine"]
 script = ExtResource("7_qq5e1")
+knockback_power = 3.0
 movement_speed = Vector2(3, 0)
 movement_duration = 0.233
 movement_curve = SubResource("Curve_wdcjb")
@@ -401,6 +388,8 @@ chain = 3
 
 [node name="Blue_03" type="Node" parent="StateMachine"]
 script = ExtResource("7_qq5e1")
+knockback_direction = -70.0
+knockback_power = 10.0
 movement_speed = Vector2(6, 0)
 movement_duration = 0.4
 heavy_attack = true
@@ -408,6 +397,7 @@ movement_curve = SubResource("Curve_wdcjb")
 
 [node name="Red_01" type="Node" parent="StateMachine"]
 script = ExtResource("7_qq5e1")
+knockback_power = 2.0
 chain = 2
 
 [node name="Red_02" type="Node" parent="StateMachine"]
@@ -428,6 +418,12 @@ script = ExtResource("7_qq5e1")
 air_attack = true
 heavy_attack = true
 
+[node name="Hit" type="Node" parent="StateMachine"]
+script = ExtResource("9_4jv71")
+
+[node name="Death" type="Node" parent="StateMachine"]
+script = ExtResource("10_fsmok")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_vgfro")
@@ -438,7 +434,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.188894, 0)
 
 [node name="Hurtbox" parent="." instance=ExtResource("9_q1tcf")]
 collision_layer = 8
-collision_mask = 0
+collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
 shape = SubResource("BoxShape3D_h0s3f")

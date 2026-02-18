@@ -3,13 +3,15 @@ class_name Entity extends CharacterBody3D
 @onready var flip_node = get_node('%Flip')
 @onready var pivot = get_node('%Pivot')
 @onready var state_machine = get_node('%StateMachine')
+@onready var hitbox = get_node('%Hitbox')
 
 @export var speed_ratio : float = 1.0
 @export var acceleration_ratio : float = 1.0
-@export var slow_down_ratio : float = 1.0
 @export var jump_force_ratio : float = 1.0
-@export var jump_damp_ratio : float = 1.0
 @export var weight_ratio : float = 1.0
+
+@export var max_HP : int = 10
+var HP : int = max_HP
 
 var speed : float = 2.5 * speed_ratio
 var acceleration : float = 20 * acceleration_ratio
@@ -38,8 +40,9 @@ func flip(should_look_right : bool) -> void:
 		flip_node.scale.x = -1
 		looking_right = false
 
-func hit(instigator, heavy_hit : String, damage : int, knockback : Vector2) -> void:
+func hit(instigator, heavy_hit : bool, damage : int, knockback : Vector3) -> void:
 	state_machine.get_node('Hit').instigator = instigator
 	state_machine.get_node('Hit').heavy_hit = heavy_hit
 	state_machine.get_node('Hit').damage = damage
 	state_machine.get_node('Hit').knockback = knockback
+	state_machine.set_state('Hit')

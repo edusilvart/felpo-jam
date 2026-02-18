@@ -33,6 +33,15 @@ func enter_state() -> void:
 		direction = 1
 	else:
 		direction = -1
+	
+	parent.hitbox.damage = damage
+	var angle = deg_to_rad(knockback_direction)
+	var knockback = Vector2(cos(angle), sin(angle)) * knockback_power
+	parent.hitbox.knockback = Vector3(knockback.x, -knockback.y, 0)
+	parent.hitbox.heavy_hit = heavy_attack
+	
+	if not parent == Globals.player:
+		parent.attack_cooldown_timer.start()
 
 func unlock_input() -> void:
 	input_lock = false
@@ -87,6 +96,6 @@ func exit_state() -> void:
 func anim_finished(anim_name : String) -> void:
 	if anim_name == name:
 		if parent.is_on_floor():
-			state_machine.set_state('onGround')
+			state_machine.set_state(state_machine.get_child(0).name)
 		else:
 			state_machine.set_state('Fall')

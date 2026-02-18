@@ -1,7 +1,7 @@
 extends Area3D
 
 
-var instigator
+@onready var instigator = get_parent()
 var heavy_hit : bool
 var damage : int
 var knockback : Vector3

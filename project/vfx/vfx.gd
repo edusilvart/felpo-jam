@@ -1,4 +1,4 @@
-extends Node3D
+class_name VFX extends Node3D
 
 
 func start(spawn_position : Vector3) -> void:
