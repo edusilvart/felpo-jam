@@ -37,101 +37,6 @@ size = Vector3(0.4, 0.4, 0.4)
 [sub_resource type="SphereShape3D" id="SphereShape3D_ojt4v"]
 radius = 0.41068
 
-[sub_resource type="Animation" id="Animation_meabm"]
-resource_name = "Idle"
-length = 0.06667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_bitmy")]
-}
-
-[sub_resource type="Animation" id="Animation_tchey"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_bitmy")]
-}
-
-[sub_resource type="Animation" id="Animation_t726i"]
-resource_name = "Hit"
-length = 0.06667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("12_5eibt")]
-}
-
-[sub_resource type="Animation" id="Animation_b341b"]
-resource_name = "Flying"
-length = 0.06667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("13_vaw5c")]
-}
-
-[sub_resource type="Animation" id="Animation_74h1r"]
-resource_name = "Laying"
-length = 0.06667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("14_6eqly")]
-}
-
-[sub_resource type="Animation" id="Animation_u45jc"]
-resource_name = "Get_Up"
-length = 0.26667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.233333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("15_fm6vj"), ExtResource("2_bitmy")]
-}
-
 [sub_resource type="Animation" id="Animation_gbtsr"]
 resource_name = "Attack"
 length = 0.533337
@@ -159,6 +64,101 @@ tracks/1/keys = {
 "values": []
 }
 
+[sub_resource type="Animation" id="Animation_b341b"]
+resource_name = "Flying"
+length = 0.06667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_vaw5c")]
+}
+
+[sub_resource type="Animation" id="Animation_u45jc"]
+resource_name = "Get_Up"
+length = 0.26667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("15_fm6vj"), ExtResource("2_bitmy")]
+}
+
+[sub_resource type="Animation" id="Animation_t726i"]
+resource_name = "Hit"
+length = 0.06667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_5eibt")]
+}
+
+[sub_resource type="Animation" id="Animation_meabm"]
+resource_name = "Idle"
+length = 0.06667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_bitmy")]
+}
+
+[sub_resource type="Animation" id="Animation_74h1r"]
+resource_name = "Laying"
+length = 0.06667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("14_6eqly")]
+}
+
+[sub_resource type="Animation" id="Animation_tchey"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_bitmy")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e6nyf"]
 _data = {
 "Attack": SubResource("Animation_gbtsr"),
@@ -172,9 +172,11 @@ _data = {
 
 [node name="LiçãoVermelho" type="CharacterBody3D"]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 3
 script = ExtResource("1_gngpv")
 speed_ratio = 0.7
+acceleration_ratio = 0.2
+max_HP = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_d33cd")
@@ -196,7 +198,7 @@ texture = ExtResource("2_bitmy")
 
 [node name="Hitbox" parent="Flip" instance=ExtResource("3_v1d15")]
 unique_name_in_owner = true
-collision_layer = 8
+collision_layer = 32
 collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Flip/Hitbox"]
@@ -237,7 +239,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.188894, 0)
 
 [node name="Hurtbox" parent="." instance=ExtResource("6_gkadn")]
 collision_layer = 16
-collision_mask = 16
+collision_mask = 32
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
 shape = SubResource("BoxShape3D_h0s3f")

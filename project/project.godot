@@ -24,6 +24,16 @@ buses/default_bus_layout="res://bus_layout.tres"
 SFX_MANAGER="*res://singletons/sfx_manager.gd"
 Globals="*res://singletons/globals.gd"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
+[gui]
+
+timers/tooltip_delay_sec=0.0
+timers/size/viewport_height=720
+
 [input]
 
 move_left={
@@ -75,6 +85,7 @@ move_backward={
 3d_physics/layer_3="Entities"
 3d_physics/layer_4="Player"
 3d_physics/layer_5="Enemies"
+3d_physics/layer_6="Hitboxes"
 
 [rendering]
 

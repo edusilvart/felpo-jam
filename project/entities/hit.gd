@@ -42,7 +42,6 @@ func enter_state() -> void:
 	
 	var hit = hit_fx.instantiate()
 	parent.get_parent().add_child(hit)
-	var spawn_pos = (parent.global_position + instigator.global_position) / 2
 	hit.start(parent.global_position)
 
 func update_state(delta : float) -> void:

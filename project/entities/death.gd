@@ -4,7 +4,7 @@ extends State
 
 
 func enter_state() -> void:
-	pass
+	parent.died.emit()
 
 func update_state(delta : float) -> void:
 	parent.apply_movement(Vector2.ZERO, parent.acceleration, delta)

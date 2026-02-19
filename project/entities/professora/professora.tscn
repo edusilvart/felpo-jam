@@ -324,7 +324,7 @@ size = Vector3(0.4, 0.4, 0.4)
 
 [node name="Professora" type="CharacterBody3D"]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 3
 script = ExtResource("1_cb7gf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -338,7 +338,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.191307, 0)
 
 [node name="Sprite3D" type="Sprite3D" parent="Flip/Pivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.191307, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.190549, 0)
 cast_shadow = 0
 pixel_size = 0.003
 transparent = false
@@ -347,7 +347,7 @@ texture = ExtResource("1_pxin8")
 
 [node name="Hitbox" parent="Flip" instance=ExtResource("8_afmb4")]
 unique_name_in_owner = true
-collision_layer = 16
+collision_layer = 32
 collision_mask = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Flip/Hitbox"]
@@ -372,6 +372,7 @@ script = ExtResource("6_y11v4")
 
 [node name="Blue_01" type="Node" parent="StateMachine"]
 script = ExtResource("7_qq5e1")
+damage = 1
 knockback_power = 3.0
 movement_speed = Vector2(2, 0)
 movement_duration = 0.233
@@ -380,6 +381,7 @@ chain = 2
 
 [node name="Blue_02" type="Node" parent="StateMachine"]
 script = ExtResource("7_qq5e1")
+damage = 1
 knockback_power = 3.0
 movement_speed = Vector2(3, 0)
 movement_duration = 0.233
@@ -388,6 +390,7 @@ chain = 3
 
 [node name="Blue_03" type="Node" parent="StateMachine"]
 script = ExtResource("7_qq5e1")
+damage = 3
 knockback_direction = -70.0
 knockback_power = 10.0
 movement_speed = Vector2(6, 0)
@@ -434,7 +437,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.188894, 0)
 
 [node name="Hurtbox" parent="." instance=ExtResource("9_q1tcf")]
 collision_layer = 8
-collision_mask = 8
+collision_mask = 32
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
 shape = SubResource("BoxShape3D_h0s3f")

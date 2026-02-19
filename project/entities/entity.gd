@@ -11,15 +11,18 @@ class_name Entity extends CharacterBody3D
 @export var weight_ratio : float = 1.0
 
 @export var max_HP : int = 10
-var HP : int = max_HP
+@onready var HP : int = max_HP
 
-var speed : float = 2.5 * speed_ratio
-var acceleration : float = 20 * acceleration_ratio
-var jump_force : float = 6 * jump_force_ratio
-var weight : float = 20 * weight_ratio
+@onready var speed : float = 2.5 * speed_ratio
+@onready var acceleration : float = 20 * acceleration_ratio
+@onready var jump_force : float = 6 * jump_force_ratio
+@onready var weight : float = 20 * weight_ratio
 
 var looking_right : bool = true
 var prev_vel : Vector3
+
+@warning_ignore("unused_signal")
+signal died
 
 func apply_movement(move_dir : Vector2, new_accel : float, delta: float) -> void:
 	velocity.x = move_toward(velocity.x, move_dir.x, new_accel * delta)

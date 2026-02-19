@@ -3,7 +3,7 @@ extends RayCast3D
 
 @onready var shadow_sprite = get_node('ShadowSprite')
 var distance : float = 0
-var offset : float = 0.02
+var offset : float = 0.005
 
 func _process(_delta: float) -> void:
 	if is_colliding():

@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://hqafpyu0gjga"]
 
-[ext_resource type="Script" path="res://singletons/sfx_manager.gd" id="1_bmm6r"]
+[ext_resource type="Script" path="res://utilities/game_manager.gd" id="1_u52ml"]
+[ext_resource type="Script" path="res://utilities/wave_manager.gd" id="2_0ufe5"]
 [ext_resource type="Texture2D" uid="uid://dv471wue5g4g6" path="res://addons/kenney_prototype_textures/purple/texture_01.png" id="2_5ph6g"]
 [ext_resource type="Texture2D" uid="uid://cf8ak2i0ouj0v" path="res://addons/kenney_prototype_textures/dark/texture_01.png" id="2_su32e"]
 [ext_resource type="PackedScene" uid="uid://ckfti4r3wec5h" path="res://entities/professora/professora.tscn" id="3_6m57i"]
 [ext_resource type="Script" path="res://utilities/camera_manager.gd" id="5_3eq3n"]
-[ext_resource type="PackedScene" uid="uid://c3motok7i27j6" path="res://entities/inimigos/vermelho/vermelho.tscn" id="6_g85aq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_05bd2"]
 shading_mode = 0
@@ -18,7 +18,10 @@ albedo_texture = ExtResource("2_su32e")
 uv1_triplanar = true
 
 [node name="Gym" type="Node"]
-script = ExtResource("1_bmm6r")
+script = ExtResource("1_u52ml")
+
+[node name="WaveManager" type="Node" parent="."]
+script = ExtResource("2_0ufe5")
 
 [node name="Props" type="CSGCombiner3D" parent="."]
 material_override = SubResource("StandardMaterial3D_05bd2")
@@ -73,6 +76,3 @@ fov = 45.0
 
 [node name="Professora" parent="." instance=ExtResource("3_6m57i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.60991, 0.7, 0)
-
-[node name="LiçãoVermelho" parent="." instance=ExtResource("6_g85aq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.609914, 0.91068, 0)
