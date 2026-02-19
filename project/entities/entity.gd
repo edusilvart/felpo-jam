@@ -4,6 +4,7 @@ class_name Entity extends CharacterBody3D
 @onready var pivot = get_node('%Pivot')
 @onready var state_machine = get_node('%StateMachine')
 @onready var hitbox = get_node('%Hitbox')
+@onready var hurtbox = get_node('%Hurtbox')
 
 @export var speed_ratio : float = 1.0
 @export var acceleration_ratio : float = 1.0

@@ -28,6 +28,16 @@ signal ended
 func _ready() -> void:
 	visible = false
 
+#func _unhandled_input(event: InputEvent) -> void:
+	#if event.is_action('ui_left'):
+		#cards_container.get_child(0).grab_focus()
+	#if event.is_action('ui_right'):
+		#cards_container.get_child(2).grab_focus()
+	#if event.is_action('ui_accept'):
+		#cards_container.get_child(1).grab_focus()
+	#if event.is_action('ui_down') or event.is_action('ui_cancel'):
+		#resume_button.grab_focus()
+
 func enter() -> void:
 	visible = true
 	resume_button.disabled = false
