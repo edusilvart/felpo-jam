@@ -29,6 +29,7 @@ func change_state(new_state : String) -> void:
 func enter_state() -> void:
 	match states[state]:
 		'INTRO':
+			pass
 			change_state('BATTLE')
 		'BATTLE':
 			wave_manager.wave_start()
