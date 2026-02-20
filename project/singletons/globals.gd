@@ -1,5 +1,6 @@
 extends Node
 
 
-var camera
-var player
+var camera : Node3D
+var player : Entity
+var HUD : Control

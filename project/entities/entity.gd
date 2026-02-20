@@ -6,7 +6,7 @@ class_name Entity extends CharacterBody3D
 @onready var hitbox = get_node('%Hitbox')
 @onready var hurtbox = get_node('%Hurtbox')
 
-@export var speed_ratio : float = 1.0
+@export var speed_ratio : float = 0.9
 @export var acceleration_ratio : float = 1.0
 @export var jump_force_ratio : float = 1.0
 @export var weight_ratio : float = 1.0
@@ -18,6 +18,9 @@ class_name Entity extends CharacterBody3D
 @onready var acceleration : float = 20 * acceleration_ratio
 @onready var jump_force : float = 6 * jump_force_ratio
 @onready var weight : float = 20 * weight_ratio
+
+var item01 : Item = null
+var item02 : Item = null
 
 var looking_right : bool = true
 var prev_vel : Vector3

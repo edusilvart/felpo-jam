@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://r0vya1ufu5bf"]
+
+[ext_resource type="Script" path="res://items/grampeador.gd" id="1_v8nvm"]
+
+[node name="Grampeador" type="Node"]
+script = ExtResource("1_v8nvm")
+cooldown = 2.0

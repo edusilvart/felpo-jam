@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://hqafpyu0gjga"]
+[gd_scene load_steps=10 format=3 uid="uid://hqafpyu0gjga"]
 
 [ext_resource type="Script" path="res://utilities/game_manager.gd" id="1_u52ml"]
 [ext_resource type="Script" path="res://utilities/wave_manager.gd" id="2_0ufe5"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cf8ak2i0ouj0v" path="res://addons/kenney_prototype_textures/dark/texture_01.png" id="2_su32e"]
 [ext_resource type="PackedScene" uid="uid://ckfti4r3wec5h" path="res://entities/professora/professora.tscn" id="3_6m57i"]
 [ext_resource type="Script" path="res://utilities/camera_manager.gd" id="5_3eq3n"]
+[ext_resource type="PackedScene" uid="uid://b7gf1v0qrssdr" path="res://interfaces/HUD/HUD.tscn" id="7_464fn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_05bd2"]
 shading_mode = 0
@@ -76,3 +77,5 @@ fov = 45.0
 
 [node name="Professora" parent="." instance=ExtResource("3_6m57i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.60991, 0.7, 0)
+
+[node name="GUI" parent="." instance=ExtResource("7_464fn")]

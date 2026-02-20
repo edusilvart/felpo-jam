@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://ygjktmg6xlyd"]
+
+[ext_resource type="Script" path="res://items/grampo.gd" id="1_0siq1"]
+[ext_resource type="PackedScene" uid="uid://12lpbcxnno48" path="res://entities/hitbox.tscn" id="1_4epju"]
+[ext_resource type="Texture2D" uid="uid://ih11ijxlwpwo" path="res://vfx/textures/circle.png" id="3_v5d4u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6ey5s"]
+size = Vector3(0.25, 0.25, 0.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kmjm2"]
+shading_mode = 0
+albedo_color = Color(0.623932, 0.656166, 0.679688, 1)
+
+[node name="Grampo" type="Node3D"]
+script = ExtResource("1_0siq1")
+
+[node name="Hitbox" parent="." instance=ExtResource("1_4epju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.186483, 0)
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+shape = SubResource("BoxShape3D_6ey5s")
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17994, 0)
+size = Vector3(0.135742, 0.0458984, 0.12085)
+material = SubResource("StandardMaterial3D_kmjm2")
+
+[node name="ShadowSprite" type="Sprite3D" parent="."]
+transform = Transform3D(0.225, 0, 0, 0, -9.83506e-09, 0.225, 0, -0.225, -9.83506e-09, 0, 0.003, 0)
+modulate = Color(0, 0, 0, 0.227451)
+double_sided = false
+texture = ExtResource("3_v5d4u")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

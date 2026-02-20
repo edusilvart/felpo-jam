@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c54ryrfymltwt"
-path.s3tc="res://.godot/imported/Clipe de Papel.png-59f688d010766e82716cd388da70b799.s3tc.ctex"
+uid="uid://dba1d30to4uxy"
+path.s3tc="res://.godot/imported/run-2.png-798e58f41263670db60b99822ecc8230.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://interfaces/items/Icons/Clipe de Papel.png"
-dest_files=["res://.godot/imported/Clipe de Papel.png-59f688d010766e82716cd388da70b799.s3tc.ctex"]
+source_file="res://prototype/run/run-2.png"
+dest_files=["res://.godot/imported/run-2.png-798e58f41263670db60b99822ecc8230.s3tc.ctex"]
 
 [params]
 

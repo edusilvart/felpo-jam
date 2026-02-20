@@ -34,6 +34,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		state_machine.set_state('Red_01')
 	if event.is_action_pressed('jump'):
 		state_machine.set_state('Jump')
+	if event.is_action_pressed('item_01'):
+		if parent.item01 != null:
+			parent.item01.activate()
+	if event.is_action_pressed('item_02'):
+		if parent.item02 != null:
+			parent.item02.activate()
 
 func update_state(delta : float) -> void:
 	var dir_input : Vector2 = parent.get_dir_input()

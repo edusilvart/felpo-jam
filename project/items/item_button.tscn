@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://0pxw71on3wgg"]
+
+[ext_resource type="Texture2D" uid="uid://4o5pgkiqlehb" path="res://interfaces/items/Icons/Cachorro.png" id="1_2edf6"]
+
+[node name="ItemButton" type="Button"]
+focus_mode = 0
+mouse_filter = 2
+button_mask = 0
+icon = ExtResource("1_2edf6")
+icon_alignment = 1

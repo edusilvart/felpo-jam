@@ -2,7 +2,7 @@ extends State
 # HIT
 
 
-@onready var hit_fx = preload("res://vfx/hit.tscn")
+@onready var hit_fx : PackedScene = preload("res://vfx/hit.tscn")
 
 var instigator
 var heavy_hit : bool

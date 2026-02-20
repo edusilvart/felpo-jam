@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwvcxxdumhiay"]
+
+[ext_resource type="Script" path="res://items/clipe_de_papel.gd" id="1_o4gf6"]
+
+[node name="Clipe de Papel" type="Node"]
+script = ExtResource("1_o4gf6")
+cooldown = 5.0

@@ -338,7 +338,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.191307, 0)
 
 [node name="Sprite3D" type="Sprite3D" parent="Flip/Pivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.190549, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19271, 0)
 cast_shadow = 0
 pixel_size = 0.003
 transparent = false

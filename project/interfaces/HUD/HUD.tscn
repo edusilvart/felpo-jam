@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7gf1v0qrssdr"]
+
+[ext_resource type="Script" path="res://interfaces/HUD/hud.gd" id="1_tj14n"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_tj14n")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 166.0
+offset_bottom = 129.0
+mouse_filter = 2
+theme_override_constants/separation = 11
+
+[node name="HP_Bar" type="ProgressBar" parent="VBoxContainer"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+max_value = 3.0
+step = 1.0
+value = 3.0
+show_percentage = false
+
+[node name="ItemsIcon" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
