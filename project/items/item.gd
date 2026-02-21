@@ -7,16 +7,16 @@ var passive : bool = false
 var cooldown_timer := Timer.new()
 var icon : Button
 var icon_tex
-var icon_scene = preload("res://items/item_button.tscn")
+var item_num : int = 0
 
 func _ready() -> void:
 	add_child(cooldown_timer)
 	cooldown_timer.wait_time = cooldown
 	cooldown_timer.one_shot = true
 	cooldown_timer.timeout.connect(reset_cooldown)
-	icon = icon_scene.instantiate()
-	Globals.HUD.items_container.add_child(icon)
+	icon = Globals.HUD.items_container.get_child(item_num)
 	icon.icon = icon_tex
+	icon.disabled = false
 
 func activate() -> void:
 	if cooldown_timer.is_stopped():
@@ -26,6 +26,7 @@ func activate() -> void:
 
 func reset_cooldown():
 	icon.disabled = false
+	icon.text = ''
 
 func enter() -> void:
 	pass
@@ -38,7 +39,11 @@ func exit() -> void:
 
 func destroy() -> void:
 	exit()
-	icon.queue_free()
+	cooldown_timer.stop()
+	parent.set('item0' + str(item_num + 1), null)
+	icon.icon = null
+	icon.text = ''
+	icon.disabled = true
 	queue_free()
 
 func _physics_process(delta: float) -> void:

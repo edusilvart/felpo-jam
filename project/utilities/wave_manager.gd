@@ -53,7 +53,6 @@ func spawn_wave() -> void:
 			break
 
 func spawn_enemy(enemy_type: String) -> void:
-	print('enemy asked to spawn')
 	var scene: PackedScene = ENEMY_TYPES[enemy_type]["scene"]
 	var enemy: Node3D = scene.instantiate()
 	var spawn_point = random_point(4)

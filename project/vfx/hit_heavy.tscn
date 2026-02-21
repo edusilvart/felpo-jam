@@ -1,9 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://bdeegrst0x7hm"]
+[gd_scene load_steps=17 format=3 uid="uid://dqkpyjr72g4y3"]
 
-[ext_resource type="Script" path="res://vfx/vfx.gd" id="1_v7xu1"]
-[ext_resource type="Texture2D" uid="uid://cdkpswkc5h30g" path="res://vfx/textures/star.png" id="2_aw77o"]
-[ext_resource type="Texture2D" uid="uid://ih11ijxlwpwo" path="res://vfx/textures/circle.png" id="3_2j8n6"]
-[ext_resource type="Texture2D" uid="uid://b8feg2ybgkwvi" path="res://vfx/textures/circle_outline.png" id="3_kmebb"]
+[ext_resource type="Script" path="res://vfx/vfx.gd" id="1_vqavr"]
+[ext_resource type="Texture2D" uid="uid://cdkpswkc5h30g" path="res://vfx/textures/star.png" id="2_okxf4"]
+[ext_resource type="Texture2D" uid="uid://ih11ijxlwpwo" path="res://vfx/textures/circle.png" id="3_6y72k"]
+[ext_resource type="Texture2D" uid="uid://b8feg2ybgkwvi" path="res://vfx/textures/circle_outline.png" id="4_bu1oy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7uyb4"]
 transparency = 4
@@ -13,8 +13,8 @@ specular_mode = 2
 disable_ambient_light = true
 disable_fog = true
 vertex_color_use_as_albedo = true
-albedo_color = Color(1.5, 1.1, 1, 1)
-albedo_texture = ExtResource("2_aw77o")
+albedo_color = Color(3, 2, 1, 1)
+albedo_texture = ExtResource("2_okxf4")
 billboard_mode = 3
 billboard_keep_scale = true
 particles_anim_h_frames = 1
@@ -45,7 +45,7 @@ disable_ambient_light = true
 disable_fog = true
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 0.666016, 0.332031, 1)
-albedo_texture = ExtResource("3_2j8n6")
+albedo_texture = ExtResource("3_6y72k")
 billboard_keep_scale = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_oms7i"]
@@ -64,7 +64,7 @@ specular_mode = 2
 disable_ambient_light = true
 disable_fog = true
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("3_kmebb")
+albedo_texture = ExtResource("4_bu1oy")
 billboard_mode = 3
 billboard_keep_scale = true
 particles_anim_h_frames = 1
@@ -81,28 +81,28 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_wtdxq"]
 colors = PackedColorArray(1, 1, 1, 0.701961, 1, 1, 1, 0)
 
-[node name="Hit" type="Node3D"]
-script = ExtResource("1_v7xu1")
+[node name="Hit_Heavy" type="Node3D"]
+script = ExtResource("1_vqavr")
 
 [node name="star" type="CPUParticles3D" parent="."]
 emitting = false
 amount = 1
-lifetime = 0.3
+lifetime = 0.4
 one_shot = true
 local_coords = true
 mesh = SubResource("QuadMesh_aoraw")
 gravity = Vector3(0, 0, 0)
 angle_max = 360.0
 angle_curve = SubResource("Curve_phm83")
-scale_amount_min = 0.3
-scale_amount_max = 0.5
+scale_amount_min = 0.6
+scale_amount_max = 0.8
 scale_amount_curve = SubResource("Curve_0veiw")
 color_ramp = SubResource("Gradient_8mg2x")
 
 [node name="sparkles" type="CPUParticles3D" parent="."]
 emitting = false
-amount = 5
-lifetime = 0.3
+amount = 10
+lifetime = 0.4
 one_shot = true
 explosiveness = 1.0
 randomness = 0.36
@@ -121,7 +121,7 @@ scale_amount_curve = SubResource("Curve_1n81v")
 [node name="circle" type="CPUParticles3D" parent="."]
 emitting = false
 amount = 1
-lifetime = 0.3
+lifetime = 0.2
 one_shot = true
 local_coords = true
 mesh = SubResource("QuadMesh_e4v3b")
@@ -130,5 +130,20 @@ angle_max = 360.0
 angle_curve = SubResource("Curve_phm83")
 scale_amount_min = 0.2
 scale_amount_max = 0.35
+scale_amount_curve = SubResource("Curve_ijmu4")
+color_ramp = SubResource("Gradient_wtdxq")
+
+[node name="circle2" type="CPUParticles3D" parent="."]
+emitting = false
+amount = 1
+lifetime = 0.35
+one_shot = true
+local_coords = true
+mesh = SubResource("QuadMesh_e4v3b")
+gravity = Vector3(0, 0, 0)
+angle_max = 360.0
+angle_curve = SubResource("Curve_phm83")
+scale_amount_min = 0.3
+scale_amount_max = 0.5
 scale_amount_curve = SubResource("Curve_ijmu4")
 color_ramp = SubResource("Gradient_wtdxq")

@@ -1,7 +1,7 @@
 extends Item
 
 
-var original_speed
+@onready var original_speed : float = Globals.player.speed
 var duration = 3
 var is_active = false
 

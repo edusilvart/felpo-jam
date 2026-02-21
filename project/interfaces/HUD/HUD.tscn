@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7gf1v0qrssdr"]
+[gd_scene load_steps=3 format=3 uid="uid://b7gf1v0qrssdr"]
 
 [ext_resource type="Script" path="res://interfaces/HUD/hud.gd" id="1_tj14n"]
+[ext_resource type="PackedScene" uid="uid://0pxw71on3wgg" path="res://items/item_button.tscn" id="2_k3xlh"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -12,18 +13,14 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_tj14n")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
+[node name="HP_Bar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 166.0
-offset_bottom = 129.0
-mouse_filter = 2
-theme_override_constants/separation = 11
-
-[node name="HP_Bar" type="ProgressBar" parent="VBoxContainer"]
-custom_minimum_size = Vector2(150, 30)
-layout_mode = 2
+offset_bottom = 46.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
@@ -32,7 +29,48 @@ step = 1.0
 value = 3.0
 show_percentage = false
 
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 64.0
+offset_right = 172.0
+offset_bottom = 212.0
+
 [node name="ItemsIcon" type="HBoxContainer" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
+
+[node name="Item01_Button" parent="VBoxContainer/ItemsIcon" instance=ExtResource("2_k3xlh")]
+layout_mode = 2
+
+[node name="Item02_Button" parent="VBoxContainer/ItemsIcon" instance=ExtResource("2_k3xlh")]
+layout_mode = 2
+
+[node name="Attack_Icon" parent="VBoxContainer" instance=ExtResource("2_k3xlh")]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Item01_Input_Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 113.0
+offset_right = 36.0
+offset_bottom = 136.0
+text = "I"
+
+[node name="Item02_Input_Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 113.0
+offset_right = 120.0
+offset_bottom = 136.0
+text = "O"
+
+[node name="Attack_Input_Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 186.0
+offset_right = 45.0
+offset_bottom = 209.0
+text = "J"

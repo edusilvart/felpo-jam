@@ -1,6 +1,7 @@
 extends Entity
 
 
+
 func _ready() -> void:
 	Globals.player = self
 	Globals.camera.target = self

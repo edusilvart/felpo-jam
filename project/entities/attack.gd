@@ -55,17 +55,19 @@ func change_state() -> void:
 			state_machine.set_state(action_buffered)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed('attack_blue'):
+	if event.is_action_pressed('attack'):
 		if chain != 0:
-			action_buffered = 'Blue_0' + str(chain)
-			change_state()
-	if event.is_action_pressed('attack_red'):
-		if chain != 0:
-			action_buffered = 'Red_0' + str(chain)
+			action_buffered = 'Attack0' + str(chain)
 			change_state()
 	if event.is_action_pressed('jump') and parent.is_on_floor():
 		action_buffered = 'Jump'
 		change_state()
+	if event.is_action_pressed('item_01'):
+		if parent.item01 != null:
+			parent.item01.activate()
+	if event.is_action_pressed('item_02'):
+		if parent.item02 != null:
+			parent.item02.activate()
 
 func update_state(delta : float) -> void:
 	if action_buffered != '':

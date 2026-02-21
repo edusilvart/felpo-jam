@@ -28,10 +28,8 @@ func enter_state() -> void:
 		new_anim = 'Idle'
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed('attack_blue'):
-		state_machine.set_state('Blue_01')
-	if event.is_action_pressed('attack_red'):
-		state_machine.set_state('Red_01')
+	if event.is_action_pressed('attack'):
+		state_machine.set_state('Attack01')
 	if event.is_action_pressed('jump'):
 		state_machine.set_state('Jump')
 	if event.is_action_pressed('item_01'):

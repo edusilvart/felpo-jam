@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ckfti4r3wec5h"]
+[gd_scene load_steps=24 format=3 uid="uid://ckfti4r3wec5h"]
 
 [ext_resource type="Script" path="res://entities/professora/professora.gd" id="1_cb7gf"]
 [ext_resource type="Texture2D" uid="uid://yvxdte1run5x" path="res://icon.svg" id="1_pxin8"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://entities/hit.gd" id="9_4jv71"]
 [ext_resource type="PackedScene" uid="uid://c3odqfkbyxwl5" path="res://entities/hurtbox.tscn" id="9_q1tcf"]
 [ext_resource type="Script" path="res://entities/death.gd" id="10_fsmok"]
+[ext_resource type="Script" path="res://entities/professora/waiting.gd" id="11_uu51o"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_d33cd"]
 height = 0.379445
@@ -23,190 +24,6 @@ size = Vector3(0.5, 0.5, 0.5)
 [sub_resource type="Curve" id="Curve_wdcjb"]
 _data = [Vector2(0, 1), 0.0, -0.208792, 0, 0, Vector2(0.336842, 0.384615), -2.69689, -2.69689, 0, 0, Vector2(0.784211, 0), 0.0, 0.0, 0, 0]
 point_count = 3
-
-[sub_resource type="Animation" id="Animation_i5ipb"]
-resource_name = "Blue_01"
-length = 0.36667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flip/Hitbox/CollisionShape3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.233333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector3(0, 0, 0), Vector3(0.367294, 0, 0), Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Flip/Hitbox/CollisionShape3D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.233333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Flip/Hitbox/CollisionShape3D:shape:size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.233333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector3(0, 0, 0), Vector3(0.25, 0.25, 0), Vector3(0, 0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Flip/Hitbox/CollisionShape3D:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.233333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("StateMachine/Blue_01")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"unlock_input"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_jvice"]
-resource_name = "Blue_02"
-length = 0.36667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flip/Hitbox/CollisionShape3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.233333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector3(0, 0, 0), Vector3(0.367294, 0, 0), Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Flip/Hitbox/CollisionShape3D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.233333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Flip/Hitbox/CollisionShape3D:shape:size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.233333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector3(0, 0, 0), Vector3(0.35, 0.35, 0), Vector3(0, 0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Flip/Hitbox/CollisionShape3D:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.233333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("StateMachine/Blue_02")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"unlock_input"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_klwu5"]
-resource_name = "Blue_03"
-length = 0.46667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flip/Hitbox/CollisionShape3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector3(0, 0, 0), Vector3(0.469429, 0, 0), Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Flip/Hitbox/CollisionShape3D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Flip/Hitbox/CollisionShape3D:shape:size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector3(0, 0, 0), Vector3(0.5, 0.35, 0), Vector3(0, 0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Flip/Hitbox/CollisionShape3D:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
 
 [sub_resource type="Animation" id="Animation_rtl7i"]
 resource_name = "Idle"
@@ -310,11 +127,195 @@ tracks/3/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_i5ipb"]
+resource_name = "Attack01"
+length = 0.36667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Hitbox/CollisionShape3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector3(0, 0, 0), Vector3(0.367294, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flip/Hitbox/CollisionShape3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flip/Hitbox/CollisionShape3D:shape:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector3(0, 0, 0), Vector3(0.25, 0.25, 0), Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Flip/Hitbox/CollisionShape3D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StateMachine/Attack01")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"unlock_input"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_jvice"]
+resource_name = "Attack02"
+length = 0.36667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Hitbox/CollisionShape3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector3(0, 0, 0), Vector3(0.367294, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flip/Hitbox/CollisionShape3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flip/Hitbox/CollisionShape3D:shape:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector3(0, 0, 0), Vector3(0.35, 0.35, 0), Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Flip/Hitbox/CollisionShape3D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StateMachine/Attack02")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"unlock_input"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_klwu5"]
+resource_name = "Attack03"
+length = 0.46667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Hitbox/CollisionShape3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector3(0, 0, 0), Vector3(0.469429, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flip/Hitbox/CollisionShape3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flip/Hitbox/CollisionShape3D:shape:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector3(0, 0, 0), Vector3(0.5, 0.35, 0), Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Flip/Hitbox/CollisionShape3D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vgfro"]
 _data = {
-"Blue_01": SubResource("Animation_i5ipb"),
-"Blue_02": SubResource("Animation_jvice"),
-"Blue_03": SubResource("Animation_klwu5"),
+"Attack01": SubResource("Animation_i5ipb"),
+"Attack02": SubResource("Animation_jvice"),
+"Attack03": SubResource("Animation_klwu5"),
 "Idle": SubResource("Animation_rtl7i"),
 "RESET": SubResource("Animation_hr3w6")
 }
@@ -370,7 +371,7 @@ script = ExtResource("5_0smar")
 [node name="Fall" type="Node" parent="StateMachine"]
 script = ExtResource("6_y11v4")
 
-[node name="Blue_01" type="Node" parent="StateMachine"]
+[node name="Attack01" type="Node" parent="StateMachine"]
 script = ExtResource("7_qq5e1")
 damage = 1
 knockback_power = 3.0
@@ -379,7 +380,7 @@ movement_duration = 0.233
 movement_curve = SubResource("Curve_wdcjb")
 chain = 2
 
-[node name="Blue_02" type="Node" parent="StateMachine"]
+[node name="Attack02" type="Node" parent="StateMachine"]
 script = ExtResource("7_qq5e1")
 damage = 1
 knockback_power = 3.0
@@ -388,7 +389,7 @@ movement_duration = 0.233
 movement_curve = SubResource("Curve_wdcjb")
 chain = 3
 
-[node name="Blue_03" type="Node" parent="StateMachine"]
+[node name="Attack03" type="Node" parent="StateMachine"]
 script = ExtResource("7_qq5e1")
 damage = 3
 knockback_direction = -70.0
@@ -398,25 +399,12 @@ movement_duration = 0.4
 heavy_attack = true
 movement_curve = SubResource("Curve_wdcjb")
 
-[node name="Red_01" type="Node" parent="StateMachine"]
-script = ExtResource("7_qq5e1")
-knockback_power = 2.0
-chain = 2
-
-[node name="Red_02" type="Node" parent="StateMachine"]
-script = ExtResource("7_qq5e1")
-chain = 3
-
-[node name="Red_03" type="Node" parent="StateMachine"]
-script = ExtResource("7_qq5e1")
-heavy_attack = true
-
-[node name="Air_Blue" type="Node" parent="StateMachine"]
+[node name="Air_Attack" type="Node" parent="StateMachine"]
 script = ExtResource("7_qq5e1")
 air_attack = true
 heavy_attack = true
 
-[node name="Air_Red" type="Node" parent="StateMachine"]
+[node name="Uppercut" type="Node" parent="StateMachine"]
 script = ExtResource("7_qq5e1")
 air_attack = true
 heavy_attack = true
@@ -426,6 +414,9 @@ script = ExtResource("9_4jv71")
 
 [node name="Death" type="Node" parent="StateMachine"]
 script = ExtResource("10_fsmok")
+
+[node name="Waiting" type="Node" parent="StateMachine"]
+script = ExtResource("11_uu51o")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

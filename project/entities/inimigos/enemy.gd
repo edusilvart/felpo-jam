@@ -9,7 +9,6 @@ func _ready() -> void:
 	add_child(attack_cooldown_timer)
 	attack_cooldown_timer.wait_time = attack_cooldown
 	attack_cooldown_timer.one_shot = true
-	print('spawned')
 
 func _on_vision_body_entered(body: Node3D) -> void:
 	if body == Globals.player:

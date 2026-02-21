@@ -36,10 +36,14 @@ func enter_state() -> void:
 	tween.tween_property(parent.flip_node, 'rotation', Vector3.ZERO, 0.5)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed('attack_blue'):
-		state_machine.set_state('Blue_Air')
-	if event.is_action_pressed('attack_red'):
-		state_machine.set_state('Red_Air')
+	if event.is_action_pressed('attack'):
+		state_machine.set_state('Air_Attack')
+	if event.is_action_pressed('item_01'):
+		if parent.item01 != null:
+			parent.item01.activate()
+	if event.is_action_pressed('item_02'):
+		if parent.item02 != null:
+			parent.item02.activate()
 
 func update_state(delta : float) -> void:
 	parent.apply_gravity(delta)

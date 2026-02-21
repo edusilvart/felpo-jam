@@ -33,7 +33,9 @@ func enter_state() -> void:
 			change_state('BATTLE')
 		'BATTLE':
 			wave_manager.wave_start()
+			Globals.player.state_machine.set_state('onGround')
 		'SHOP':
+			Globals.player.state_machine.set_state('Waiting')
 			shop.enter()
 		'BOSS':
 			pass
