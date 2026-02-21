@@ -8,6 +8,7 @@ var cooldown_timer := Timer.new()
 var icon : Button
 var icon_tex
 var item_num : int = 0
+var vfx_scene : PackedScene
 
 func _ready() -> void:
 	add_child(cooldown_timer)
@@ -17,12 +18,17 @@ func _ready() -> void:
 	icon = Globals.HUD.items_container.get_child(item_num)
 	icon.icon = icon_tex
 	icon.disabled = false
+	
+	vfx_scene = load("res://vfx/itens/" + name + ".tscn")
 
 func activate() -> void:
 	if cooldown_timer.is_stopped():
 		cooldown_timer.start()
 		icon.disabled = true
 		enter()
+		var vfx = vfx_scene.instantiate()
+		parent.add_child(vfx)
+		vfx.start(parent.global_position - Vector3(0, 0, 0.02))
 
 func reset_cooldown():
 	icon.disabled = false

@@ -1,0 +1,80 @@
+[gd_scene load_steps=9 format=3 uid="uid://bkyvx6tx7mu1l"]
+
+[ext_resource type="Script" path="res://vfx/vfx.gd" id="1_j2v6i"]
+[ext_resource type="Texture2D" uid="uid://ih11ijxlwpwo" path="res://vfx/textures/circle.png" id="2_jolp7"]
+[ext_resource type="Texture2D" uid="uid://cuci6tq8r1iue" path="res://vfx/textures/cross.png" id="3_8lq78"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6pktu"]
+transparency = 4
+shading_mode = 0
+specular_mode = 2
+disable_ambient_light = true
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_jolp7")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_u2tqm"]
+material = SubResource("StandardMaterial3D_6pktu")
+
+[sub_resource type="Curve" id="Curve_2a5y2"]
+_data = [Vector2(0, 0.538462), 0.0, 3.37862, 0, 0, Vector2(0.191011, 1), -1.54425, -1.54425, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b0vrv"]
+transparency = 4
+shading_mode = 0
+specular_mode = 2
+disable_ambient_light = true
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_8lq78")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_uc7ns"]
+material = SubResource("StandardMaterial3D_b0vrv")
+
+[node name="Heal_VFX" type="Node3D"]
+script = ExtResource("1_j2v6i")
+
+[node name="bubbles" type="CPUParticles3D" parent="."]
+emitting = false
+amount = 4
+one_shot = true
+explosiveness = 0.85
+randomness = 0.45
+mesh = SubResource("QuadMesh_u2tqm")
+emission_shape = 2
+emission_sphere_radius = 0.3
+direction = Vector3(0, 0, 0)
+spread = 0.0
+gravity = Vector3(0, 3, 0)
+scale_amount_min = 0.2
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_2a5y2")
+color = Color(0.908569, 1, 0.582031, 1)
+
+[node name="crosses" type="CPUParticles3D" parent="."]
+emitting = false
+amount = 4
+one_shot = true
+explosiveness = 0.85
+randomness = 0.45
+mesh = SubResource("QuadMesh_uc7ns")
+emission_shape = 2
+emission_sphere_radius = 0.3
+direction = Vector3(0, 0, 0)
+spread = 0.0
+gravity = Vector3(0, 3, 0)
+scale_amount_min = 0.1
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_2a5y2")
+color = Color(0.707733, 1, 0.386719, 1)

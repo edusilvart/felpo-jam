@@ -2,10 +2,17 @@ extends State
 # player JUMP
 
 
+@onready var jump_dust : PackedScene = preload('res://vfx/jump_dust.tscn')
+
 var direction : Vector2
 var tween : Tween
 
 func enter_state() -> void:
+	var dust = jump_dust.instantiate()
+	parent.get_parent().add_child(dust)
+	var dust_angle = 30
+	dust.start(parent.pivot.global_position)
+	
 	var dir_input : Vector2 = parent.get_dir_input()
 	if dir_input.x > 0:
 		direction.x = 1
@@ -34,6 +41,7 @@ func enter_state() -> void:
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(parent.pivot, 'scale', Vector3.ONE, 0.2)
 	tween.tween_property(parent.flip_node, 'rotation', Vector3.ZERO, 0.5)
+	
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed('attack'):

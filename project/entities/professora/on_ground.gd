@@ -55,8 +55,7 @@ func update_state(delta : float) -> void:
 		new_anim = 'Run'
 		if parent.prev_vel.length() < 0.5:
 			var dust = run_dust.instantiate()
-			parent.get_parent().add_child(dust)
-			dust.look_at(parent.pivot.global_position, Vector3.UP)
+			parent.add_child(dust)
 			var spawn_point = parent.pivot.global_position
 			if dir_input.x > 0:
 				spawn_point.x -= 0.2

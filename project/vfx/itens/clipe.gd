@@ -12,6 +12,9 @@ func _ready() -> void:
 	hitbox.damage = 1
 	hitbox.knockback = Vector3.ZERO
 
+func start(pos : Vector3):
+	reparent(get_parent().get_parent())
+
 func _physics_process(delta: float) -> void:
 	if enemies.size() > 0:
 		for hit_enemy in enemies:

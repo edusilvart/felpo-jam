@@ -3,12 +3,10 @@ extends Control
 
 
 @onready var card_scene : PackedScene = preload("res://interfaces/items/item_card.tscn")
-@onready var resume_button : Button = get_node('Resume_Button')
 @onready var title_label : Label = get_node('Title_Label')
 @onready var cards_container : HBoxContainer = get_node('%Cards_Container')
 
 @onready var title_pos = title_label.position
-@onready var resume_pos = resume_button.position
 
 # ITEM NAME, ITEM DESCRIPTION
 var items = [
@@ -40,14 +38,12 @@ func _ready() -> void:
 
 func enter() -> void:
 	visible = true
-	resume_button.disabled = false
 	items.shuffle()
 	for n in 3:
 		build_card(n)
 	
 	
 	title_pos = title_label.position
-	resume_pos = resume_button.position
 	var tween := get_tree().create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC).set_parallel()
 	
 	title_label.position.y -= 250
@@ -55,9 +51,6 @@ func enter() -> void:
 	
 	cards_container.modulate = Color(1, 1, 1, 0)
 	tween.tween_property(cards_container, "modulate", Color(1, 1, 1, 1), 0.5)
-	
-	resume_button.position.x += 600
-	tween.tween_property(resume_button, "position", resume_pos, 0.4)
 
 
 func build_card(card_number : int) -> void:
@@ -90,8 +83,6 @@ func item_selected(item) -> void:
 			card.disabled = true
 			tween.tween_property(card, 'modulate', Color(1, 1, 1, 0), 0.15)
 	
-	resume_button.disabled = true
-	
 	await get_tree().create_timer(1).timeout
 	
 	exit()
@@ -101,6 +92,3 @@ func exit() -> void:
 	for child in cards_container.get_children():
 		child.queue_free()
 	ended.emit()
-
-func _on_resume_button_pressed() -> void:
-	exit()

@@ -2,9 +2,6 @@ extends State
 # HIT
 
 
-@onready var hit_fx : PackedScene = preload("res://vfx/hit.tscn")
-@onready var hit_heavy_fx : PackedScene = preload("res://vfx/hit_heavy.tscn")
-
 var instigator
 var heavy_hit : bool
 var damage : int
@@ -40,15 +37,6 @@ func enter_state() -> void:
 	var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	parent.pivot.scale = Vector3(0.8, 1.2, 1)
 	tween.tween_property(parent.pivot, 'scale', Vector3.ONE, 0.2)
-	
-	var hit
-	if heavy_hit:
-		hit = hit_heavy_fx.instantiate()
-	else:
-		hit = hit_fx.instantiate()
-	
-	parent.get_parent().add_child(hit)
-	hit.start(parent.global_position)
 
 func update_state(delta : float) -> void:
 	parent.apply_movement(Vector2.ZERO, parent.acceleration, delta)
