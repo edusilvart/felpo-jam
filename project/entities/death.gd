@@ -5,10 +5,10 @@ extends State
 
 func enter_state() -> void:
 	parent.died.emit()
-	parent.hurtbox.call_deferred('queue_free')
+	parent.call_deferred('queue_free')
 
 func update_state(delta : float) -> void:
-	parent.apply_movement(Vector2.ZERO, parent.acceleration, delta)
+	parent.apply_movement(Vector2.ZERO, parent.acceleration * 2, delta)
 	parent.apply_gravity(delta)
 
 func get_transition() -> void:

@@ -3,13 +3,13 @@ extends Node
 
 
 var ENEMY_TYPES := {
-	"vermelho": {
-		"scene": preload("res://entities/inimigos/vermelho/vermelho.tscn"),
-		"cost": 1
-	},
-	"azul": {
-		"scene": preload("res://entities/inimigos/vermelho/vermelho.tscn"),
+	"caderno": {
+		"scene": preload("res://entities/inimigos/caderno/caderno.tscn"),
 		"cost": 3
+	},
+	"basico": {
+		"scene": preload("res://entities/inimigos/basico/basico.tscn"),
+		"cost": 1
 	}
 }
 
@@ -19,6 +19,7 @@ var wave_cost : int = 2
 
 func _ready() -> void:
 	prepare_enemy_order()
+	Globals.wave_manager = self
 
 func wave_start() -> void:
 	spawn_wave()
@@ -47,15 +48,14 @@ func spawn_wave() -> void:
 		remaining -= count * cost
 		
 		for i in count:
-			spawn_enemy(enemy_type)
+			spawn_enemy(enemy_type, random_point(4))
 		
 		if remaining == 0:
 			break
 
-func spawn_enemy(enemy_type: String) -> void:
+func spawn_enemy(enemy_type: String, spawn_point : Vector3) -> void:
 	var scene: PackedScene = ENEMY_TYPES[enemy_type]["scene"]
 	var enemy: Node3D = scene.instantiate()
-	var spawn_point = random_point(4)
 	enemy.died.connect(on_enemy_died)
 	get_parent().add_child(enemy)
 	enemy.global_position = spawn_point

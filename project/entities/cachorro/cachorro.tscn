@@ -1,0 +1,238 @@
+[gd_scene load_steps=28 format=3 uid="uid://bhv87mknlc6s3"]
+
+[ext_resource type="Script" path="res://entities/cachorro/cachorro.gd" id="1_iyfwv"]
+[ext_resource type="Texture2D" uid="uid://cu3nbif0eheoe" path="res://entities/cachorro/Cachorro01.png" id="2_rbds2"]
+[ext_resource type="Script" path="res://utilities/StateMachine.gd" id="3_pvvc0"]
+[ext_resource type="Texture2D" uid="uid://broktnpfubl2e" path="res://entities/cachorro/Cachorro02.png" id="4_njdwa"]
+[ext_resource type="Texture2D" uid="uid://c3oxtfe32vcro" path="res://entities/cachorro/Cachorro03.png" id="4_pc5vw"]
+[ext_resource type="PackedScene" uid="uid://12lpbcxnno48" path="res://entities/hitbox.tscn" id="4_qokgq"]
+[ext_resource type="Script" path="res://entities/cachorro/waiting.gd" id="4_sit32"]
+[ext_resource type="Texture2D" uid="uid://cbdjgyl0gvx4p" path="res://entities/cachorro/Cachorro04.png" id="5_gg6i1"]
+[ext_resource type="Script" path="res://entities/inimigos/chasing.gd" id="5_ropvi"]
+[ext_resource type="Script" path="res://entities/attack.gd" id="6_4l4er"]
+[ext_resource type="Texture2D" uid="uid://utgghnns6xsh" path="res://entities/cachorro/Cachorro05.png" id="6_720u4"]
+[ext_resource type="Texture2D" uid="uid://buqr06qw5esj6" path="res://entities/cachorro/Cachorro06.png" id="7_5wclp"]
+[ext_resource type="Script" path="res://entities/cachorro/pause.gd" id="7_jir44"]
+[ext_resource type="Texture2D" uid="uid://5jduockhwsks" path="res://entities/cachorro/Cachorro07.png" id="9_ctnv3"]
+[ext_resource type="Texture2D" uid="uid://ih11ijxlwpwo" path="res://vfx/textures/circle.png" id="9_vmpet"]
+[ext_resource type="Texture2D" uid="uid://d0n1xrsqfoyi4" path="res://entities/cachorro/Cachorro08.png" id="10_4pu27"]
+[ext_resource type="Texture2D" uid="uid://bxsayqlfand7i" path="res://entities/cachorro/Cachorro09.png" id="11_qgalb"]
+[ext_resource type="PackedScene" uid="uid://c3odqfkbyxwl5" path="res://entities/hurtbox.tscn" id="18_3flio"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tmjgu"]
+size = Vector3(0.311, 0.266, 0.311)
+
+[sub_resource type="Curve" id="Curve_e6864"]
+_data = [Vector2(0.152632, 0), 0.0, 0.0, 0, 0, Vector2(0.468421, 1), 0.0, -4.27073, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Animation" id="Animation_aw8uy"]
+resource_name = "Idle"
+length = 0.26667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_rbds2"), ExtResource("4_njdwa")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox/CollisionShape3D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_3dbc0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_rbds2")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox/CollisionShape3D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_pgty1"]
+resource_name = "Run"
+length = 0.26667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("4_pc5vw"), ExtResource("5_gg6i1"), ExtResource("6_720u4"), ExtResource("7_5wclp")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox/CollisionShape3D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_x4gsl"]
+resource_name = "Attack"
+length = 0.333337
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("9_ctnv3"), ExtResource("10_4pu27"), ExtResource("11_qgalb")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox/CollisionShape3D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x7m5w"]
+_data = {
+"Attack": SubResource("Animation_x4gsl"),
+"Idle": SubResource("Animation_aw8uy"),
+"RESET": SubResource("Animation_3dbc0"),
+"Run": SubResource("Animation_pgty1")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4giul"]
+size = Vector3(0.305664, 0.342102, 0.704102)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_eksds"]
+radius = 0.544788
+
+[node name="Cachorro" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_iyfwv")
+speed_ratio = 1.3
+acceleration_ratio = 0.7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0154114, 0)
+shape = SubResource("BoxShape3D_tmjgu")
+
+[node name="Flip" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Pivot" type="Node3D" parent="Flip"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.115443, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="Flip/Pivot"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0270287, 0.15057, 0)
+pixel_size = 0.0015
+texture = ExtResource("2_rbds2")
+
+[node name="StateMachine" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_pvvc0")
+parent_path = NodePath("..")
+anim_player_path = NodePath("../AnimationPlayer")
+
+[node name="Waiting" type="Node" parent="StateMachine"]
+script = ExtResource("4_sit32")
+
+[node name="Chasing" type="Node" parent="StateMachine"]
+script = ExtResource("5_ropvi")
+
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource("6_4l4er")
+damage = 3
+knockback_direction = -15.0
+knockback_power = 3.0
+movement_speed = Vector2(4, 0)
+movement_duration = 0.26
+movement_curve = SubResource("Curve_e6864")
+
+[node name="Pause" type="Node" parent="StateMachine"]
+script = ExtResource("7_jir44")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_x7m5w")
+}
+
+[node name="Hitbox" parent="." instance=ExtResource("4_qokgq")]
+unique_name_in_owner = true
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.307075, 0.0403748, 0)
+shape = SubResource("BoxShape3D_4giul")
+disabled = true
+
+[node name="ShadowSprite" type="Sprite3D" parent="."]
+transform = Transform3D(0.505, 0, 0, 0, -2.20743e-08, 0.505, 0, -0.505, -2.20743e-08, 0, -0.115962, 0)
+modulate = Color(0, 0, 0, 0.227451)
+double_sided = false
+texture = ExtResource("9_vmpet")
+
+[node name="Vision" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Vision"]
+shape = SubResource("SphereShape3D_eksds")
+
+[node name="Hurtbox" parent="." instance=ExtResource("18_3flio")]
+unique_name_in_owner = true
+collision_layer = 8
+collision_mask = 32
+
+[connection signal="body_entered" from="Vision" to="." method="_on_vision_body_entered"]
+[connection signal="body_exited" from="Vision" to="." method="_on_vision_body_exited"]

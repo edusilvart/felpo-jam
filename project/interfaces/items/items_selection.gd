@@ -20,7 +20,7 @@ var items = [
 ]
 var cards = []
 
-signal card_selected
+#signal card_selected
 signal ended
 
 func _ready() -> void:

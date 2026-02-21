@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://og7ir6ru0w7d"]
+
+[ext_resource type="Script" path="res://items/cachorro.gd" id="1_uykpa"]
+
+[node name="Cachorro" type="Node"]
+script = ExtResource("1_uykpa")
+cooldown = -1.0

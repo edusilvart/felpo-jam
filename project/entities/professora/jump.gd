@@ -10,7 +10,6 @@ var tween : Tween
 func enter_state() -> void:
 	var dust = jump_dust.instantiate()
 	parent.get_parent().add_child(dust)
-	var dust_angle = 30
 	dust.start(parent.pivot.global_position)
 	
 	var dir_input : Vector2 = parent.get_dir_input()

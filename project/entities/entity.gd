@@ -53,3 +53,7 @@ func hit(instigator, heavy_hit : bool, damage : int, knockback : Vector3) -> voi
 	state_machine.get_node('Hit').damage = damage
 	state_machine.get_node('Hit').knockback = knockback
 	state_machine.set_state('Hit')
+	on_hit()
+
+func on_hit() -> void:
+	pass

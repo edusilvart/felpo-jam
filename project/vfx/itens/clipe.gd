@@ -18,7 +18,8 @@ func start(pos : Vector3):
 func _physics_process(delta: float) -> void:
 	if enemies.size() > 0:
 		for hit_enemy in enemies:
-			hit_enemy.global_position = lerp(hit_enemy.global_position, global_position, 20 * delta)
+			if hit_enemy != null:
+				hit_enemy.global_position = lerp(hit_enemy.global_position, global_position, 20 * delta)
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == 'Intro':

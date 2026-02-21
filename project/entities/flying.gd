@@ -35,6 +35,7 @@ func update_state(delta : float) -> void:
 
 func get_transition() -> void:
 	if parent.is_on_floor() and flying:
+		parent.hurtbox.get_node('CollisionShape3D').disabled = true
 		wakeup_timer.start()
 		parent.flip_node.rotation.z = 0
 		anim_player.play('Laying')
@@ -49,6 +50,7 @@ func get_transition() -> void:
 func timer_finished() -> void:
 	if parent.HP > 0:
 		state_machine.set_state(state_machine.get_child(0).name)
+		parent.hurtbox.get_node('CollisionShape3D').disabled = false
 	else:
 		state_machine.set_state('Death')
 

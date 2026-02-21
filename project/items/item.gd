@@ -3,7 +3,7 @@ class_name Item extends Node
 
 var parent : Entity
 var passive : bool = false
-@export var cooldown : float = 0
+@export var cooldown : float = 0 # -1 = no cooldown
 var cooldown_timer := Timer.new()
 var icon : Button
 var icon_tex
@@ -11,24 +11,29 @@ var item_num : int = 0
 var vfx_scene : PackedScene
 
 func _ready() -> void:
-	add_child(cooldown_timer)
-	cooldown_timer.wait_time = cooldown
-	cooldown_timer.one_shot = true
-	cooldown_timer.timeout.connect(reset_cooldown)
 	icon = Globals.HUD.items_container.get_child(item_num)
 	icon.icon = icon_tex
 	icon.disabled = false
 	
-	vfx_scene = load("res://vfx/itens/" + name + ".tscn")
+	add_child(cooldown_timer)
+	if cooldown > -1:
+		cooldown_timer.wait_time = cooldown
+		cooldown_timer.one_shot = true
+		cooldown_timer.timeout.connect(reset_cooldown)
+		vfx_scene = load("res://vfx/itens/" + name + ".tscn")
+	else:
+		enter()
+		icon.disabled = true
 
 func activate() -> void:
 	if cooldown_timer.is_stopped():
-		cooldown_timer.start()
+		if cooldown > -1:
+			cooldown_timer.start()
+			var vfx = vfx_scene.instantiate()
+			parent.add_child(vfx)
+			vfx.start(parent.global_position - Vector3(0, 0, 0.02))
+			enter()
 		icon.disabled = true
-		enter()
-		var vfx = vfx_scene.instantiate()
-		parent.add_child(vfx)
-		vfx.start(parent.global_position - Vector3(0, 0, 0.02))
 
 func reset_cooldown():
 	icon.disabled = false
@@ -37,7 +42,7 @@ func reset_cooldown():
 func enter() -> void:
 	pass
 
-func update(delta) -> void:
+func update(_delta) -> void:
 	pass
 
 func exit() -> void:

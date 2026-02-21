@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdm7uypj2h57c"]
+
+[ext_resource type="Script" path="res://vfx/vfx.gd" id="1_qoft0"]
+[ext_resource type="Texture2D" uid="uid://c35hulkuuxf3q" path="res://vfx/textures/caderno28.png" id="2_03td6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ng8d3"]
+transparency = 4
+shading_mode = 0
+specular_mode = 2
+disable_ambient_light = true
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_03td6")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_tiwf0"]
+material = SubResource("StandardMaterial3D_ng8d3")
+
+[sub_resource type="Curve" id="Curve_ex4wm"]
+_data = [Vector2(0.511236, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="caderno_break" type="Node3D"]
+script = ExtResource("1_qoft0")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+emitting = false
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+randomness = 0.31
+lifetime_randomness = 0.48
+mesh = SubResource("QuadMesh_tiwf0")
+emission_shape = 3
+emission_box_extents = Vector3(0.1, 0.1, 0)
+direction = Vector3(0, 1, 0)
+spread = 20.0
+gravity = Vector3(0, -6, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+angle_max = 360.0
+scale_amount_min = 0.15
+scale_amount_max = 0.15
+scale_amount_curve = SubResource("Curve_ex4wm")

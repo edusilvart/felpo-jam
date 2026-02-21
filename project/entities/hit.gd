@@ -10,6 +10,8 @@ var knockback : Vector3
 var hit_duration : float = 0.3
 var timer := Timer.new()
 
+signal hitted
+
 func _ready() -> void:
 	add_child(timer)
 	timer.wait_time = hit_duration
@@ -37,6 +39,8 @@ func enter_state() -> void:
 	var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	parent.pivot.scale = Vector3(0.8, 1.2, 1)
 	tween.tween_property(parent.pivot, 'scale', Vector3.ONE, 0.2)
+	
+	hitted.emit()
 
 func update_state(delta : float) -> void:
 	parent.apply_movement(Vector2.ZERO, parent.acceleration, delta)

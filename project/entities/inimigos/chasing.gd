@@ -2,6 +2,7 @@ extends State
 # enemy CHASING
 
 
+var target : CharacterBody3D
 var direction : Vector3
 var max_chasing_duration : float = 2
 var timer := Timer.new()
@@ -14,11 +15,13 @@ func _ready() -> void:
 
 func enter_state() -> void:
 	timer.start()
+	anim_player.play('Run')
 
 func update_state(delta : float) -> void:
-	direction = (Globals.player.global_position - parent.global_position).normalized()
-	parent.apply_movement(Vector2(direction.x, direction.z) * parent.speed, parent.acceleration, delta)
-	parent.apply_gravity(delta)
+	if target != null:
+		direction = (target.global_position - parent.global_position).normalized()
+		parent.apply_movement(Vector2(direction.x, direction.z) * parent.speed, parent.acceleration, delta)
+		parent.apply_gravity(delta)
 	
 	if direction.x > 0 and not parent.looking_right:
 		parent.flip(true)
