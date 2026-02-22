@@ -41,6 +41,13 @@ func enter_state() -> void:
 	tween.tween_property(parent.pivot, 'scale', Vector3.ONE, 0.2)
 	
 	hitted.emit()
+	
+	if heavy_hit:
+		Globals.hit_stop(0.06)
+		Globals.camera.shake = 0.3
+	else:
+		Globals.camera.shake = 0.15
+		Globals.hit_stop(0.03)
 
 func update_state(delta : float) -> void:
 	parent.apply_movement(Vector2.ZERO, parent.acceleration, delta)

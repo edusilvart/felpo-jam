@@ -20,4 +20,4 @@ func _on_area_entered(area: Area3D) -> void:
 		hit = hit_fx.instantiate()
 	
 	owner.get_parent().add_child(hit)
-	hit.start(area.get_parent().global_position)
+	hit.start(area.get_parent().global_position - Vector3(0, 0, 0.05))
