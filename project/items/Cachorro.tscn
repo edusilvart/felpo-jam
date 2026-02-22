@@ -4,4 +4,4 @@
 
 [node name="Cachorro" type="Node"]
 script = ExtResource("1_uykpa")
-cooldown = -1.0
+cooldown = 6.0

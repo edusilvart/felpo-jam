@@ -94,7 +94,7 @@ particles = false
 [node name="Pivot" type="Node3D" parent="."]
 
 [node name="Sprite3D" type="Sprite3D" parent="Pivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0534437, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00878119, 0.0534437, 0)
 pixel_size = 0.001
 texture = ExtResource("2_rmgxr")
 

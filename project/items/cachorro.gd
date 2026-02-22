@@ -13,5 +13,4 @@ func update(_delta) -> void:
 	pass
 
 func exit() -> void:
-	cachorro.queue_free()
-	Globals.dog = null
+	pass

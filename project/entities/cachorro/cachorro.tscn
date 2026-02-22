@@ -6,13 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://broktnpfubl2e" path="res://entities/cachorro/Cachorro02.png" id="4_njdwa"]
 [ext_resource type="Texture2D" uid="uid://c3oxtfe32vcro" path="res://entities/cachorro/Cachorro03.png" id="4_pc5vw"]
 [ext_resource type="PackedScene" uid="uid://12lpbcxnno48" path="res://entities/hitbox.tscn" id="4_qokgq"]
-[ext_resource type="Script" path="res://entities/cachorro/waiting.gd" id="4_sit32"]
+[ext_resource type="Script" path="res://entities/cachorro/enter.gd" id="4_sit32"]
 [ext_resource type="Texture2D" uid="uid://cbdjgyl0gvx4p" path="res://entities/cachorro/Cachorro04.png" id="5_gg6i1"]
 [ext_resource type="Script" path="res://entities/inimigos/chasing.gd" id="5_ropvi"]
 [ext_resource type="Script" path="res://entities/attack.gd" id="6_4l4er"]
 [ext_resource type="Texture2D" uid="uid://utgghnns6xsh" path="res://entities/cachorro/Cachorro05.png" id="6_720u4"]
 [ext_resource type="Texture2D" uid="uid://buqr06qw5esj6" path="res://entities/cachorro/Cachorro06.png" id="7_5wclp"]
-[ext_resource type="Script" path="res://entities/cachorro/pause.gd" id="7_jir44"]
+[ext_resource type="Script" path="res://entities/cachorro/leave.gd" id="7_oclye"]
 [ext_resource type="Texture2D" uid="uid://5jduockhwsks" path="res://entities/cachorro/Cachorro07.png" id="9_ctnv3"]
 [ext_resource type="Texture2D" uid="uid://ih11ijxlwpwo" path="res://vfx/textures/circle.png" id="9_vmpet"]
 [ext_resource type="Texture2D" uid="uid://d0n1xrsqfoyi4" path="res://entities/cachorro/Cachorro08.png" id="10_4pu27"]
@@ -25,6 +25,34 @@ size = Vector3(0.311, 0.266, 0.311)
 [sub_resource type="Curve" id="Curve_e6864"]
 _data = [Vector2(0.152632, 0), 0.0, 0.0, 0, 0, Vector2(0.468421, 1), 0.0, -4.27073, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
+
+[sub_resource type="Animation" id="Animation_x4gsl"]
+resource_name = "Attack"
+length = 0.333337
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("9_ctnv3"), ExtResource("10_4pu27"), ExtResource("11_qgalb")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox/CollisionShape3D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
 
 [sub_resource type="Animation" id="Animation_aw8uy"]
 resource_name = "Idle"
@@ -111,34 +139,6 @@ tracks/1/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_x4gsl"]
-resource_name = "Attack"
-length = 0.333337
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.266667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [ExtResource("9_ctnv3"), ExtResource("10_4pu27"), ExtResource("11_qgalb")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Hitbox/CollisionShape3D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x7m5w"]
 _data = {
 "Attack": SubResource("Animation_x4gsl"),
@@ -182,7 +182,7 @@ script = ExtResource("3_pvvc0")
 parent_path = NodePath("..")
 anim_player_path = NodePath("../AnimationPlayer")
 
-[node name="Waiting" type="Node" parent="StateMachine"]
+[node name="Enter" type="Node" parent="StateMachine"]
 script = ExtResource("4_sit32")
 
 [node name="Chasing" type="Node" parent="StateMachine"]
@@ -197,8 +197,8 @@ movement_speed = Vector2(4, 0)
 movement_duration = 0.26
 movement_curve = SubResource("Curve_e6864")
 
-[node name="Pause" type="Node" parent="StateMachine"]
-script = ExtResource("7_jir44")
+[node name="Leave" type="Node" parent="StateMachine"]
+script = ExtResource("7_oclye")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

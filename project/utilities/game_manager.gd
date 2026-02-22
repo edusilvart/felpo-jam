@@ -34,12 +34,8 @@ func enter_state() -> void:
 		'BATTLE':
 			wave_manager.wave_start()
 			Globals.player.state_machine.set_state('onGround')
-			if Globals.dog != null:
-				Globals.dog.state_machine.set_state('Waiting')
 		'SHOP':
 			Globals.player.state_machine.set_state('Waiting')
-			if Globals.dog != null:
-				Globals.dog.state_machine.set_state('Pause')
 			shop.enter()
 		'BOSS':
 			pass

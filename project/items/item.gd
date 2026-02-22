@@ -2,8 +2,7 @@ class_name Item extends Node
 
 
 var parent : Entity
-var passive : bool = false
-@export var cooldown : float = 0 # -1 = no cooldown
+@export var cooldown : float = 0
 var cooldown_timer := Timer.new()
 var icon : Button
 var icon_tex
@@ -16,23 +15,18 @@ func _ready() -> void:
 	icon.disabled = false
 	
 	add_child(cooldown_timer)
-	if cooldown > -1:
-		cooldown_timer.wait_time = cooldown
-		cooldown_timer.one_shot = true
-		cooldown_timer.timeout.connect(reset_cooldown)
-		vfx_scene = load("res://vfx/itens/" + name + ".tscn")
-	else:
-		enter()
-		icon.disabled = true
+	cooldown_timer.wait_time = cooldown
+	cooldown_timer.one_shot = true
+	cooldown_timer.timeout.connect(reset_cooldown)
+	vfx_scene = load("res://vfx/itens/" + name + ".tscn")
 
 func activate() -> void:
 	if cooldown_timer.is_stopped():
-		if cooldown > -1:
-			cooldown_timer.start()
-			var vfx = vfx_scene.instantiate()
-			parent.add_child(vfx)
-			vfx.start(parent.global_position - Vector3(0, 0, 0.02))
-			enter()
+		cooldown_timer.start()
+		var vfx = vfx_scene.instantiate()
+		parent.add_child(vfx)
+		vfx.start(parent.global_position - Vector3(0, 0, 0.02))
+		enter()
 		icon.disabled = true
 
 func reset_cooldown():

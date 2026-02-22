@@ -11,7 +11,7 @@ func _ready() -> void:
 	hitbox.instigator = Globals.player
 	hitbox.heavy_hit = false
 	hitbox.damage = 2
-	hitbox.knockback = direction * -10
+	hitbox.knockback = direction * -20
 
 func shoot(angle_deg) -> void:
 	var angle_rad = deg_to_rad(angle_deg)
