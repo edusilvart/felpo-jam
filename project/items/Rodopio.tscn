@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbqimvh5yhsy2"]
+
+[ext_resource type="Script" path="res://items/rodopio.gd" id="1_3mkgp"]
+
+[node name="Rodopio" type="Node"]
+script = ExtResource("1_3mkgp")
+cooldown = 5.0

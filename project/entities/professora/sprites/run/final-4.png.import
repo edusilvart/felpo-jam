@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7rc4c00harrr"
-path.s3tc="res://.godot/imported/final-4.png-be4dcaf3dc2f0a2803bd2b50c293dbcd.s3tc.ctex"
+path="res://.godot/imported/final-4.png-be4dcaf3dc2f0a2803bd2b50c293dbcd.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://entities/professora/sprites/run/final-4.png"
-dest_files=["res://.godot/imported/final-4.png-be4dcaf3dc2f0a2803bd2b50c293dbcd.s3tc.ctex"]
+dest_files=["res://.godot/imported/final-4.png-be4dcaf3dc2f0a2803bd2b50c293dbcd.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

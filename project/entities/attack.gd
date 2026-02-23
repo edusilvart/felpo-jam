@@ -55,22 +55,23 @@ func change_state() -> void:
 			state_machine.set_state(action_buffered)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed('attack'):
-		if chain != 0:
-			action_buffered = 'Attack0' + str(chain)
+	if parent == Globals.player:
+		if event.is_action_pressed("attack"):
+			parent.uppercut_timer.start()
+		if event.is_action_released('attack'):
+			parent.uppercut_timer.stop()
+			if chain != 0:
+				action_buffered = 'Attack0' + str(chain)
+				change_state()
+		if event.is_action_pressed('jump') and parent.is_on_floor():
+			action_buffered = 'Jump'
 			change_state()
-	if event.is_action_pressed('uppercut'):
-		action_buffered = 'Uppercut'
-		change_state()
-	if event.is_action_pressed('jump') and parent.is_on_floor():
-		action_buffered = 'Jump'
-		change_state()
-	if event.is_action_pressed('item_01'):
-		if parent.item01 != null:
-			parent.item01.activate()
-	if event.is_action_pressed('item_02'):
-		if parent.item02 != null:
-			parent.item02.activate()
+		if event.is_action_pressed('item_01'):
+			if parent.item01 != null:
+				parent.item01.activate()
+		if event.is_action_pressed('item_02'):
+			if parent.item02 != null:
+				parent.item02.activate()
 
 func update_state(delta : float) -> void:
 	if action_buffered != '':
@@ -91,6 +92,9 @@ func update_state(delta : float) -> void:
 			parent.velocity.y = motion.y
 		
 		parent.move_and_slide()
+
+func custom_movement(delta) -> void:
+	pass
 
 func get_transition() -> void:
 	pass

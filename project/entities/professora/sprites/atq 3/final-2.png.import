@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cgvy6hgdpn5sc"
-path.s3tc="res://.godot/imported/final-2.png-20e20b1fce490f3c71dcd04e135fed9e.s3tc.ctex"
+path="res://.godot/imported/final-2.png-20e20b1fce490f3c71dcd04e135fed9e.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://entities/professora/sprites/atq 3/final-2.png"
-dest_files=["res://.godot/imported/final-2.png-20e20b1fce490f3c71dcd04e135fed9e.s3tc.ctex"]
+dest_files=["res://.godot/imported/final-2.png-20e20b1fce490f3c71dcd04e135fed9e.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://ygjktmg6xlyd"]
+[gd_scene load_steps=9 format=4 uid="uid://ygjktmg6xlyd"]
 
 [ext_resource type="Script" path="res://items/grampo.gd" id="1_0siq1"]
 [ext_resource type="PackedScene" uid="uid://12lpbcxnno48" path="res://entities/hitbox.tscn" id="1_4epju"]
@@ -41,6 +41,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_01fq4")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_x3gt8"]
+size = Vector3(0.242188, 0.10437, 0.174744)
+
 [node name="Grampo" type="Node3D"]
 script = ExtResource("1_0siq1")
 
@@ -66,4 +69,19 @@ modulate = Color(0, 0, 0, 0.227451)
 double_sided = false
 texture = ExtResource("3_v5d4u")
 
+[node name="Hurtbox" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 0
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.182068, 0.00918579)
+shape = SubResource("BoxShape3D_x3gt8")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18163, 0.00717384)
+aabb = AABB(-0.115636, -0.0336609, -0.0721474, 0.231273, 0.0673219, 0.144295)
+
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

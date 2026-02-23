@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dubjw6eudjeif"]
+
+[ext_resource type="Script" path="res://items/carimbada.gd" id="1_okwhs"]
+
+[node name="Carimbada" type="Node"]
+script = ExtResource("1_okwhs")
+cooldown = 5.0

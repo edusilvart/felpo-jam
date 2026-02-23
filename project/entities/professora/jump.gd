@@ -3,6 +3,7 @@ extends State
 
 
 @onready var jump_dust : PackedScene = preload('res://vfx/jump_dust.tscn')
+@onready var jump_sfx = preload('res://entities/professora/sfx/Pedro_Carimbo_Pulo1_v1.mp3')
 
 var direction : Vector2
 var tween : Tween
@@ -42,6 +43,8 @@ func enter_state() -> void:
 	tween.tween_property(parent.flip_node, 'rotation', Vector3.ZERO, 0.5)
 	
 	anim_player.play('Jump')
+	
+	SFX_MANAGER.play_sfx_at(jump_sfx, parent.global_position, 0, 0.97, 1.03)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed('attack'):

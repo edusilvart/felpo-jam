@@ -24,3 +24,9 @@ func _process(delta):
 
 func _on_hitbox_area_entered(area: Area3D) -> void:
 	call_deferred('queue_free')
+
+func _on_hurtbox_body_entered(body: Node3D) -> void: # hit world
+	call_deferred('queue_free')
+
+func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
+	queue_free()

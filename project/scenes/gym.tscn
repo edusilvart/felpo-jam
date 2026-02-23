@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://hqafpyu0gjga"]
+[gd_scene load_steps=12 format=3 uid="uid://hqafpyu0gjga"]
 
 [ext_resource type="Script" path="res://utilities/game_manager.gd" id="1_u52ml"]
 [ext_resource type="Script" path="res://utilities/wave_manager.gd" id="2_0ufe5"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ckfti4r3wec5h" path="res://entities/professora/professora.tscn" id="3_6m57i"]
 [ext_resource type="Script" path="res://utilities/camera_manager.gd" id="5_3eq3n"]
 [ext_resource type="PackedScene" uid="uid://b7gf1v0qrssdr" path="res://interfaces/HUD/HUD.tscn" id="7_464fn"]
+[ext_resource type="AudioStream" uid="uid://bkjxhpbbwrtqp" path="res://soundtrack/soundtrack.mp3" id="8_6aw3h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_05bd2"]
 shading_mode = 0
@@ -93,3 +94,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.60991, 0.7, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jhqvb")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_6aw3h")
+volume_db = -3.0
+autoplay = true

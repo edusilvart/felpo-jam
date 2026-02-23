@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://kjigj4c3sntt"
-path.s3tc="res://.godot/imported/final-8.png-9ee32c5496ae54961df1a2a831ac3958.s3tc.ctex"
+path="res://.godot/imported/final-8.png-9ee32c5496ae54961df1a2a831ac3958.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://entities/professora/sprites/giro/final-8.png"
-dest_files=["res://.godot/imported/final-8.png-9ee32c5496ae54961df1a2a831ac3958.s3tc.ctex"]
+dest_files=["res://.godot/imported/final-8.png-9ee32c5496ae54961df1a2a831ac3958.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

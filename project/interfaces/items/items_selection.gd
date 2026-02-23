@@ -11,12 +11,12 @@ extends Control
 # ITEM NAME, ITEM DESCRIPTION
 var items = [
 	['Café', 'Aumente a velocidade de movimento e ataque em 30% por 3s. Consumível'],
-	['Cachorro', 'Companheiro canino, morde uma lição aleatória a cada 2s.'],
+	['Cachorro', 'Companheiro canino, morde uma lição aleatória a cada 2s. Ataque'],
 	['Maçã', 'Aumente a velocidade de movimento e ataque em 30% por 3 segundos. Consumível'],
-	['Carimbada', 'Acerte o chão empurrando inimigos para longe. Ataque aéreo'],
+	['Carimbada', 'Acerte o chão empurrando inimigos para longe. Ataque'],
 	['Clipe de Papel', 'Lance um clipe que agrupa inimigos próximos. Ataque'],
-	['Grampeador', 'Atira grampos em volta a cada 3s.']
-	#'spin'= ['Giro', 'Acerte o chão empurrando inimigos para longe. Ataque aéreo']
+	['Rodopio', 'Rodopie girando o carimbo e acertando quem estiver no caminho. Ataque'],
+	['Grampeador', 'Atira grampos em volta a cada 3s. Ataque']
 ]
 var cards = []
 

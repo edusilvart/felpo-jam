@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dteb21g4aundp"
-path.s3tc="res://.godot/imported/final-1.png-f3ddfd3658ea99a88dc8e9535a78cdae.s3tc.ctex"
+path="res://.godot/imported/final-1.png-f3ddfd3658ea99a88dc8e9535a78cdae.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://entities/professora/sprites/aereo/final-1.png"
-dest_files=["res://.godot/imported/final-1.png-f3ddfd3658ea99a88dc8e9535a78cdae.s3tc.ctex"]
+dest_files=["res://.godot/imported/final-1.png-f3ddfd3658ea99a88dc8e9535a78cdae.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
