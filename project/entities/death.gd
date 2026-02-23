@@ -2,8 +2,13 @@ extends State
 # DEATH
 
 
+@onready var carimbo_VFX : PackedScene = preload("res://vfx/carimbo.tscn")
 
 func enter_state() -> void:
+	var vfx = carimbo_VFX.instantiate()
+	parent.get_parent().add_child(vfx)
+	vfx.start(parent.global_position)
+	
 	parent.died.emit()
 	parent.call_deferred('queue_free')
 

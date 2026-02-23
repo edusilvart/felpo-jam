@@ -12,9 +12,9 @@ var tween : Tween
 
 func enter_state() -> void:
 	current_anim = ''
+	new_anim = 'Idle'
 	
-	if prev_state == 'Jump' or prev_state == 'Fall':
-		new_anim = 'Idle'
+	if prev_state == 'Jump' or prev_state == 'Fall': # Land tween
 		parent.pivot.scale = Vector3(1.3, 0.7, 1)
 		tween = get_tree().create_tween()
 		tween.set_trans(Tween.TRANS_CUBIC)
@@ -24,12 +24,12 @@ func enter_state() -> void:
 		var dust = land_dust.instantiate()
 		parent.get_parent().add_child(dust)
 		dust.start(parent.pivot.global_position)
-	else:
-		new_anim = 'Idle'
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed('attack'):
 		state_machine.set_state('Attack01')
+	if event.is_action_pressed('uppercut'):
+		state_machine.set_state('Uppercut')
 	if event.is_action_pressed('jump'):
 		state_machine.set_state('Jump')
 	if event.is_action_pressed('item_01'):
@@ -68,7 +68,7 @@ func update_state(delta : float) -> void:
 	
 	if new_anim != current_anim:
 		current_anim = new_anim
-		#anim_player.play(current_anim)
+		anim_player.play(current_anim)
 
 func get_transition() -> void:
 	if not parent.is_on_floor():

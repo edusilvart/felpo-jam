@@ -4,7 +4,7 @@ extends State
 
 
 func enter_state() -> void:
-	pass
+	anim_player.play('Idle')
 
 func update_state(delta : float) -> void:
 	parent.apply_movement(Vector2.ZERO, parent.acceleration, delta)

@@ -59,6 +59,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		if chain != 0:
 			action_buffered = 'Attack0' + str(chain)
 			change_state()
+	if event.is_action_pressed('uppercut'):
+		action_buffered = 'Uppercut'
+		change_state()
 	if event.is_action_pressed('jump') and parent.is_on_floor():
 		action_buffered = 'Jump'
 		change_state()
@@ -83,7 +86,7 @@ func update_state(delta : float) -> void:
 		
 		parent.velocity.x = motion.x * direction
 		if air_attack:
-			parent.apply_gravity(delta * 0.5)
+			parent.apply_gravity(delta)
 		else:
 			parent.velocity.y = motion.y
 		

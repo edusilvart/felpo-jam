@@ -41,6 +41,7 @@ func enter_state() -> void:
 	tween.tween_property(parent.pivot, 'scale', Vector3.ONE, 0.2)
 	tween.tween_property(parent.flip_node, 'rotation', Vector3.ZERO, 0.5)
 	
+	anim_player.play('Jump')
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed('attack'):

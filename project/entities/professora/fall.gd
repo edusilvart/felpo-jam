@@ -10,6 +10,8 @@ func enter_state() -> void:
 	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.set_ease(Tween.EASE_IN)
 	tween.tween_property(parent.pivot, 'scale', Vector3(0.9, 1.1, 1), 0.3)
+	
+	anim_player.play('Fall')
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed('attack'):

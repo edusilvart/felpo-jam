@@ -28,7 +28,7 @@ point_count = 3
 
 [sub_resource type="Animation" id="Animation_x4gsl"]
 resource_name = "Attack"
-length = 0.333337
+length = 0.26667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -36,7 +36,7 @@ tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.266667),
+"times": PackedFloat32Array(0, 0.1, 0.166667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [ExtResource("9_ctnv3"), ExtResource("10_4pu27"), ExtResource("11_qgalb")]
@@ -48,7 +48,7 @@ tracks/1/path = NodePath("Hitbox/CollisionShape3D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3),
+"times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -148,10 +148,10 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4giul"]
-size = Vector3(0.305664, 0.342102, 0.704102)
+size = Vector3(0.609619, 0.390625, 0.704102)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_eksds"]
-radius = 0.544788
+radius = 0.460799
 
 [node name="Cachorro" type="CharacterBody3D"]
 collision_layer = 4
@@ -193,7 +193,7 @@ script = ExtResource("6_4l4er")
 damage = 3
 knockback_direction = -15.0
 knockback_power = 3.0
-movement_speed = Vector2(4, 0)
+movement_speed = Vector2(2, 0)
 movement_duration = 0.26
 movement_curve = SubResource("Curve_e6864")
 
@@ -211,7 +211,7 @@ collision_layer = 32
 collision_mask = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.307075, 0.0403748, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.244697, 0.0403748, 0)
 shape = SubResource("BoxShape3D_4giul")
 disabled = true
 
