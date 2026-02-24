@@ -1,7 +1,6 @@
-[gd_scene load_steps=105 format=3 uid="uid://ckfti4r3wec5h"]
+[gd_scene load_steps=112 format=3 uid="uid://ckfti4r3wec5h"]
 
 [ext_resource type="Script" path="res://entities/professora/professora.gd" id="1_cb7gf"]
-[ext_resource type="Texture2D" uid="uid://yvxdte1run5x" path="res://icon.svg" id="1_pxin8"]
 [ext_resource type="Script" path="res://utilities/StateMachine.gd" id="3_7jv7j"]
 [ext_resource type="Texture2D" uid="uid://cpcf0nkerg5f0" path="res://entities/professora/sprites/idle/final-1.png" id="3_7r8c7"]
 [ext_resource type="Script" path="res://entities/professora/on_ground.gd" id="4_ixk0v"]
@@ -10,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dpcpaader3cv2" path="res://entities/drop_shadow.tscn" id="7_jhtld"]
 [ext_resource type="Script" path="res://entities/attack.gd" id="7_qq5e1"]
 [ext_resource type="PackedScene" uid="uid://12lpbcxnno48" path="res://entities/hitbox.tscn" id="8_afmb4"]
+[ext_resource type="Script" path="res://entities/professora/dodge.gd" id="8_tucwh"]
 [ext_resource type="Script" path="res://entities/hit.gd" id="9_4jv71"]
 [ext_resource type="PackedScene" uid="uid://c3odqfkbyxwl5" path="res://entities/hurtbox.tscn" id="9_q1tcf"]
 [ext_resource type="Script" path="res://entities/professora/spin.gd" id="10_8ee6k"]
@@ -78,6 +78,12 @@
 [ext_resource type="Texture2D" uid="uid://dl7wcfd8d4jx6" path="res://entities/professora/sprites/carimbada/final-4.png" id="65_j4sgq"]
 [ext_resource type="Texture2D" uid="uid://c6lhv8xipwen" path="res://entities/professora/sprites/carimbada/final-5.png" id="66_w0oih"]
 [ext_resource type="AudioStream" uid="uid://ncob1rifcvtc" path="res://entities/professora/sfx/Pedro_Carimbo_Ataq1_v1.mp3" id="69_ybfvd"]
+[ext_resource type="Texture2D" uid="uid://c70s50228kufc" path="res://entities/professora/sprites/dodge/final-2.png" id="77_wekpu"]
+[ext_resource type="Texture2D" uid="uid://c8qpggfospo7" path="res://entities/professora/sprites/dodge/final-3.png" id="78_xvs0r"]
+[ext_resource type="Texture2D" uid="uid://bapi0gqeivjmp" path="res://entities/professora/sprites/dodge/final-4.png" id="79_o3boy"]
+[ext_resource type="Texture2D" uid="uid://x5i2rwiu011e" path="res://entities/professora/sprites/dodge/final-5.png" id="80_2lp73"]
+[ext_resource type="Texture2D" uid="uid://ca2qstmnt2pve" path="res://entities/professora/sprites/dodge/final-6.png" id="81_wm6nq"]
+[ext_resource type="Texture2D" uid="uid://70adrjx1b6f2" path="res://entities/professora/sprites/dodge/final-7.png" id="82_kmgp6"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_d33cd"]
 height = 0.379445
@@ -160,7 +166,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Flip/Pivot/Sprite3D2:texture")
+tracks/4/path = NodePath("Flip/Pivot/Sprite3D:texture")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -224,7 +230,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Flip/Pivot/Sprite3D2:texture")
+tracks/4/path = NodePath("Flip/Pivot/Sprite3D:texture")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -302,7 +308,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Flip/Pivot/Sprite3D2:texture")
+tracks/4/path = NodePath("Flip/Pivot/Sprite3D:texture")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -380,7 +386,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Flip/Pivot/Sprite3D2:texture")
+tracks/4/path = NodePath("Flip/Pivot/Sprite3D:texture")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -444,7 +450,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Flip/Pivot/Sprite3D2:texture")
+tracks/4/path = NodePath("Flip/Pivot/Sprite3D:texture")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -508,7 +514,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Flip/Pivot/Sprite3D2:texture")
+tracks/4/path = NodePath("Flip/Pivot/Sprite3D:texture")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -572,7 +578,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Flip/Pivot/Sprite3D2:texture")
+tracks/4/path = NodePath("Flip/Pivot/Sprite3D:texture")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -637,7 +643,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Flip/Pivot/Sprite3D2:texture")
+tracks/4/path = NodePath("Flip/Pivot/Sprite3D:texture")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -701,7 +707,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Flip/Pivot/Sprite3D2:texture")
+tracks/4/path = NodePath("Flip/Pivot/Sprite3D:texture")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -765,7 +771,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Flip/Pivot/Sprite3D2:texture")
+tracks/4/path = NodePath("Flip/Pivot/Sprite3D:texture")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -828,7 +834,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Flip/Pivot/Sprite3D2:texture")
+tracks/4/path = NodePath("Flip/Pivot/Sprite3D:texture")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -893,7 +899,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Flip/Pivot/Sprite3D2:texture")
+tracks/4/path = NodePath("Flip/Pivot/Sprite3D:texture")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -957,7 +963,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Flip/Pivot/Sprite3D2:texture")
+tracks/4/path = NodePath("Flip/Pivot/Sprite3D:texture")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -1022,7 +1028,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Flip/Pivot/Sprite3D2:texture")
+tracks/4/path = NodePath("Flip/Pivot/Sprite3D:texture")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -1086,7 +1092,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Flip/Pivot/Sprite3D2:texture")
+tracks/4/path = NodePath("Flip/Pivot/Sprite3D:texture")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -1150,7 +1156,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Flip/Pivot/Sprite3D2:texture")
+tracks/4/path = NodePath("Flip/Pivot/Sprite3D:texture")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -1214,7 +1220,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Flip/Pivot/Sprite3D2:texture")
+tracks/4/path = NodePath("Flip/Pivot/Sprite3D:texture")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -1238,12 +1244,77 @@ tracks/5/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_xkxt7"]
+resource_name = "Dodge"
+length = 0.36667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Hitbox/CollisionShape3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flip/Hitbox/CollisionShape3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flip/Hitbox/CollisionShape3D:shape:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Flip/Hitbox/CollisionShape3D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Flip/Pivot/Sprite3D:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.200001, 0.266667, 0.333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("77_wekpu"), ExtResource("78_xvs0r"), ExtResource("79_o3boy"), ExtResource("80_2lp73"), ExtResource("81_wm6nq"), ExtResource("82_kmgp6")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vgfro"]
 _data = {
 "Air_Attack": SubResource("Animation_ahega"),
 "Attack01": SubResource("Animation_c880u"),
 "Attack02": SubResource("Animation_oxndn"),
 "Attack03": SubResource("Animation_28kto"),
+"Dodge": SubResource("Animation_xkxt7"),
 "Fall": SubResource("Animation_blaxh"),
 "Flying": SubResource("Animation_4tgfx"),
 "Hit": SubResource("Animation_wih3f"),
@@ -1278,15 +1349,6 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.191307, 0)
 
 [node name="Sprite3D" type="Sprite3D" parent="Flip/Pivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19271, 0)
-visible = false
-cast_shadow = 0
-pixel_size = 0.003
-transparent = false
-double_sided = false
-texture = ExtResource("1_pxin8")
-
-[node name="Sprite3D2" type="Sprite3D" parent="Flip/Pivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0366189, 0.393057, 0)
 cast_shadow = 0
 pixel_size = 0.0018
@@ -1317,6 +1379,9 @@ script = ExtResource("5_0smar")
 
 [node name="Fall" type="Node" parent="StateMachine"]
 script = ExtResource("6_y11v4")
+
+[node name="Dodge" type="Node" parent="StateMachine"]
+script = ExtResource("8_tucwh")
 
 [node name="Attack01" type="Node" parent="StateMachine"]
 script = ExtResource("7_qq5e1")

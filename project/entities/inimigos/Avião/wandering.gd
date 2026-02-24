@@ -17,18 +17,18 @@ func _ready() -> void:
 	timer.wait_time = drop_offset
 	timer.one_shot = false
 	timer.timeout.connect(timer_finished)
-	timer.start()
 	
 	add_child(direction_timer)
 	direction_timer.wait_time = update_direction_time
 	direction_timer.one_shot = false
 	direction_timer.timeout.connect(update_direction)
-	direction_timer.start()
 	
 	start_pos = get_parent().get_parent().global_position
 
 func enter_state() -> void:
 	anim_player.play('Idle')
+	timer.start()
+	direction_timer.start()
 
 func update_direction() -> void:
 	direction = (Globals.player.global_position - parent.global_position).normalized()
@@ -52,7 +52,8 @@ func get_transition() -> void:
 	pass
 
 func exit_state() -> void:
-	pass
+	timer.stop()
+	direction_timer.stop()
 
 func timer_finished() -> void:
 	var lapis = lapis_scn.instantiate()

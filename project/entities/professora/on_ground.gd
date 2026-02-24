@@ -36,6 +36,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		state_machine.set_state('Attack01')
 	if event.is_action_pressed('jump'):
 		state_machine.set_state('Jump')
+	if event.is_action_pressed('dodge'):
+		if parent.can_dodge:
+			state_machine.set_state('Dodge')
 	if event.is_action_pressed('item_01'):
 		if parent.item01 != null:
 			parent.item01.activate()

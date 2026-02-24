@@ -13,6 +13,10 @@ var steps_timer := Timer.new()
 var uppercut_hold_time : float = 0.2
 var uppercut_timer := Timer.new()
 
+var dodge_cooldown : float = 1
+var dodge_timer := Timer.new()
+var can_dodge : bool = true
+
 func _ready() -> void:
 	Globals.player = self
 	Globals.camera.target = self
@@ -26,6 +30,11 @@ func _ready() -> void:
 	uppercut_timer.timeout.connect(uppercut)
 	uppercut_timer.wait_time = uppercut_hold_time
 	uppercut_timer.one_shot = true
+	
+	add_child(dodge_timer)
+	dodge_timer.timeout.connect(reset_dodge_cooldown)
+	dodge_timer.wait_time = dodge_cooldown
+	dodge_timer.one_shot = true
 
 func get_dir_input() -> Vector2:
 	var x : float = -Input.get_action_strength('move_left') + Input.get_action_strength('move_right')
@@ -39,3 +48,6 @@ func play_step_sfx() -> void:
 func uppercut() -> void:
 	if ['onGround', 'Attack01', 'Attack02', 'Attack03'].has(state_machine.state.name):
 		state_machine.set_state('Uppercut')
+
+func reset_dodge_cooldown() -> void:
+	can_dodge = true
