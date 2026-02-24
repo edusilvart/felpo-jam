@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://y072h7wrqogl"]
+
+[ext_resource type="Texture2D" uid="uid://cw3ku7pleajk5" path="res://entities/inimigos/Avião/lapis.png" id="1_31my8"]
+[ext_resource type="Script" path="res://entities/inimigos/Avião/lapis.gd" id="1_sj5ig"]
+[ext_resource type="PackedScene" uid="uid://12lpbcxnno48" path="res://entities/hitbox.tscn" id="2_t60ov"]
+[ext_resource type="PackedScene" uid="uid://c3odqfkbyxwl5" path="res://entities/hurtbox.tscn" id="4_yjaol"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eiynh"]
+size = Vector3(0.119141, 0.238281, 0.259521)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mnkso"]
+size = Vector3(0.0881348, 0.181885, 0.101563)
+
+[node name="Lapis" type="Node3D"]
+script = ExtResource("1_sj5ig")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0167015, 0.13225, 0)
+pixel_size = 0.0015
+texture = ExtResource("1_31my8")
+
+[node name="Hitbox" parent="." instance=ExtResource("2_t60ov")]
+collision_layer = 32
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+shape = SubResource("BoxShape3D_eiynh")
+
+[node name="Hurtbox" parent="." instance=ExtResource("4_yjaol")]
+collision_layer = 16
+collision_mask = 35
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+shape = SubResource("BoxShape3D_mnkso")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

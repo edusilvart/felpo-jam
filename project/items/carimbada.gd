@@ -1,6 +1,8 @@
 extends Item
 
 
+@onready var dust : PackedScene = preload('res://vfx/land_dust.tscn')
+
 var knockback_direction = 30
 var knockback_power = 4
 
@@ -21,14 +23,19 @@ func enter() -> void:
 		parent.get_node('AnimationPlayer').play('Jump')
 		jumping = true
 	else:
+		attacking = true
 		parent.state_machine.set_state('Stomp')
 
 func update(delta) -> void:
 	if attacking:
-		parent.move_and_slide()
+		#parent.move_and_slide()
 		
-		if parent.is_on_floor():
-			parent.state_machine.set_state('onGround')
+		if parent.is_on_floor(): # Land
+			Globals.camera.shake = 0.4
+			var vfx = dust.instantiate()
+			parent.get_parent().add_child(vfx)
+			vfx.start(parent.global_position)
+			
 			attacking = false
 	if jumping:
 		parent.move_and_slide()
@@ -37,8 +44,9 @@ func update(delta) -> void:
 			air_hold -= delta
 			if air_hold <= 0:
 				parent.state_machine.set_state('Stomp')
+				attacking = true
+				
 				jumping = false
-			
 
 func exit() -> void:
 	pass

@@ -3,19 +3,27 @@ extends Node
 
 
 var ENEMY_TYPES := {
+	"avião": {
+		"scene": preload('res://entities/inimigos/Avião/avião.tscn'),
+		"cost": 2
+	},
+	"bolinha": {
+		"scene": preload('res://entities/inimigos/bolinha/bolinha.tscn'),
+		"cost": 1
+	},
 	"caderno": {
 		"scene": preload("res://entities/inimigos/caderno/caderno.tscn"),
-		"cost": 3
+		"cost": 31
 	},
 	"basico": {
 		"scene": preload("res://entities/inimigos/basico/basico.tscn"),
-		"cost": 1
+		"cost": 11
 	}
 }
 
 var sorted_enemy_types = []
 var living_enemies : int = 0
-var wave_cost : int = 2
+var wave_cost : int = 5
 
 func _ready() -> void:
 	prepare_enemy_order()

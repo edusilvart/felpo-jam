@@ -6,7 +6,7 @@ var num_grampos : int = 6 # numero de grampos
 var grampo_angle : float = 0
 
 func enter() -> void:
-	var current_angle : float = 0
+	@warning_ignore("integer_division")
 	grampo_angle = 360 / num_grampos
 	
 	for n in num_grampos:

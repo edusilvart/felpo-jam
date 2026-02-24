@@ -14,6 +14,8 @@ var runtime : float = 0
 @export var projectile : bool = false # should spawn projectile
 @export var projectile_scene : PackedScene
 
+@export var audioclips : Array[AudioStream] = []
+
 var input_lock : float = false
 var action_buffered : String = ''
 var buffer_reset_max : float = 0.25
@@ -42,6 +44,10 @@ func enter_state() -> void:
 	
 	if not parent == Globals.player:
 		parent.attack_cooldown_timer.start()
+	
+	if not audioclips.is_empty():
+		var audio = audioclips.pick_random()
+		SFX_MANAGER.play_sfx_at(audio, parent.global_position, 0, 0.95, 1.05)
 
 func unlock_input() -> void:
 	input_lock = false

@@ -33,8 +33,8 @@ func update_state(delta : float) -> void:
 func get_transition() -> void:
 	if not parent.is_on_floor():
 		state_machine.set_state('Fall')
-	if parent.player_range and parent.attack_cooldown_timer.is_stopped():
-		state_machine.set_state('Attack')
+	#if parent.player_range and parent.attack_cooldown_timer.is_stopped():
+		#state_machine.set_state('Attack')
 
 func timer_finished() -> void:
 	state_machine.set_state('Chasing')

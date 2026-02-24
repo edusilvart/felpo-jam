@@ -33,8 +33,8 @@ func get_dir_input() -> Vector2:
 	return Vector2(x, z).normalized()
 
 func play_step_sfx() -> void:
-	steps_sfx.shuffle()
-	SFX_MANAGER.play_sfx_at(steps_sfx[0], global_position, 0, 1, 1)
+	var audio = steps_sfx.pick_random()
+	SFX_MANAGER.play_sfx_at(audio, global_position, 0, 1, 1)
 
 func uppercut() -> void:
 	if ['onGround', 'Attack01', 'Attack02', 'Attack03'].has(state_machine.state.name):
