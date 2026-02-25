@@ -19,6 +19,8 @@ func _ready() -> void:
 	shop = shop_node.instantiate()
 	shop.ended.connect(shop_finished)
 	add_child(shop)
+	
+	Globals.wave_manager.wave_ended.connect(wave_ended)
 
 func change_state(new_state : String) -> void:
 	if state != null:
@@ -30,7 +32,7 @@ func enter_state() -> void:
 	match states[state]:
 		'INTRO':
 			pass
-			change_state('BATTLE')
+			change_state('BOSS')
 		'BATTLE':
 			wave_manager.wave_start()
 			Globals.player.state_machine.set_state('onGround')
@@ -58,3 +60,7 @@ func exit_state() -> void:
 func shop_finished() -> void:
 	if states[state] == 'SHOP':
 		change_state('BATTLE')
+
+func wave_ended() -> void:
+	if states[state] == 'BATTLE':
+		change_state('SHOP')

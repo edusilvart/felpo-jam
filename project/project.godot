@@ -111,8 +111,3 @@ dodge={
 3d_physics/layer_5="Enemies"
 3d_physics/layer_6="Hitboxes"
 3d_physics/layer_7="Aviões"
-
-[rendering]
-
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"

@@ -25,72 +25,8 @@ size = Vector3(0.304, 0.279, 0.65)
 [sub_resource type="BoxShape3D" id="BoxShape3D_h0s3f"]
 size = Vector3(0.5, 0.5, 0.5)
 
-[sub_resource type="Animation" id="Animation_meabm"]
-resource_name = "Idle"
-length = 0.533337
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("14_gkr2c"), ExtResource("15_p6hvv"), ExtResource("16_uiymw"), ExtResource("17_10l1t")]
-}
-
-[sub_resource type="Animation" id="Animation_tchey"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("14_gkr2c")]
-}
-
-[sub_resource type="Animation" id="Animation_mdhbi"]
-resource_name = "Hit"
-length = 0.06667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("14_81kks")]
-}
-
 [sub_resource type="Animation" id="Animation_qkk8w"]
 resource_name = "Flying"
-length = 0.06667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("14_81kks")]
-}
-
-[sub_resource type="Animation" id="Animation_1o5gn"]
-resource_name = "Laying"
 length = 0.06667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -119,6 +55,70 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("14_81kks")]
+}
+
+[sub_resource type="Animation" id="Animation_mdhbi"]
+resource_name = "Hit"
+length = 0.06667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("14_81kks")]
+}
+
+[sub_resource type="Animation" id="Animation_meabm"]
+resource_name = "Idle"
+length = 0.533337
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("14_gkr2c"), ExtResource("15_p6hvv"), ExtResource("16_uiymw"), ExtResource("17_10l1t")]
+}
+
+[sub_resource type="Animation" id="Animation_1o5gn"]
+resource_name = "Laying"
+length = 0.06667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("14_81kks")]
+}
+
+[sub_resource type="Animation" id="Animation_tchey"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("14_gkr2c")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e6nyf"]
@@ -188,8 +188,8 @@ script = ExtResource("10_q8fa6")
 script = ExtResource("11_wdh54")
 
 [node name="DropShadow" parent="." instance=ExtResource("12_31xsc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00418285, 0)
-size = 0.4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.631781, 0)
+size = 0.7
 
 [node name="Hurtbox" parent="." instance=ExtResource("13_vu3gf")]
 unique_name_in_owner = true

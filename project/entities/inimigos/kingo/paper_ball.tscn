@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://v1akub6c8hks"]
+
+[ext_resource type="PackedScene" uid="uid://12lpbcxnno48" path="res://entities/hitbox.tscn" id="1_747cl"]
+[ext_resource type="Script" path="res://entities/inimigos/kingo/paper_ball.gd" id="1_roxmr"]
+[ext_resource type="Texture2D" uid="uid://bbhywhhtq1m54" path="res://entities/inimigos/bolinha/atq (bolinha rodando)/final-1.png" id="2_0b7mg"]
+[ext_resource type="Texture2D" uid="uid://ds5rydo3qg7vf" path="res://entities/inimigos/bolinha/atq (bolinha rodando)/final-2.png" id="4_iuo4l"]
+[ext_resource type="Texture2D" uid="uid://dkiy56jr44mcj" path="res://entities/inimigos/bolinha/atq (bolinha rodando)/final-3.png" id="5_yf6hx"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0pgm8"]
+radius = 0.116856
+
+[sub_resource type="Animation" id="Animation_jcjyy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_0b7mg")]
+}
+
+[sub_resource type="Animation" id="Animation_2ugmu"]
+resource_name = "spin"
+length = 0.200003
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_0b7mg"), ExtResource("4_iuo4l"), ExtResource("5_yf6hx")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_11n7n"]
+_data = {
+"RESET": SubResource("Animation_jcjyy"),
+"spin": SubResource("Animation_2ugmu")
+}
+
+[node name="PaperBall" type="Node3D"]
+script = ExtResource("1_roxmr")
+speed = 8.0
+
+[node name="Hitbox" parent="." instance=ExtResource("1_747cl")]
+collision_layer = 32
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+shape = SubResource("SphereShape3D_0pgm8")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00454856, 0.280812, 0)
+cast_shadow = 0
+pixel_size = 0.0015
+double_sided = false
+texture = ExtResource("2_0b7mg")
+
+[node name="Pivot" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_11n7n")
+}
+autoplay = "spin"

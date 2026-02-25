@@ -5,11 +5,11 @@ extends Node
 var ENEMY_TYPES := {
 	"avião": {
 		"scene": preload('res://entities/inimigos/Avião/avião.tscn'),
-		"cost": 2
+		"cost": 21
 	},
 	"bolinha": {
 		"scene": preload('res://entities/inimigos/bolinha/bolinha.tscn'),
-		"cost": 1
+		"cost": 11
 	},
 	"caderno": {
 		"scene": preload("res://entities/inimigos/caderno/caderno.tscn"),
@@ -25,6 +25,8 @@ var sorted_enemy_types = []
 var living_enemies : int = 0
 var wave_cost : int = 5
 
+signal wave_ended
+
 func _ready() -> void:
 	prepare_enemy_order()
 	Globals.wave_manager = self
@@ -34,7 +36,7 @@ func wave_start() -> void:
 
 func wave_end() -> void:
 	wave_cost *= 2
-	get_parent().change_state('SHOP')
+	wave_ended.emit()
 
 func prepare_enemy_order() -> void:
 	sorted_enemy_types = ENEMY_TYPES.keys()

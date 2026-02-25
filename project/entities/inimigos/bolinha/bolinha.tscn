@@ -111,6 +111,59 @@ tracks/4/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_5l8r0"]
+resource_name = "Get_Up"
+length = 0.46667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.233333, 0.366667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("25_0a8fo"), ExtResource("26_kj4uy"), ExtResource("27_xci2j"), ExtResource("28_dgkx5")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flip/Hitbox/CollisionShape3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flip/Hitbox/CollisionShape3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Flip/Hitbox/CollisionShape3D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_22rix"]
 resource_name = "Hit"
 length = 0.06667
@@ -408,10 +461,9 @@ tracks/3/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_5l8r0"]
-resource_name = "Get_Up"
-length = 0.46667
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_q1o3b"]
+resource_name = "Spin_End"
+length = 0.300003
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -419,10 +471,10 @@ tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.233333, 0.366667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("25_0a8fo"), ExtResource("26_kj4uy"), ExtResource("27_xci2j"), ExtResource("28_dgkx5")]
+"values": [ExtResource("30_qt7su"), ExtResource("31_pachv"), ExtResource("32_njofy")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -456,70 +508,6 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_ntpeu"]
-resource_name = "Spin_Start"
-length = 1.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.233333, 0.366667, 0.466667, 0.6, 0.7, 0.8, 0.866667, 0.9, 0.933333, 0.966667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("23_cu5p0"), ExtResource("24_ktkrq"), ExtResource("25_cgcsb"), ExtResource("26_2hjn5"), ExtResource("27_ro855"), ExtResource("28_oywk0"), ExtResource("29_vg4kh"), ExtResource("27_ro855"), ExtResource("28_oywk0"), ExtResource("29_vg4kh"), ExtResource("27_ro855"), ExtResource("28_oywk0")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Flip/Hitbox/CollisionShape3D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Flip/Hitbox/CollisionShape3D:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Flip/Hitbox/CollisionShape3D:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Dust:emitting")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.8),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -578,9 +566,8 @@ tracks/3/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_q1o3b"]
-resource_name = "Spin_End"
-length = 0.300003
+[sub_resource type="Animation" id="Animation_ntpeu"]
+resource_name = "Spin_Start"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -588,10 +575,10 @@ tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.233333),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.133333, 0.233333, 0.366667, 0.466667, 0.6, 0.7, 0.8, 0.866667, 0.9, 0.933333, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("30_qt7su"), ExtResource("31_pachv"), ExtResource("32_njofy")]
+"values": [ExtResource("23_cu5p0"), ExtResource("24_ktkrq"), ExtResource("25_cgcsb"), ExtResource("26_2hjn5"), ExtResource("27_ro855"), ExtResource("28_oywk0"), ExtResource("29_vg4kh"), ExtResource("27_ro855"), ExtResource("28_oywk0"), ExtResource("29_vg4kh"), ExtResource("27_ro855"), ExtResource("28_oywk0")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -625,6 +612,18 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Dust:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.8),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]

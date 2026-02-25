@@ -13,7 +13,6 @@
 [ext_resource type="Script" path="res://entities/hit.gd" id="9_4jv71"]
 [ext_resource type="PackedScene" uid="uid://c3odqfkbyxwl5" path="res://entities/hurtbox.tscn" id="9_q1tcf"]
 [ext_resource type="Script" path="res://entities/professora/spin.gd" id="10_8ee6k"]
-[ext_resource type="Script" path="res://entities/death.gd" id="10_fsmok"]
 [ext_resource type="Script" path="res://entities/professora/waiting.gd" id="11_uu51o"]
 [ext_resource type="AudioStream" uid="uid://dng7c44yvbx7a" path="res://entities/professora/sfx/Pedro_Carimbo_Aereo1.mp3" id="13_7f457"]
 [ext_resource type="Texture2D" uid="uid://cjq2v6gsvy2h" path="res://entities/professora/sprites/idle/final-2.png" id="13_n6qch"]
@@ -30,6 +29,7 @@
 [ext_resource type="Script" path="res://entities/flying.gd" id="20_e66eb"]
 [ext_resource type="Texture2D" uid="uid://bgppixygqmt24" path="res://entities/professora/sprites/poses/pulo.png" id="20_l68uq"]
 [ext_resource type="Texture2D" uid="uid://dyoj1iksh1868" path="res://entities/professora/sprites/poses/queda.png" id="21_6w4kc"]
+[ext_resource type="Script" path="res://entities/professora/death.gd" id="21_ko4vi"]
 [ext_resource type="Texture2D" uid="uid://capvj57n7c5yy" path="res://entities/professora/sprites/poses/hit.png" id="22_5d5bj"]
 [ext_resource type="Texture2D" uid="uid://5yyrxj2rjq70" path="res://entities/professora/sprites/poses/voa.png" id="23_ey3mf"]
 [ext_resource type="Texture2D" uid="uid://3la25paxijy3" path="res://entities/professora/sprites/poses/caida.png" id="24_hfn35"]
@@ -394,6 +394,70 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("39_cb0tc"), ExtResource("40_atr11"), ExtResource("41_1a8p3"), ExtResource("42_hr8lh"), ExtResource("43_omqux"), ExtResource("44_go1bq"), ExtResource("45_ejg6q")]
+}
+
+[sub_resource type="Animation" id="Animation_xkxt7"]
+resource_name = "Dodge"
+length = 0.36667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Hitbox/CollisionShape3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flip/Hitbox/CollisionShape3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flip/Hitbox/CollisionShape3D:shape:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Flip/Hitbox/CollisionShape3D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Flip/Pivot/Sprite3D:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.200001, 0.266667, 0.333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("77_wekpu"), ExtResource("78_xvs0r"), ExtResource("79_o3boy"), ExtResource("80_2lp73"), ExtResource("81_wm6nq"), ExtResource("82_kmgp6")]
 }
 
 [sub_resource type="Animation" id="Animation_blaxh"]
@@ -1244,70 +1308,6 @@ tracks/5/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_xkxt7"]
-resource_name = "Dodge"
-length = 0.36667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flip/Hitbox/CollisionShape3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Flip/Hitbox/CollisionShape3D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Flip/Hitbox/CollisionShape3D:shape:size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Flip/Hitbox/CollisionShape3D:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Flip/Pivot/Sprite3D:texture")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.200001, 0.266667, 0.333334),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("77_wekpu"), ExtResource("78_xvs0r"), ExtResource("79_o3boy"), ExtResource("80_2lp73"), ExtResource("81_wm6nq"), ExtResource("82_kmgp6")]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vgfro"]
 _data = {
 "Air_Attack": SubResource("Animation_ahega"),
@@ -1458,7 +1458,7 @@ script = ExtResource("9_4jv71")
 script = ExtResource("20_e66eb")
 
 [node name="Death" type="Node" parent="StateMachine"]
-script = ExtResource("10_fsmok")
+script = ExtResource("21_ko4vi")
 
 [node name="Waiting" type="Node" parent="StateMachine"]
 script = ExtResource("11_uu51o")

@@ -1,20 +1,18 @@
-[gd_scene load_steps=12 format=3 uid="uid://hqafpyu0gjga"]
+[gd_scene load_steps=15 format=3 uid="uid://hqafpyu0gjga"]
 
 [ext_resource type="Script" path="res://utilities/game_manager.gd" id="1_u52ml"]
 [ext_resource type="Script" path="res://utilities/wave_manager.gd" id="2_0ufe5"]
-[ext_resource type="Texture2D" uid="uid://dv471wue5g4g6" path="res://addons/kenney_prototype_textures/purple/texture_01.png" id="2_5ph6g"]
 [ext_resource type="Texture2D" uid="uid://cf8ak2i0ouj0v" path="res://addons/kenney_prototype_textures/dark/texture_01.png" id="2_su32e"]
 [ext_resource type="PackedScene" uid="uid://ckfti4r3wec5h" path="res://entities/professora/professora.tscn" id="3_6m57i"]
 [ext_resource type="Script" path="res://utilities/camera_manager.gd" id="5_3eq3n"]
 [ext_resource type="PackedScene" uid="uid://b7gf1v0qrssdr" path="res://interfaces/HUD/HUD.tscn" id="7_464fn"]
 [ext_resource type="AudioStream" uid="uid://bkjxhpbbwrtqp" path="res://soundtrack/soundtrack.mp3" id="8_6aw3h"]
+[ext_resource type="ArrayMesh" uid="uid://bqbmk4okxg7po" path="res://environment/sala de aula/sala_main.res" id="8_mbxcw"]
+[ext_resource type="ArrayMesh" uid="uid://cekl3yalm5pwn" path="res://environment/sala de aula/cadeiras.res" id="9_8kdwm"]
+[ext_resource type="ArrayMesh" uid="uid://by5s2jpdy80a0" path="res://environment/sala de aula/bolas.res" id="9_rknqo"]
+[ext_resource type="PackedScene" uid="uid://52mfuia3olbo" path="res://entities/inimigos/kingo/kingo.tscn" id="11_lcgbj"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_05bd2"]
-shading_mode = 0
-albedo_texture = ExtResource("2_5ph6g")
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a7srb"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j1q4b"]
 shading_mode = 0
 albedo_texture = ExtResource("2_su32e")
 uv1_triplanar = true
@@ -30,65 +28,36 @@ fog_depth_curve = 0.615572
 fog_depth_begin = 1.0
 fog_depth_end = 30.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_tbeen"]
+size = Vector3(6.2002, 1.00305, 6.52008)
+
 [node name="Gym" type="Node"]
 script = ExtResource("1_u52ml")
 
 [node name="WaveManager" type="Node" parent="."]
 script = ExtResource("2_0ufe5")
 
-[node name="Props" type="CSGCombiner3D" parent="."]
-material_override = SubResource("StandardMaterial3D_05bd2")
-use_collision = true
-collision_layer = 2
-collision_mask = 0
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Props"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0136211, 0.640132, -3.7)
-size = Vector3(1, 0.289795, 0.555664)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Props"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.51362, 0.945234, -4.67783)
-size = Vector3(1, 0.9, 0.4)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="Props"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.036379, 1.29523, -5.22783)
-size = Vector3(2.9, 1, 0.5)
-
-[node name="Floor" type="CSGCombiner3D" parent="."]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 use_collision = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Floor"]
-size = Vector3(10, 1, 10)
-material = SubResource("StandardMaterial3D_a7srb")
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5.5)
-size = Vector3(10, 6, 1)
-material = SubResource("StandardMaterial3D_a7srb")
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="Floor"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 2.5, -0.5)
-size = Vector3(10, 6, 1)
-material = SubResource("StandardMaterial3D_a7srb")
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="Floor"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.4, 2.5, -0.5)
-size = Vector3(10, 6, 1)
-material = SubResource("StandardMaterial3D_a7srb")
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+size = Vector3(29.1992, 1, 24.8284)
+material = SubResource("StandardMaterial3D_j1q4b")
 
 [node name="Camera_Manager" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.50349)
 script = ExtResource("5_3eq3n")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="Camera_Manager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-spring_length = 3.0
+spring_length = 5.0
 
 [node name="Camera3D" type="Camera3D" parent="Camera_Manager/SpringArm3D"]
 current = true
 fov = 45.0
 
 [node name="Professora" parent="." instance=ExtResource("3_6m57i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.60991, 0.7, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 3.50775)
 
 [node name="GUI" parent="." instance=ExtResource("7_464fn")]
 
@@ -99,3 +68,28 @@ environment = SubResource("Environment_jhqvb")
 stream = ExtResource("8_6aw3h")
 volume_db = -3.0
 autoplay = true
+
+[node name="sala" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.31134e-10, -0.003, 1.31134e-10, 0, -1.31134e-10, -0.003, 0.003, -1.31134e-10, 5.73206e-18, 0, 0.481709, 1.74941)
+visible = false
+mesh = ExtResource("8_mbxcw")
+
+[node name="cadeiras" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.31134e-10, -0.003, 1.31134e-10, 0, -1.31134e-10, -0.003, 0.003, -1.31134e-10, 5.73206e-18, 0, 0.481709, 1.74941)
+visible = false
+mesh = ExtResource("9_8kdwm")
+
+[node name="bolas" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.31134e-10, -0.003, 1.31134e-10, 0, -1.31134e-10, -0.003, 0.003, -1.31134e-10, 5.73206e-18, 0, 0.481709, 1.74941)
+visible = false
+mesh = ExtResource("9_rknqo")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00152588, 1.86703)
+shape = SubResource("BoxShape3D_tbeen")
+disabled = true
+
+[node name="Kingo" parent="." instance=ExtResource("11_lcgbj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.337665, 0.827698, -1.28356)

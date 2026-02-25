@@ -24,8 +24,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if target != null:
-		var target_pos = target.global_position + Vector3(0, 1, 0)
+		var target_pos : Vector3 = target.global_position + Vector3(0, 0, 0)
 		global_position.x = lerp(global_position.x, target_pos.x * 0.8, follow_speed * delta)
+		global_position.y = lerp(global_position.y, target_pos.y * 0.4, follow_speed * delta)
 		global_position.z = lerp(global_position.z, target_pos.z * 0.2, follow_speed * delta)
 		
 		camera.look_at(target_pos * 0.8, Vector3.UP)
