@@ -5,19 +5,19 @@ extends Node
 var ENEMY_TYPES := {
 	"avião": {
 		"scene": preload('res://entities/inimigos/Avião/avião.tscn'),
-		"cost": 21
+		"cost": 20
 	},
 	"bolinha": {
 		"scene": preload('res://entities/inimigos/bolinha/bolinha.tscn'),
-		"cost": 11
+		"cost": 10
 	},
 	"caderno": {
 		"scene": preload("res://entities/inimigos/caderno/caderno.tscn"),
-		"cost": 31
+		"cost": 3
 	},
 	"basico": {
 		"scene": preload("res://entities/inimigos/basico/basico.tscn"),
-		"cost": 11
+		"cost": 1
 	}
 }
 

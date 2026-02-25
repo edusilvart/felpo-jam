@@ -1,8 +1,0 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://b87185gvkbhdw"]
-
-[resource]
-resource_name = "Sala_single"
-cull_mode = 2
-shading_mode = 0
-specular_mode = 2
-vertex_color_use_as_albedo = true

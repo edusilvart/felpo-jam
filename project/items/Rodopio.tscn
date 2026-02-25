@@ -4,4 +4,4 @@
 
 [node name="Rodopio" type="Node"]
 script = ExtResource("1_3mkgp")
-cooldown = 5.0
+cooldown = 1.0

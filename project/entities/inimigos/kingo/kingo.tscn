@@ -42,7 +42,7 @@ height = 0.609803
 radius = 0.223465
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yx1wv"]
-size = Vector3(0.468994, 0.31953, 0.501709)
+size = Vector3(0.649559, 0.529467, 0.65)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h0s3f"]
 size = Vector3(0.681274, 0.697412, 0.456055)
@@ -52,7 +52,7 @@ radius = 1.23036
 
 [sub_resource type="Animation" id="Animation_xcsy0"]
 resource_name = "Attack"
-length = 0.86667
+length = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -60,7 +60,7 @@ tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.333333, 0.4, 0.533333, 0.8),
+"times": PackedFloat32Array(0, 0.5, 0.566667, 0.7, 0.966667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("17_yj4nh"), ExtResource("18_x412g"), ExtResource("19_ci116"), ExtResource("20_dogeg"), ExtResource("19_ci116")]
@@ -72,7 +72,7 @@ tracks/1/path = NodePath("Flip/Hitbox/CollisionShape3D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.333333, 0.4),
+"times": PackedFloat32Array(0, 0.5, 0.566667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [Vector3(0, 0, 0), Vector3(0.172779, -0.112708, 0), Vector3(0.258509, -0.286924, 0)]
@@ -84,7 +84,7 @@ tracks/2/path = NodePath("Flip/Hitbox/CollisionShape3D:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.333333),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
@@ -96,7 +96,7 @@ tracks/3/path = NodePath("Flip/Hitbox/CollisionShape3D:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.333333),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [Vector3(1, 1, 1), Vector3(1, 1, 1)]
@@ -108,7 +108,7 @@ tracks/4/path = NodePath("Flip/Hitbox/CollisionShape3D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.333333, 0.466667),
+"times": PackedFloat32Array(0, 0.5, 0.633334),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -120,7 +120,7 @@ tracks/5/path = NodePath("Flip/Hitbox/CollisionShape3D:shape:size")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.333333, 0.4),
+"times": PackedFloat32Array(0, 0.5, 0.566667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [Vector3(0.649559, 0.529467, 0.65), Vector3(0.649559, 0.529467, 0.65), Vector3(0.4781, 0.171673, 0.65)]
@@ -144,7 +144,7 @@ tracks/7/path = NodePath("StateMachine/Attack")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0.333333),
+"times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -215,6 +215,106 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_7q3gd"]
+resource_name = "Jump"
+length = 0.433337
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.366667, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("30_qjtp5"), ExtResource("31_l2aiy"), null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flip/Hitbox/CollisionShape3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector3(0.236232, -0.233499, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flip/Hitbox/CollisionShape3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Flip/Hitbox/CollisionShape3D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Flip/Hitbox/CollisionShape3D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Flip/Hitbox/CollisionShape3D:shape:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector3(0.62106, 0.176556, 0.65)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Flip/Pivot:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.366667, 0.4, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector3(0, -0.30749, 0), Vector3(0, -0.115987, 0), Vector3(0, 1.8924, 0), Vector3(0, -0.30749, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Hurtbox/CollisionShape3D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.366667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_uo4p0"]
@@ -636,7 +736,7 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_f5l5h"]
 resource_name = "Shoot_Charge"
-length = 0.200003
+length = 0.26667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -812,106 +912,6 @@ tracks/7/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_7q3gd"]
-resource_name = "Jump"
-length = 0.433337
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flip/Pivot/Sprite3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.366667, 0.433333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [ExtResource("30_qjtp5"), ExtResource("31_l2aiy"), null]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Flip/Hitbox/CollisionShape3D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector3(0.236232, -0.233499, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Flip/Hitbox/CollisionShape3D:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Flip/Hitbox/CollisionShape3D:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector3(1, 1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Flip/Hitbox/CollisionShape3D:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Flip/Hitbox/CollisionShape3D:shape:size")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector3(0.62106, 0.176556, 0.65)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Flip/Pivot:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.366667, 0.4, 0.433333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector3(0, -0.30749, 0), Vector3(0, -0.115987, 0), Vector3(0, 1.8924, 0), Vector3(0, -0.30749, 0)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Hurtbox/CollisionShape3D:disabled")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.366667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e6nyf"]
 _data = {
 "Attack": SubResource("Animation_xcsy0"),
@@ -932,7 +932,7 @@ script = ExtResource("1_amgcu")
 speed_ratio = 0.5
 acceleration_ratio = 0.4
 weight_ratio = 0.7
-max_HP = 100
+max_HP = 30
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00223431, 0)

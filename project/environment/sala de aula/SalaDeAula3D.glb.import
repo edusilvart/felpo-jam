@@ -33,60 +33,46 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"Cadeira3_single": {
+"Cadeira3_single.002": {
 "use_external/enabled": true,
-"use_external/path": "res://environment/sala de aula/Cadeira3_single.tres"
+"use_external/path": "res://environment/sala de aula/Cadeira3_single.002.tres"
 },
-"Material.001": {
+"NewLayer0_single.001": {
 "use_external/enabled": true,
-"use_external/path": "res://environment/sala de aula/Material.001.tres"
+"use_external/path": "res://environment/sala de aula/NewLayer0_single.001.tres"
 },
-"Sala_single": {
+"Sala_single.002": {
 "use_external/enabled": true,
-"use_external/path": "res://environment/sala de aula/Sala_single.tres"
+"use_external/path": "res://environment/sala de aula/Sala_single.002.tres"
 }
 },
 "meshes": {
-"SalaDeAula3D_element": {
+"SalaDeAula3D_element_026": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://environment/sala de aula/cadeiras.res"
+"save_to_file/path": "res://environment/sala de aula/SalaDeAula3D_element_026.res"
 },
-"SalaDeAula3D_element_001": {
+"SalaDeAula3D_element_027": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://environment/sala de aula/bolas.res"
+"save_to_file/path": "res://environment/sala de aula/SalaDeAula3D_element_027.res"
 },
-"SalaDeAula3D_element_002": {
+"SalaDeAula3D_element_028": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://environment/sala de aula/sala_main.res"
-}
-},
-"nodes": {
-"PATH:BakedMesh/Root/NewGroup0/Cadeiras": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:BakedMesh/Root/NewGroup0/Ponteiros relogio": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:BakedMesh/Root/NewGroup0/Sala": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:BakedMesh/Root/NewGroup0/textura parede": {
-"mesh_instance/cast_shadow": 0
+"save_to_file/path": "res://environment/sala de aula/SalaDeAula3D_element_028.res"
 }
 }
 }

@@ -10,13 +10,13 @@ extends Control
 
 # ITEM NAME, ITEM DESCRIPTION
 var items = [
-	['Café', 'Aumente a velocidade de movimento e ataque em 30% por 3s. Consumível'],
-	['Cachorro', 'Companheiro canino, morde uma lição aleatória a cada 2s. Ataque'],
-	['Maçã', 'Aumente a velocidade de movimento e ataque em 30% por 3 segundos. Consumível'],
-	['Carimbada', 'Acerte o chão empurrando inimigos para longe. Ataque'],
-	['Clipe de Papel', 'Lance um clipe que agrupa inimigos próximos. Ataque'],
-	['Rodopio', 'Rodopie girando o carimbo e acertando quem estiver no caminho. Ataque'],
-	['Grampeador', 'Atira grampos em volta a cada 3s. Ataque']
+	['Café', 'Aumente a velocidade de movimento e ataque em 30% por 3s.', 'Consumível'],
+	['Cachorro', 'Companheiro canino, morde uma lição aleatória a cada 2s.', 'Habilidade'],
+	['Maçã', 'Aumente a velocidade de movimento e ataque em 30% por 3 segundos.', 'Consumível'],
+	['Carimbada', 'Acerte o chão empurrando inimigos para longe.', 'Habilidade'],
+	['Clipe de Papel', 'Lance um clipe que agrupa inimigos próximos.', 'Habilidade'],
+	['Rodopio', 'Rodopie girando o carimbo e acertando quem estiver no caminho.', 'Habilidade'],
+	['Grampeador', 'Atira grampos em volta a cada 3s.', 'Habilidade']
 ]
 var cards = []
 
@@ -25,16 +25,6 @@ signal ended
 
 func _ready() -> void:
 	visible = false
-
-#func _unhandled_input(event: InputEvent) -> void:
-	#if event.is_action('ui_left'):
-		#cards_container.get_child(0).grab_focus()
-	#if event.is_action('ui_right'):
-		#cards_container.get_child(2).grab_focus()
-	#if event.is_action('ui_accept'):
-		#cards_container.get_child(1).grab_focus()
-	#if event.is_action('ui_down') or event.is_action('ui_cancel'):
-		#resume_button.grab_focus()
 
 func enter() -> void:
 	visible = true
@@ -61,6 +51,7 @@ func build_card(card_number : int) -> void:
 	var card_texture = load("res://interfaces/items/Icons/" + card_id[0] + ".png")
 	new_card.icon_tex.texture = card_texture
 	new_card.description_label.text = card_id[1]
+	new_card.type_label.text = card_id[2]
 	
 	new_card.selected.connect(item_selected)
 	

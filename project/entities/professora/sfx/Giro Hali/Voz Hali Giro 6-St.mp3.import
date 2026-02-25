@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b2slxfyp3r78j"
+path="res://.godot/imported/Voz Hali Giro 6-St.mp3-778bb2d42f292c42af209ce89de96cd0.mp3str"
+
+[deps]
+
+source_file="res://entities/professora/sfx/Giro Hali/Voz Hali Giro 6-St.mp3"
+dest_files=["res://.godot/imported/Voz Hali Giro 6-St.mp3-778bb2d42f292c42af209ce89de96cd0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

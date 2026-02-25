@@ -1,6 +1,10 @@
 extends State
 # player SPIN
 
+
+@export var audioclips : Array[AudioStream] = []
+@export var voiceclips : Array[AudioStream] = []
+
 var duration : float = 1
 var duration_timer := Timer.new()
 
@@ -16,6 +20,13 @@ func custom_movement(delta) -> void:
 
 func enter_state() -> void:
 	anim_player.play('Spin_Start')
+	
+	if not audioclips.is_empty():
+		var audio = audioclips.pick_random()
+		SFX_MANAGER.play_sfx_at(audio, parent.global_position, 0, 0.95, 1.05)
+	if not voiceclips.is_empty():
+		var audio = voiceclips.pick_random()
+		SFX_MANAGER.play_sfx_at(audio, parent.global_position, 0, 0.95, 1.05)
 
 func update_state(delta : float) -> void:
 	parent.apply_gravity(delta)

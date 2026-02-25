@@ -1,11 +1,8 @@
 extends Entity
 
-@onready var steps_sfx = [
-	preload("res://entities/professora/sfx/passos/Pedro_Carimbo_Run_v1-2.mp3"),
-	preload("res://entities/professora/sfx/passos/Pedro_Carimbo_Run_v1-3.mp3"),
-	preload("res://entities/professora/sfx/passos/Pedro_Carimbo_Run_v1-4.mp3"),
-	preload("res://entities/professora/sfx/passos/Pedro_Carimbo_Run_v1-5.mp3")
-]
+
+@export var steps_sfx : Array[AudioStream] = []
+@export var steps_voice : Array[AudioStream] = []
 
 var steps_distance : float = 0.2667
 var steps_timer := Timer.new()
@@ -44,6 +41,9 @@ func get_dir_input() -> Vector2:
 func play_step_sfx() -> void:
 	var audio = steps_sfx.pick_random()
 	SFX_MANAGER.play_sfx_at(audio, global_position, 0, 1, 1)
+	
+	var voice = steps_voice.pick_random()
+	SFX_MANAGER.play_sfx_at(voice, global_position, 0, 0.99, 1.1)
 
 func uppercut() -> void:
 	if ['onGround', 'Attack01', 'Attack02', 'Attack03'].has(state_machine.state.name):

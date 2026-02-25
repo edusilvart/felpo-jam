@@ -9,7 +9,7 @@ uniform sampler2D palette_in : source_color;
 uniform sampler2D palette_out : source_color;
 
 vec4 swap_color(vec4 color) {
-    float inc = 1.0 / float(num_colors); 
+    float inc = 1.0 / float(num_colors);
     for (float i = 0.0; i < 1.0; i += inc) {
         vec2 uv = vec2(i, 1.0);
         vec4 color_in = texture(palette_in, uv);

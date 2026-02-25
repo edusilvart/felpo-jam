@@ -32,7 +32,7 @@ func enter_state() -> void:
 	match states[state]:
 		'INTRO':
 			pass
-			change_state('BOSS')
+			change_state('BATTLE')
 		'BATTLE':
 			wave_manager.wave_start()
 			Globals.player.state_machine.set_state('onGround')

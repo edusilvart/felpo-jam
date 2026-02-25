@@ -4,4 +4,4 @@
 
 [node name="Carimbada" type="Node"]
 script = ExtResource("1_okwhs")
-cooldown = 5.0
+cooldown = 1.0

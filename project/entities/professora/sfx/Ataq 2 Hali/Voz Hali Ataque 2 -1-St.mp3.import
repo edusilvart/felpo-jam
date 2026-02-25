@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dcxi8vuschmvs"
+path="res://.godot/imported/Voz Hali Ataque 2 -1-St.mp3-ddc28a446d576ed37b06db09cd87a57a.mp3str"
+
+[deps]
+
+source_file="res://entities/professora/sfx/Ataq 2 Hali/Voz Hali Ataque 2 -1-St.mp3"
+dest_files=["res://.godot/imported/Voz Hali Ataque 2 -1-St.mp3-ddc28a446d576ed37b06db09cd87a57a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

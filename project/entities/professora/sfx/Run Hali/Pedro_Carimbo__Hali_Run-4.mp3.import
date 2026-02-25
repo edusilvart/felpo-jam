@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://qyqw0w4ttr4b"
+path="res://.godot/imported/Pedro_Carimbo__Hali_Run-4.mp3-62db5f56b487f21a595b802a5721abf2.mp3str"
+
+[deps]
+
+source_file="res://entities/professora/sfx/Run Hali/Pedro_Carimbo__Hali_Run-4.mp3"
+dest_files=["res://.godot/imported/Pedro_Carimbo__Hali_Run-4.mp3-62db5f56b487f21a595b802a5721abf2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

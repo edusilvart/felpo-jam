@@ -1,89 +1,172 @@
-[gd_scene load_steps=112 format=3 uid="uid://ckfti4r3wec5h"]
+[gd_scene load_steps=195 format=3 uid="uid://ckfti4r3wec5h"]
 
 [ext_resource type="Script" path="res://entities/professora/professora.gd" id="1_cb7gf"]
+[ext_resource type="AudioStream" uid="uid://c7rw8rgqajkqq" path="res://entities/professora/sfx/passos/Pedro_Carimbo_Run_v1-2.mp3" id="2_h7j4p"]
+[ext_resource type="AudioStream" uid="uid://ckd4no55q6c44" path="res://entities/professora/sfx/passos/Pedro_Carimbo_Run_v1-3.mp3" id="3_4np5p"]
 [ext_resource type="Script" path="res://utilities/StateMachine.gd" id="3_7jv7j"]
 [ext_resource type="Texture2D" uid="uid://cpcf0nkerg5f0" path="res://entities/professora/sprites/idle/final-1.png" id="3_7r8c7"]
 [ext_resource type="Script" path="res://entities/professora/on_ground.gd" id="4_ixk0v"]
+[ext_resource type="AudioStream" uid="uid://chfr4wpvy1cb" path="res://entities/professora/sfx/passos/Pedro_Carimbo_Run_v1-4.mp3" id="4_kjcgp"]
 [ext_resource type="Script" path="res://entities/professora/jump.gd" id="5_0smar"]
+[ext_resource type="AudioStream" uid="uid://btvmxi0ld3stu" path="res://entities/professora/sfx/passos/Pedro_Carimbo_Run_v1-5.mp3" id="5_k7757"]
+[ext_resource type="AudioStream" uid="uid://bux4ru8uqjaob" path="res://entities/professora/sfx/passos/Pedro_Carimbo_Run_v1-6.mp3" id="6_5sawa"]
 [ext_resource type="Script" path="res://entities/professora/fall.gd" id="6_y11v4"]
+[ext_resource type="AudioStream" uid="uid://bn50n4l2sgr02" path="res://entities/professora/sfx/passos/Pedro_Carimbo_Run_v1-7.mp3" id="7_am4o8"]
 [ext_resource type="PackedScene" uid="uid://dpcpaader3cv2" path="res://entities/drop_shadow.tscn" id="7_jhtld"]
 [ext_resource type="Script" path="res://entities/attack.gd" id="7_qq5e1"]
 [ext_resource type="PackedScene" uid="uid://12lpbcxnno48" path="res://entities/hitbox.tscn" id="8_afmb4"]
+[ext_resource type="AudioStream" uid="uid://4powudscsm1q" path="res://entities/professora/sfx/passos/Pedro_Carimbo_Run_v1-8.mp3" id="8_jpv1h"]
 [ext_resource type="Script" path="res://entities/professora/dodge.gd" id="8_tucwh"]
 [ext_resource type="Script" path="res://entities/hit.gd" id="9_4jv71"]
+[ext_resource type="AudioStream" uid="uid://bvwr0kn88rt1n" path="res://entities/professora/sfx/passos/Pedro_Carimbo_Run_v1-9.mp3" id="9_6j0u3"]
 [ext_resource type="PackedScene" uid="uid://c3odqfkbyxwl5" path="res://entities/hurtbox.tscn" id="9_q1tcf"]
 [ext_resource type="Script" path="res://entities/professora/spin.gd" id="10_8ee6k"]
+[ext_resource type="AudioStream" uid="uid://ckftxwehgry4k" path="res://entities/professora/sfx/passos/Pedro_Carimbo_Run_v1-10.mp3" id="10_tilap"]
+[ext_resource type="AudioStream" uid="uid://2xnvi37nxjvl" path="res://entities/professora/sfx/Ataq 1 Hali/Voz Hali Ataque 1 - 1-St.mp3" id="11_c0lvt"]
+[ext_resource type="AudioStream" uid="uid://c7rvbt52s3pc6" path="res://entities/professora/sfx/passos/Pedro_Carimbo_Run_v1-11.mp3" id="11_rg6x2"]
 [ext_resource type="Script" path="res://entities/professora/waiting.gd" id="11_uu51o"]
+[ext_resource type="AudioStream" uid="uid://d3qrsa0o2br8v" path="res://entities/professora/sfx/passos/Pedro_Carimbo_Run_v1-12.mp3" id="12_iv4p7"]
+[ext_resource type="AudioStream" uid="uid://bat76rqsywh36" path="res://entities/professora/sfx/Ataq 1 Hali/Voz Hali Ataque 1 - 2-St.mp3" id="12_u3w7w"]
 [ext_resource type="AudioStream" uid="uid://dng7c44yvbx7a" path="res://entities/professora/sfx/Pedro_Carimbo_Aereo1.mp3" id="13_7f457"]
+[ext_resource type="AudioStream" uid="uid://dilx60sfffojr" path="res://entities/professora/sfx/passos/Pedro_Carimbo_Run_v1.mp3" id="13_8xuqy"]
+[ext_resource type="AudioStream" uid="uid://dhe7mmvfidmhp" path="res://entities/professora/sfx/Ataq 1 Hali/Voz Hali Ataque 1 - 3-St.mp3" id="13_jgqkc"]
 [ext_resource type="Texture2D" uid="uid://cjq2v6gsvy2h" path="res://entities/professora/sprites/idle/final-2.png" id="13_n6qch"]
+[ext_resource type="AudioStream" uid="uid://c42g8dm3ti0js" path="res://entities/professora/sfx/Run Hali/Pedro_Carimbo__Hali_Run.mp3" id="14_3j4pa"]
 [ext_resource type="Texture2D" uid="uid://duj41ci22qrut" path="res://entities/professora/sprites/idle/final-3.png" id="14_lrwwb"]
 [ext_resource type="AudioStream" uid="uid://dvn1dojsiwy5b" path="res://entities/professora/sfx/Pedro_Carimbo_Aereo2.mp3" id="14_wd263"]
+[ext_resource type="AudioStream" uid="uid://iihe6ojecw4" path="res://entities/professora/sfx/Ataq 1 Hali/Voz Hali Ataque 1 - 5-St.mp3" id="15_4un2d"]
 [ext_resource type="AudioStream" uid="uid://bi0uvukb5yl8g" path="res://entities/professora/sfx/Pedro_Carimbo_Aereo3.mp3" id="15_57wnr"]
+[ext_resource type="AudioStream" uid="uid://0mshg67isn2t" path="res://entities/professora/sfx/Run Hali/Pedro_Carimbo__Hali_Run-2.mp3" id="15_f5bhc"]
 [ext_resource type="Texture2D" uid="uid://bmifyynlbn8ag" path="res://entities/professora/sprites/idle/final-4.png" id="15_v4lff"]
 [ext_resource type="Texture2D" uid="uid://cmw8afp1hj1v4" path="res://entities/professora/sprites/run/final-1.png" id="16_e22ht"]
 [ext_resource type="AudioStream" uid="uid://cegi3sylc0to8" path="res://entities/professora/sfx/Pedro_Carimbo_Carimbada1.mp3" id="16_r4aag"]
+[ext_resource type="AudioStream" uid="uid://d3gqvcoxlfxfa" path="res://entities/professora/sfx/Ataq 1 Hali/Voz Hali Ataque 1 - 6-St.mp3" id="16_rv0pd"]
+[ext_resource type="AudioStream" uid="uid://cqudsqy1jsy8" path="res://entities/professora/sfx/Run Hali/Pedro_Carimbo__Hali_Run-3.mp3" id="16_t58sb"]
 [ext_resource type="AudioStream" uid="uid://bnseil0easyh8" path="res://entities/professora/sfx/Pedro_Carimbo_Carimbada2.mp3" id="17_6rse6"]
 [ext_resource type="Texture2D" uid="uid://b02mvsiwwbv0m" path="res://entities/professora/sprites/run/final-2.png" id="17_6v2h2"]
+[ext_resource type="AudioStream" uid="uid://m2b83jev3ryn" path="res://entities/professora/sfx/Ataq 1 Hali/Voz Hali Ataque 1 - 7-St.mp3" id="17_fnp40"]
+[ext_resource type="AudioStream" uid="uid://qyqw0w4ttr4b" path="res://entities/professora/sfx/Run Hali/Pedro_Carimbo__Hali_Run-4.mp3" id="17_hiydv"]
+[ext_resource type="AudioStream" uid="uid://bdn78bk5hhos3" path="res://entities/professora/sfx/Ataq 1 Hali/Voz Hali Ataque 1 - 8-St.mp3" id="18_bbdho"]
 [ext_resource type="Texture2D" uid="uid://0uxfxtop1pgq" path="res://entities/professora/sprites/run/final-3.png" id="18_fvwgr"]
+[ext_resource type="AudioStream" uid="uid://cfdphw7u40nki" path="res://entities/professora/sfx/Run Hali/Pedro_Carimbo__Hali_Run-5.mp3" id="18_lucj6"]
+[ext_resource type="AudioStream" uid="uid://0wmjcnh6m3vq" path="res://entities/professora/sfx/Run Hali/Pedro_Carimbo__Hali_Run-6.mp3" id="19_5lpae"]
+[ext_resource type="AudioStream" uid="uid://dre2e04551cc4" path="res://entities/professora/sfx/Ataq 1 Hali/Voz Hali Ataque 1 - 9-St.mp3" id="19_c5ij1"]
 [ext_resource type="Texture2D" uid="uid://c7rc4c00harrr" path="res://entities/professora/sprites/run/final-4.png" id="19_g7dfb"]
+[ext_resource type="AudioStream" uid="uid://bqes85ay4pi83" path="res://entities/professora/sfx/Ataq 1 Hali/Voz Hali Ataque 1 --St.mp3" id="20_7bxln"]
+[ext_resource type="AudioStream" uid="uid://bvfoxpruqbgm5" path="res://entities/professora/sfx/Run Hali/Pedro_Carimbo__Hali_Run-7.mp3" id="20_172nj"]
 [ext_resource type="Script" path="res://entities/flying.gd" id="20_e66eb"]
 [ext_resource type="Texture2D" uid="uid://bgppixygqmt24" path="res://entities/professora/sprites/poses/pulo.png" id="20_l68uq"]
 [ext_resource type="Texture2D" uid="uid://dyoj1iksh1868" path="res://entities/professora/sprites/poses/queda.png" id="21_6w4kc"]
 [ext_resource type="Script" path="res://entities/professora/death.gd" id="21_ko4vi"]
 [ext_resource type="Texture2D" uid="uid://capvj57n7c5yy" path="res://entities/professora/sprites/poses/hit.png" id="22_5d5bj"]
+[ext_resource type="AudioStream" uid="uid://dcxi8vuschmvs" path="res://entities/professora/sfx/Ataq 2 Hali/Voz Hali Ataque 2 -1-St.mp3" id="22_bkwvv"]
 [ext_resource type="Texture2D" uid="uid://5yyrxj2rjq70" path="res://entities/professora/sprites/poses/voa.png" id="23_ey3mf"]
+[ext_resource type="AudioStream" uid="uid://cxt7qtdyjin6l" path="res://entities/professora/sfx/Ataq 2 Hali/Voz Hali Ataque 2 -2-St.mp3" id="23_f10m4"]
+[ext_resource type="AudioStream" uid="uid://dmx46mcdb251g" path="res://entities/professora/sfx/Ataq 2 Hali/Voz Hali Ataque 2 -3-St.mp3" id="24_85vx7"]
 [ext_resource type="Texture2D" uid="uid://3la25paxijy3" path="res://entities/professora/sprites/poses/caida.png" id="24_hfn35"]
 [ext_resource type="Texture2D" uid="uid://cvpv1f25yyolw" path="res://entities/professora/sprites/atq 1/final-1.png" id="25_ewdgh"]
+[ext_resource type="AudioStream" uid="uid://kus1s1f87f1x" path="res://entities/professora/sfx/Ataq 2 Hali/Voz Hali Ataque 2 -4-St.mp3" id="25_ldsol"]
 [ext_resource type="Texture2D" uid="uid://bilv4xs5v2u48" path="res://entities/professora/sprites/atq 1/final-2.png" id="26_0g32y"]
+[ext_resource type="AudioStream" uid="uid://bs2cq05gaa77f" path="res://entities/professora/sfx/Ataq 2 Hali/Voz Hali Ataque 2 -5-St.mp3" id="26_fjsn2"]
 [ext_resource type="Texture2D" uid="uid://cdryd5lf06233" path="res://entities/professora/sprites/atq 1/final-3.png" id="27_4fonq"]
+[ext_resource type="AudioStream" uid="uid://duehf485of68q" path="res://entities/professora/sfx/Ataq 2 Hali/Voz Hali Ataque 2 -6-St.mp3" id="27_q0a0t"]
 [ext_resource type="Texture2D" uid="uid://d0egn7j3flgw3" path="res://entities/professora/sprites/atq 1/final-4.png" id="28_ht5pu"]
+[ext_resource type="AudioStream" uid="uid://cnb3ay8aiii22" path="res://entities/professora/sfx/Ataq 2 Hali/Voz Hali Ataque 2 -7-St.mp3" id="28_jt2ww"]
 [ext_resource type="Texture2D" uid="uid://bdghku1m0itu8" path="res://entities/professora/sprites/atq 1/final-5.png" id="29_lkypt"]
+[ext_resource type="AudioStream" uid="uid://cbvg10rn6qnc3" path="res://entities/professora/sfx/Ataq 2 Hali/Voz Hali Ataque 2 -8-St.mp3" id="29_tysyi"]
 [ext_resource type="Texture2D" uid="uid://dn4eyqjdutdby" path="res://entities/professora/sprites/atq 1/final-6.png" id="30_5hp3n"]
+[ext_resource type="AudioStream" uid="uid://bpqbi7blgqbux" path="res://entities/professora/sfx/Ataq 2 Hali/Voz Hali Ataque 2 -9-St.mp3" id="30_jl36d"]
+[ext_resource type="AudioStream" uid="uid://bhsvgu6yiio7v" path="res://entities/professora/sfx/Ataq 2 Hali/Voz Hali Ataque 2 -10-St.mp3" id="31_odv28"]
 [ext_resource type="Texture2D" uid="uid://j3chn10hm5fk" path="res://entities/professora/sprites/atq 1/final-7.png" id="31_tcn6b"]
+[ext_resource type="AudioStream" uid="uid://beswrrcrcv4ns" path="res://entities/professora/sfx/Ataq 2 Hali/Voz Hali Ataque 2 -11-St.mp3" id="32_2se57"]
 [ext_resource type="Texture2D" uid="uid://cdwkbivveicr2" path="res://entities/professora/sprites/atq 2/final-1.png" id="32_ahquv"]
 [ext_resource type="AudioStream" uid="uid://b0x4xonekggg5" path="res://entities/professora/sfx/Pedro_Carimbo_Ataq2_v1.mp3" id="32_kf4lk"]
 [ext_resource type="Texture2D" uid="uid://jselk6nawxx2" path="res://entities/professora/sprites/atq 2/final-2.png" id="33_nnba4"]
+[ext_resource type="AudioStream" uid="uid://ckp65s07erk5s" path="res://entities/professora/sfx/Ataq 3 Hali/Voz Hali Ataque 3 - 1-St.mp3" id="34_hg7i3"]
 [ext_resource type="Texture2D" uid="uid://bhu017716u2bx" path="res://entities/professora/sprites/atq 2/final-3.png" id="34_xvcnt"]
+[ext_resource type="AudioStream" uid="uid://bj18vo6apd0q0" path="res://entities/professora/sfx/Ataq 3 Hali/Voz Hali Ataque 3 - 2-St.mp3" id="35_df4px"]
 [ext_resource type="Texture2D" uid="uid://vc1vrxn1pe2r" path="res://entities/professora/sprites/atq 2/final-4.png" id="35_nfexo"]
 [ext_resource type="Texture2D" uid="uid://bvi0feymyfalm" path="res://entities/professora/sprites/atq 2/final-5.png" id="36_gmpe0"]
+[ext_resource type="AudioStream" uid="uid://e5duulh71rj7" path="res://entities/professora/sfx/Ataq 3 Hali/Voz Hali Ataque 3 - 3-St.mp3" id="36_nhj1b"]
 [ext_resource type="Texture2D" uid="uid://jvvlylv5kmc8" path="res://entities/professora/sprites/atq 2/final-6.png" id="37_2ofpx"]
+[ext_resource type="AudioStream" uid="uid://cce22h40h6p2q" path="res://entities/professora/sfx/Ataq 3 Hali/Voz Hali Ataque 3 - 4-St.mp3" id="37_gscxr"]
+[ext_resource type="AudioStream" uid="uid://vxkrbb16ht4s" path="res://entities/professora/sfx/Ataq 3 Hali/Voz Hali Ataque 3 - 5-St.mp3" id="38_gqxep"]
 [ext_resource type="Texture2D" uid="uid://bvht3mui04xr2" path="res://entities/professora/sprites/atq 2/final-7.png" id="38_rdnyk"]
+[ext_resource type="AudioStream" uid="uid://bnl0yuafyin2a" path="res://entities/professora/sfx/Ataq 3 Hali/Voz Hali Ataque 3 - 6-St.mp3" id="39_b8m03"]
 [ext_resource type="Texture2D" uid="uid://dnl0imeq34x8m" path="res://entities/professora/sprites/atq 3/final-1.png" id="39_cb0tc"]
 [ext_resource type="Texture2D" uid="uid://cgvy6hgdpn5sc" path="res://entities/professora/sprites/atq 3/final-2.png" id="40_atr11"]
 [ext_resource type="AudioStream" uid="uid://3ag7tsfr2tvh" path="res://entities/professora/sfx/Pedro_Carimbo_Ataq3_v1.mp3" id="40_tuhi8"]
+[ext_resource type="AudioStream" uid="uid://h8yrk82m561c" path="res://entities/professora/sfx/Ataq 3 Hali/Voz Hali Ataque 3 - 7-St.mp3" id="40_wd0py"]
 [ext_resource type="Texture2D" uid="uid://bgb386dkbp7cm" path="res://entities/professora/sprites/atq 3/final-3.png" id="41_1a8p3"]
+[ext_resource type="AudioStream" uid="uid://d2x7uog3erq1l" path="res://entities/professora/sfx/Ataq 3 Hali/Voz Hali Ataque 3 - 8-St.mp3" id="41_xlb50"]
+[ext_resource type="AudioStream" uid="uid://beiexaid71a2u" path="res://entities/professora/sfx/Ataq 3 Hali/Voz Hali Ataque 3 - 9-St.mp3" id="42_dw33r"]
 [ext_resource type="Texture2D" uid="uid://byegk2ice7on6" path="res://entities/professora/sprites/atq 3/final-4.png" id="42_hr8lh"]
 [ext_resource type="Texture2D" uid="uid://dx1ytkfhfqekg" path="res://entities/professora/sprites/atq 3/final-5.png" id="43_omqux"]
+[ext_resource type="AudioStream" uid="uid://dwylqu4gdrhw5" path="res://entities/professora/sfx/Ataq 3 Hali/Voz Hali Ataque 3 - 10-St.mp3" id="43_wwfna"]
 [ext_resource type="Texture2D" uid="uid://ippks30uwokp" path="res://entities/professora/sprites/atq 3/final-6.png" id="44_go1bq"]
 [ext_resource type="Texture2D" uid="uid://n6nvfq5joo0f" path="res://entities/professora/sprites/atq 3/final-7.png" id="45_ejg6q"]
 [ext_resource type="Texture2D" uid="uid://dteb21g4aundp" path="res://entities/professora/sprites/aereo/final-1.png" id="46_7le6y"]
+[ext_resource type="AudioStream" uid="uid://vr2h2kirmxai" path="res://entities/professora/sfx/Uppercut Hali/Voz Hali Uppercut - 1-St.mp3" id="47_7n7y4"]
 [ext_resource type="Texture2D" uid="uid://c881kwfwabvpw" path="res://entities/professora/sprites/aereo/final-2.png" id="47_dvixb"]
+[ext_resource type="AudioStream" uid="uid://dtt116g2gbjh8" path="res://entities/professora/sfx/Uppercut/Pedro_Carimbo__Uppercut1.mp3" id="47_enh4m"]
+[ext_resource type="AudioStream" uid="uid://d2r3r48ogphsq" path="res://entities/professora/sfx/Uppercut Hali/Voz Hali Uppercut - 2-St.mp3" id="48_cs542"]
 [ext_resource type="Texture2D" uid="uid://k0qiu364b4kv" path="res://entities/professora/sprites/aereo/final-3.png" id="48_hli6y"]
+[ext_resource type="AudioStream" uid="uid://cfxv1ojs2egs3" path="res://entities/professora/sfx/Uppercut/Pedro_Carimbo__Uppercut2.mp3" id="48_ul6fn"]
 [ext_resource type="Texture2D" uid="uid://bugdc2ab0pnhk" path="res://entities/professora/sprites/aereo/final-4.png" id="49_k58r1"]
+[ext_resource type="AudioStream" uid="uid://d224vy0u15hfu" path="res://entities/professora/sfx/Uppercut Hali/Voz Hali Uppercut - 3-St.mp3" id="49_ob7k8"]
 [ext_resource type="Texture2D" uid="uid://cvw5yswj4l6ng" path="res://entities/professora/sprites/uppercut/final-1.png" id="50_583ew"]
+[ext_resource type="AudioStream" uid="uid://hphmvhbymbsx" path="res://entities/professora/sfx/Uppercut Hali/Voz Hali Uppercut - 4-St.mp3" id="50_acsot"]
 [ext_resource type="Texture2D" uid="uid://bx5wukibx2yv3" path="res://entities/professora/sprites/uppercut/final-2.png" id="51_8lv15"]
+[ext_resource type="AudioStream" uid="uid://bsftmfhe6ou3v" path="res://entities/professora/sfx/Uppercut Hali/Voz Hali Uppercut - 5-St.mp3" id="51_tgns6"]
 [ext_resource type="Texture2D" uid="uid://bvfu6bhxfgono" path="res://entities/professora/sprites/uppercut/final-3.png" id="52_6ud1m"]
+[ext_resource type="AudioStream" uid="uid://cnor7fenvmtge" path="res://entities/professora/sfx/Uppercut Hali/Voz Hali Uppercut - 6-St.mp3" id="52_rqivp"]
+[ext_resource type="AudioStream" uid="uid://c2v2u74s2jaj2" path="res://entities/professora/sfx/Uppercut Hali/Voz Hali Uppercut - 7-St.mp3" id="53_dldhi"]
 [ext_resource type="Texture2D" uid="uid://p81sul3qmny4" path="res://entities/professora/sprites/uppercut/final-4.png" id="53_vb1j3"]
+[ext_resource type="AudioStream" uid="uid://8g0f07wjhu65" path="res://entities/professora/sfx/Uppercut Hali/Voz Hali Uppercut - 8-St.mp3" id="54_7tm0t"]
 [ext_resource type="Texture2D" uid="uid://cfr8gqvakxlti" path="res://entities/professora/sprites/giro/final-1.png" id="54_ikfl7"]
 [ext_resource type="Texture2D" uid="uid://gre3p6eml1bh" path="res://entities/professora/sprites/giro/final-2.png" id="55_3aalq"]
+[ext_resource type="AudioStream" uid="uid://16ijjm0w6qr7" path="res://entities/professora/sfx/Uppercut Hali/Voz Hali Uppercut - 9-St.mp3" id="55_oq2gu"]
 [ext_resource type="Texture2D" uid="uid://1q48u57orlbm" path="res://entities/professora/sprites/giro/final-3.png" id="56_ocysp"]
 [ext_resource type="Texture2D" uid="uid://ckhe318rvltnh" path="res://entities/professora/sprites/giro/final-4.png" id="57_tvc6u"]
 [ext_resource type="Texture2D" uid="uid://bnoa3jbcw87qu" path="res://entities/professora/sprites/giro/final-5.png" id="58_4o5w6"]
+[ext_resource type="AudioStream" uid="uid://br6cscut1cp02" path="res://entities/professora/sfx/Carimbada Hali/Voz Hali Carimbada - 1-St.mp3" id="58_fdnor"]
+[ext_resource type="AudioStream" uid="uid://c7dcsycdhi1qr" path="res://entities/professora/sfx/Carimbada Hali/Voz Hali Carimbada - 2-St.mp3" id="59_2w04c"]
 [ext_resource type="Texture2D" uid="uid://usi6kep05r4f" path="res://entities/professora/sprites/giro/final-6.png" id="59_2ym74"]
+[ext_resource type="AudioStream" uid="uid://d1tvi1jwga53i" path="res://entities/professora/sfx/Carimbada Hali/Voz Hali Carimbada - 3-St.mp3" id="60_g3h5k"]
 [ext_resource type="Texture2D" uid="uid://b6bpwkveo66m3" path="res://entities/professora/sprites/giro/final-7.png" id="60_k7ufx"]
+[ext_resource type="AudioStream" uid="uid://rqfqtnpnqndi" path="res://entities/professora/sfx/Carimbada Hali/Voz Hali Carimbada - 4-St.mp3" id="61_4nn3e"]
 [ext_resource type="Texture2D" uid="uid://kjigj4c3sntt" path="res://entities/professora/sprites/giro/final-8.png" id="61_kc6ie"]
 [ext_resource type="Texture2D" uid="uid://d3qlu172xs1gj" path="res://entities/professora/sprites/carimbada/final-1.png" id="62_0sgrn"]
+[ext_resource type="AudioStream" uid="uid://cmj5s0d7u88pf" path="res://entities/professora/sfx/Carimbada Hali/Voz Hali Carimbada - 5-St.mp3" id="62_vs3bp"]
+[ext_resource type="AudioStream" uid="uid://blebwkvrbgg8" path="res://entities/professora/sfx/Carimbada Hali/Voz Hali Carimbada - 6-St.mp3" id="63_adhp8"]
 [ext_resource type="Texture2D" uid="uid://dg1tp5hgh87wd" path="res://entities/professora/sprites/carimbada/final-2.png" id="63_u4t0m"]
 [ext_resource type="Texture2D" uid="uid://w6abvy7oyoag" path="res://entities/professora/sprites/carimbada/final-3.png" id="64_t07u4"]
+[ext_resource type="AudioStream" uid="uid://48xi74kxxqec" path="res://entities/professora/sfx/Carimbada Hali/Voz Hali Carimbada - 7-St.mp3" id="64_tefu6"]
+[ext_resource type="AudioStream" uid="uid://b76mp0axauk83" path="res://entities/professora/sfx/Carimbada Hali/Voz Hali Carimbada - 8-St.mp3" id="65_ix2on"]
 [ext_resource type="Texture2D" uid="uid://dl7wcfd8d4jx6" path="res://entities/professora/sprites/carimbada/final-4.png" id="65_j4sgq"]
+[ext_resource type="AudioStream" uid="uid://dndsuwxysiikf" path="res://entities/professora/sfx/Carimbada Hali/Voz Hali Carimbada - 9-St.mp3" id="66_fx36r"]
 [ext_resource type="Texture2D" uid="uid://c6lhv8xipwen" path="res://entities/professora/sprites/carimbada/final-5.png" id="66_w0oih"]
 [ext_resource type="AudioStream" uid="uid://ncob1rifcvtc" path="res://entities/professora/sfx/Pedro_Carimbo_Ataq1_v1.mp3" id="69_ybfvd"]
+[ext_resource type="AudioStream" uid="uid://c2osr7n8odit3" path="res://entities/professora/sfx/Giro/Pedro_Carimbo__Giro1.mp3" id="70_h3725"]
+[ext_resource type="AudioStream" uid="uid://cbebjecto755o" path="res://entities/professora/sfx/Giro/Pedro_Carimbo__Giro2.mp3" id="71_a5sjb"]
+[ext_resource type="AudioStream" uid="uid://bfx4opfbeabnq" path="res://entities/professora/sfx/Giro Hali/Voz Hali Giro 1-St.mp3" id="72_5a6vw"]
+[ext_resource type="AudioStream" uid="uid://di0v4mpww83sw" path="res://entities/professora/sfx/Giro Hali/Voz Hali Giro 2-St.mp3" id="73_kcagf"]
+[ext_resource type="AudioStream" uid="uid://bsdtemv3jlh1r" path="res://entities/professora/sfx/Giro Hali/Voz Hali Giro 3-St.mp3" id="74_vtrvk"]
+[ext_resource type="AudioStream" uid="uid://c2phmmbksww0" path="res://entities/professora/sfx/Giro Hali/Voz Hali Giro 4-St.mp3" id="75_eeccj"]
+[ext_resource type="AudioStream" uid="uid://n2jd7atsv8g7" path="res://entities/professora/sfx/Giro Hali/Voz Hali Giro 5-St.mp3" id="76_kbonh"]
+[ext_resource type="AudioStream" uid="uid://b2slxfyp3r78j" path="res://entities/professora/sfx/Giro Hali/Voz Hali Giro 6-St.mp3" id="77_lctxl"]
 [ext_resource type="Texture2D" uid="uid://c70s50228kufc" path="res://entities/professora/sprites/dodge/final-2.png" id="77_wekpu"]
+[ext_resource type="AudioStream" uid="uid://co3rhmyujpyf7" path="res://entities/professora/sfx/Giro Hali/Voz Hali Giro 7-St.mp3" id="78_emi1c"]
 [ext_resource type="Texture2D" uid="uid://c8qpggfospo7" path="res://entities/professora/sprites/dodge/final-3.png" id="78_xvs0r"]
 [ext_resource type="Texture2D" uid="uid://bapi0gqeivjmp" path="res://entities/professora/sprites/dodge/final-4.png" id="79_o3boy"]
+[ext_resource type="AudioStream" uid="uid://cwy7leypj5loi" path="res://entities/professora/sfx/Giro Hali/Voz Hali Giro 8-St.mp3" id="79_p1lxn"]
 [ext_resource type="Texture2D" uid="uid://x5i2rwiu011e" path="res://entities/professora/sprites/dodge/final-5.png" id="80_2lp73"]
+[ext_resource type="AudioStream" uid="uid://brlb5koq85wo" path="res://entities/professora/sfx/Giro Hali/Voz Hali Giro 9-St.mp3" id="80_nlsr7"]
+[ext_resource type="AudioStream" uid="uid://bvtpvm4agd7xa" path="res://entities/professora/sfx/Giro Hali/Voz Hali Giro 10-St.mp3" id="81_stb81"]
 [ext_resource type="Texture2D" uid="uid://ca2qstmnt2pve" path="res://entities/professora/sprites/dodge/final-6.png" id="81_wm6nq"]
+[ext_resource type="AudioStream" uid="uid://b4qf8j2xlj8n" path="res://entities/professora/sfx/Giro Hali/Voz Hali Giro 11-St.mp3" id="82_isojj"]
 [ext_resource type="Texture2D" uid="uid://70adrjx1b6f2" path="res://entities/professora/sprites/dodge/final-7.png" id="82_kmgp6"]
+[ext_resource type="AudioStream" uid="uid://buh7pb1m83kq4" path="res://entities/professora/sfx/Ataq 1 Hali/Voz Hali Ataque 1 - 4-St.mp3" id="85_u8i7r"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_d33cd"]
 height = 0.379445
@@ -1337,6 +1420,8 @@ size = Vector3(0.4, 0.4, 0.4)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_cb7gf")
+steps_sfx = Array[AudioStream]([ExtResource("2_h7j4p"), ExtResource("3_4np5p"), ExtResource("4_kjcgp"), ExtResource("5_k7757"), ExtResource("6_5sawa"), ExtResource("7_am4o8"), ExtResource("8_jpv1h"), ExtResource("9_6j0u3"), ExtResource("10_tilap"), ExtResource("11_rg6x2"), ExtResource("12_iv4p7"), ExtResource("13_8xuqy")])
+steps_voice = Array[AudioStream]([ExtResource("14_3j4pa"), ExtResource("15_f5bhc"), ExtResource("16_t58sb"), ExtResource("17_hiydv"), ExtResource("18_lucj6"), ExtResource("19_5lpae"), ExtResource("20_172nj"), ExtResource("14_3j4pa")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_d33cd")
@@ -1392,6 +1477,7 @@ movement_duration = 0.2
 movement_curve = SubResource("Curve_wdcjb")
 chain = 2
 audioclips = Array[AudioStream]([ExtResource("69_ybfvd")])
+voiceclips = Array[AudioStream]([ExtResource("11_c0lvt"), ExtResource("12_u3w7w"), ExtResource("13_jgqkc"), ExtResource("85_u8i7r"), ExtResource("15_4un2d"), ExtResource("16_rv0pd"), ExtResource("17_fnp40"), ExtResource("18_bbdho"), ExtResource("19_c5ij1"), ExtResource("20_7bxln")])
 
 [node name="Attack02" type="Node" parent="StateMachine"]
 script = ExtResource("7_qq5e1")
@@ -1402,6 +1488,7 @@ movement_duration = 0.2
 movement_curve = SubResource("Curve_wdcjb")
 chain = 3
 audioclips = Array[AudioStream]([ExtResource("32_kf4lk")])
+voiceclips = Array[AudioStream]([ExtResource("22_bkwvv"), ExtResource("23_f10m4"), ExtResource("24_85vx7"), ExtResource("25_ldsol"), ExtResource("26_fjsn2"), ExtResource("27_q0a0t"), ExtResource("28_jt2ww"), ExtResource("29_tysyi"), ExtResource("30_jl36d"), ExtResource("31_odv28"), ExtResource("32_2se57")])
 
 [node name="Attack03" type="Node" parent="StateMachine"]
 script = ExtResource("7_qq5e1")
@@ -1413,6 +1500,7 @@ movement_duration = 0.43
 heavy_attack = true
 movement_curve = SubResource("Curve_cyqpu")
 audioclips = Array[AudioStream]([ExtResource("40_tuhi8")])
+voiceclips = Array[AudioStream]([ExtResource("34_hg7i3"), ExtResource("35_df4px"), ExtResource("36_nhj1b"), ExtResource("37_gscxr"), ExtResource("38_gqxep"), ExtResource("39_b8m03"), ExtResource("40_wd0py"), ExtResource("41_xlb50"), ExtResource("42_dw33r"), ExtResource("43_wwfna")])
 
 [node name="Air_Attack" type="Node" parent="StateMachine"]
 script = ExtResource("7_qq5e1")
@@ -1425,6 +1513,7 @@ movement_duration = 0.2
 heavy_attack = true
 movement_curve = SubResource("Curve_75o8r")
 audioclips = Array[AudioStream]([ExtResource("13_7f457"), ExtResource("14_wd263"), ExtResource("15_57wnr")])
+voiceclips = Array[AudioStream]([ExtResource("11_c0lvt"), ExtResource("12_u3w7w"), ExtResource("13_jgqkc"), ExtResource("85_u8i7r"), ExtResource("15_4un2d"), ExtResource("16_rv0pd"), ExtResource("17_fnp40"), ExtResource("18_bbdho"), ExtResource("19_c5ij1"), ExtResource("20_7bxln")])
 
 [node name="Uppercut" type="Node" parent="StateMachine"]
 script = ExtResource("7_qq5e1")
@@ -1436,6 +1525,8 @@ movement_speed = Vector2(2, 2)
 movement_duration = 0.2
 heavy_attack = true
 movement_curve = SubResource("Curve_hdm6c")
+audioclips = Array[AudioStream]([ExtResource("47_enh4m"), ExtResource("48_ul6fn")])
+voiceclips = Array[AudioStream]([ExtResource("47_7n7y4"), ExtResource("48_cs542"), ExtResource("49_ob7k8"), ExtResource("50_acsot"), ExtResource("51_tgns6"), ExtResource("52_rqivp"), ExtResource("53_dldhi"), ExtResource("54_7tm0t"), ExtResource("55_oq2gu")])
 
 [node name="Stomp" type="Node" parent="StateMachine"]
 script = ExtResource("7_qq5e1")
@@ -1447,9 +1538,12 @@ movement_duration = 0.467
 heavy_attack = true
 movement_curve = SubResource("Curve_bon5s")
 audioclips = Array[AudioStream]([ExtResource("16_r4aag"), ExtResource("17_6rse6")])
+voiceclips = Array[AudioStream]([ExtResource("58_fdnor"), ExtResource("59_2w04c"), ExtResource("60_g3h5k"), ExtResource("61_4nn3e"), ExtResource("62_vs3bp"), ExtResource("63_adhp8"), ExtResource("64_tefu6"), ExtResource("65_ix2on"), ExtResource("66_fx36r")])
 
 [node name="Spin" type="Node" parent="StateMachine"]
 script = ExtResource("10_8ee6k")
+audioclips = Array[AudioStream]([ExtResource("70_h3725"), ExtResource("71_a5sjb")])
+voiceclips = Array[AudioStream]([ExtResource("72_5a6vw"), ExtResource("73_kcagf"), ExtResource("74_vtrvk"), ExtResource("75_eeccj"), ExtResource("76_kbonh"), ExtResource("77_lctxl"), ExtResource("78_emi1c"), ExtResource("79_p1lxn"), ExtResource("80_nlsr7"), ExtResource("81_stb81"), ExtResource("82_isojj")])
 
 [node name="Hit" type="Node" parent="StateMachine"]
 script = ExtResource("9_4jv71")
@@ -1479,3 +1573,6 @@ collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
 shape = SubResource("BoxShape3D_h0s3f")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("47_enh4m")

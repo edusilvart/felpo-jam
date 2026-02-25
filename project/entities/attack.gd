@@ -15,6 +15,7 @@ var runtime : float = 0
 @export var projectile_scene : PackedScene
 
 @export var audioclips : Array[AudioStream] = []
+@export var voiceclips : Array[AudioStream] = []
 
 var input_lock : float = false
 var action_buffered : String = ''
@@ -47,6 +48,9 @@ func enter_state() -> void:
 	
 	if not audioclips.is_empty():
 		var audio = audioclips.pick_random()
+		SFX_MANAGER.play_sfx_at(audio, parent.global_position, 0, 0.95, 1.05)
+	if not voiceclips.is_empty():
+		var audio = voiceclips.pick_random()
 		SFX_MANAGER.play_sfx_at(audio, parent.global_position, 0, 0.95, 1.05)
 
 func unlock_input() -> void:
@@ -89,18 +93,19 @@ func update_state(delta : float) -> void:
 		else:
 			action_buffered = ''
 	
-	if movement_speed != Vector2.ZERO and runtime < movement_duration:
-		runtime += delta
-		var movement_power : float = movement_curve.sample_baked(runtime / movement_duration)
-		var motion : Vector2 = movement_speed * movement_power
-		
-		parent.velocity.x = motion.x * direction
-		if air_attack:
-			parent.apply_gravity(delta)
-		else:
-			parent.velocity.y = motion.y
-		
+	if air_attack:
+		parent.apply_gravity(delta)
 		parent.move_and_slide()
+	else:
+		if movement_speed != Vector2.ZERO and runtime < movement_duration:
+			runtime += delta
+			var movement_power : float = movement_curve.sample_baked(runtime / movement_duration)
+			var motion : Vector2 = movement_speed * movement_power
+			
+			parent.velocity.x = motion.x * direction
+			parent.velocity.y = motion.y
+			
+			parent.move_and_slide()
 
 func custom_movement(delta) -> void:
 	pass

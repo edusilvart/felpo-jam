@@ -7,12 +7,12 @@ var HUD
 
 var player_range : bool = false
 var attack_cooldown : float = 3
-var attack_timer := Timer.new()
-var jump_cooldown : float = 6
-var jump_timer := Timer.new()
+var jump_cooldown : float = 8
 var shout_cooldown : float = 10
-var shout_timer := Timer.new()
 var shoot_cooldown : float = 8
+var attack_timer := Timer.new()
+var jump_timer := Timer.new()
+var shout_timer := Timer.new()
 var shoot_timer := Timer.new()
 
 func _ready() -> void:

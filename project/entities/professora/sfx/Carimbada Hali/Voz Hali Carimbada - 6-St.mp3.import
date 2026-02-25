@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://blebwkvrbgg8"
+path="res://.godot/imported/Voz Hali Carimbada - 6-St.mp3-3aaecad6ac7d49a0039f28b669ec9485.mp3str"
+
+[deps]
+
+source_file="res://entities/professora/sfx/Carimbada Hali/Voz Hali Carimbada - 6-St.mp3"
+dest_files=["res://.godot/imported/Voz Hali Carimbada - 6-St.mp3-3aaecad6ac7d49a0039f28b669ec9485.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

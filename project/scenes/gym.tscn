@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://hqafpyu0gjga"]
+[gd_scene load_steps=12 format=3 uid="uid://hqafpyu0gjga"]
 
 [ext_resource type="Script" path="res://utilities/game_manager.gd" id="1_u52ml"]
 [ext_resource type="Script" path="res://utilities/wave_manager.gd" id="2_0ufe5"]
@@ -6,11 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://ckfti4r3wec5h" path="res://entities/professora/professora.tscn" id="3_6m57i"]
 [ext_resource type="Script" path="res://utilities/camera_manager.gd" id="5_3eq3n"]
 [ext_resource type="PackedScene" uid="uid://b7gf1v0qrssdr" path="res://interfaces/HUD/HUD.tscn" id="7_464fn"]
-[ext_resource type="AudioStream" uid="uid://bkjxhpbbwrtqp" path="res://soundtrack/soundtrack.mp3" id="8_6aw3h"]
-[ext_resource type="ArrayMesh" uid="uid://bqbmk4okxg7po" path="res://environment/sala de aula/sala_main.res" id="8_mbxcw"]
-[ext_resource type="ArrayMesh" uid="uid://cekl3yalm5pwn" path="res://environment/sala de aula/cadeiras.res" id="9_8kdwm"]
-[ext_resource type="ArrayMesh" uid="uid://by5s2jpdy80a0" path="res://environment/sala de aula/bolas.res" id="9_rknqo"]
-[ext_resource type="PackedScene" uid="uid://52mfuia3olbo" path="res://entities/inimigos/kingo/kingo.tscn" id="11_lcgbj"]
+[ext_resource type="AudioStream" uid="uid://b3cvid4jngh27" path="res://soundtrack/Carimbo_Musica_Completa.mp3" id="7_ln5vj"]
+[ext_resource type="PackedScene" uid="uid://cojp6pfvc4y30" path="res://environment/sala de aula/SalaDeAula3D.glb" id="9_sf0ar"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j1q4b"]
 shading_mode = 0
@@ -65,24 +62,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 3.50775)
 environment = SubResource("Environment_jhqvb")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_6aw3h")
+stream = ExtResource("7_ln5vj")
 volume_db = -3.0
 autoplay = true
-
-[node name="sala" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.31134e-10, -0.003, 1.31134e-10, 0, -1.31134e-10, -0.003, 0.003, -1.31134e-10, 5.73206e-18, 0, 0.481709, 1.74941)
-visible = false
-mesh = ExtResource("8_mbxcw")
-
-[node name="cadeiras" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.31134e-10, -0.003, 1.31134e-10, 0, -1.31134e-10, -0.003, 0.003, -1.31134e-10, 5.73206e-18, 0, 0.481709, 1.74941)
-visible = false
-mesh = ExtResource("9_8kdwm")
-
-[node name="bolas" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.31134e-10, -0.003, 1.31134e-10, 0, -1.31134e-10, -0.003, 0.003, -1.31134e-10, 5.73206e-18, 0, 0.481709, 1.74941)
-visible = false
-mesh = ExtResource("9_rknqo")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -91,5 +73,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00152588, 1.86703)
 shape = SubResource("BoxShape3D_tbeen")
 disabled = true
 
-[node name="Kingo" parent="." instance=ExtResource("11_lcgbj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.337665, 0.827698, -1.28356)
+[node name="SalaDeAula3D" parent="." instance=ExtResource("9_sf0ar")]
+transform = Transform3D(-0.000124603, -0.00175486, -0.299995, 0.0212452, 0.299242, -0.00175928, 0.299247, -0.0212455, -1.31132e-08, -8.867, 0.565, 1.54)
+visible = false

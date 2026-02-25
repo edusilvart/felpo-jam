@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://vr2h2kirmxai"
+path="res://.godot/imported/Voz Hali Uppercut - 1-St.mp3-06fdd55fa11ed0e0188c065e39cd26b2.mp3str"
+
+[deps]
+
+source_file="res://entities/professora/sfx/Uppercut Hali/Voz Hali Uppercut - 1-St.mp3"
+dest_files=["res://.godot/imported/Voz Hali Uppercut - 1-St.mp3-06fdd55fa11ed0e0188c065e39cd26b2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

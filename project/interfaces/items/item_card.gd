@@ -4,6 +4,7 @@ extends Button
 @onready var name_label : Label = get_node('Name')
 @onready var icon_tex : TextureRect = get_node('Icon')
 @onready var description_label : Label = get_node('Description')
+@onready var type_label : Label = get_node('Type')
 @onready var discard_prompt : Label = get_node('Select_Item_Prompt')
 var waiting_selection : bool = false
 var discarded_item01 : bool = false
