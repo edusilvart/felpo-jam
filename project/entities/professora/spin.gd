@@ -4,6 +4,7 @@ extends State
 
 @export var audioclips : Array[AudioStream] = []
 @export var voiceclips : Array[AudioStream] = []
+@export var damage : int = 2
 
 var duration : float = 1
 var duration_timer := Timer.new()
@@ -18,8 +19,18 @@ func custom_movement(delta) -> void:
 	var dir : Vector2 = parent.get_dir_input()
 	parent.apply_movement(dir * parent.speed, parent.acceleration * 0.5, delta)
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed('jump'):
+		parent.velocity.y = parent.jump_force
+
 func enter_state() -> void:
 	anim_player.play('Spin_Start')
+	
+	parent.hitbox.damage = damage
+	var angle = deg_to_rad(-70)
+	var knockback = Vector2(cos(angle), sin(angle)) * 4
+	parent.hitbox.knockback = Vector3(knockback.x, -knockback.y, 0)
+	parent.hitbox.heavy_hit = true
 	
 	if not audioclips.is_empty():
 		var audio = audioclips.pick_random()

@@ -1,7 +1,7 @@
 extends Control
 
 
-
+@onready var fade : ColorRect = get_node('Fade')
 @onready var card_scene : PackedScene = preload("res://interfaces/items/item_card.tscn")
 @onready var title_label : Label = get_node('Title_Label')
 @onready var cards_container : HBoxContainer = get_node('%Cards_Container')
@@ -11,12 +11,12 @@ extends Control
 # ITEM NAME, ITEM DESCRIPTION
 var items = [
 	['Café', 'Aumente a velocidade de movimento e ataque em 30% por 3s.', 'Consumível'],
-	['Cachorro', 'Companheiro canino, morde uma lição aleatória a cada 2s.', 'Habilidade'],
-	['Maçã', 'Aumente a velocidade de movimento e ataque em 30% por 3 segundos.', 'Consumível'],
+	['Cachorro', 'Morde uma lição aleatória.', 'Habilidade'],
+	['Maçã', 'Cure +2 de vida', 'Consumível'],
 	['Carimbada', 'Acerte o chão empurrando inimigos para longe.', 'Habilidade'],
 	['Clipe de Papel', 'Lance um clipe que agrupa inimigos próximos.', 'Habilidade'],
 	['Rodopio', 'Rodopie girando o carimbo e acertando quem estiver no caminho.', 'Habilidade'],
-	['Grampeador', 'Atira grampos em volta a cada 3s.', 'Habilidade']
+	['Grampeador', 'Atira 8 grampos em volta.', 'Habilidade']
 ]
 var cards = []
 
@@ -41,7 +41,9 @@ func enter() -> void:
 	
 	cards_container.modulate = Color(1, 1, 1, 0)
 	tween.tween_property(cards_container, "modulate", Color(1, 1, 1, 1), 0.5)
-
+	
+	fade.color = Color(0, 0, 0, 0)
+	tween.tween_property(fade, "color", Color(0, 0, 0, 0.4), 0.3)
 
 func build_card(card_number : int) -> void:
 	var card_id = items[card_number]
@@ -54,6 +56,7 @@ func build_card(card_number : int) -> void:
 	new_card.type_label.text = card_id[2]
 	
 	new_card.selected.connect(item_selected)
+	new_card.item_set.connect(item_set)
 	
 	cards.append(new_card)
 
@@ -73,9 +76,12 @@ func item_selected(item) -> void:
 		if card != item:
 			card.disabled = true
 			tween.tween_property(card, 'modulate', Color(1, 1, 1, 0), 0.15)
+
+func item_set() -> void:
+	var tween := get_tree().create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC).set_parallel()
+	tween.tween_property(fade, "color", Color(0, 0, 0, 0), 0.3)
 	
 	await get_tree().create_timer(1).timeout
-	
 	exit()
 
 func exit() -> void:

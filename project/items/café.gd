@@ -29,7 +29,7 @@ func update(delta) -> void:
 	if is_active:
 		duration -= delta
 		if duration <= 0:
-			exit()
+			destroy()
 
 func exit() -> void:
 	parent.state_machine.anim_player.speed_scale = 1

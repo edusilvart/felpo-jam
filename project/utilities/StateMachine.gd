@@ -29,6 +29,9 @@ func _ready() -> void:
 	set_state(get_child(0).name)
 
 func set_state(newState: String) -> void:
+	if parent.name ==  'Cachorro':
+		print(newState)
+	
 	prev_state = state
 	state.exit_state()
 	state.set_process(false)

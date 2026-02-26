@@ -4,4 +4,4 @@
 
 [node name="Café" type="Node"]
 script = ExtResource("1_7kru8")
-cooldown = 10.0
+cooldown = -1.0

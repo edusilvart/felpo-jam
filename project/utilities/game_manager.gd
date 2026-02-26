@@ -5,6 +5,9 @@ extends Node
 @onready var shop_node : PackedScene = preload("res://interfaces/items/items_selection.tscn")
 var shop : Control
 
+var num_waves : int = 5
+var waves_completed : int = 0
+
 var states = [
 	'INTRO',
 	'BATTLE',
@@ -31,16 +34,16 @@ func change_state(new_state : String) -> void:
 func enter_state() -> void:
 	match states[state]:
 		'INTRO':
-			pass
 			change_state('BATTLE')
 		'BATTLE':
 			wave_manager.wave_start()
 			Globals.player.state_machine.set_state('onGround')
+			Globals.HUD.aula_label.text = 'Aula 0' + str(waves_completed + 1)
 		'SHOP':
 			Globals.player.state_machine.set_state('Waiting')
 			shop.enter()
 		'BOSS':
-			pass
+			Globals.wave_manager.spawn_enemy('kingo', Vector3(0, 0.7, -2.8))
 		'END':
 			pass
 
@@ -62,5 +65,9 @@ func shop_finished() -> void:
 		change_state('BATTLE')
 
 func wave_ended() -> void:
+	waves_completed += 1
 	if states[state] == 'BATTLE':
-		change_state('SHOP')
+		if waves_completed == num_waves:
+			change_state('BOSS')
+		else:
+			change_state('SHOP')

@@ -21,7 +21,7 @@ func assign_target() -> void:
 		target.died.connect(target_died)
 		state_machine.get_node('Chasing').target = target
 	else:
-		state_machine.set_state('Waiting')
+		state_machine.set_state('Leave')
 
 func _on_vision_body_entered(body: Node3D) -> void:
 	if body == target:

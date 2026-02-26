@@ -31,6 +31,9 @@ func enter_state() -> void:
 	parent.velocity.y = knockback.y
 	parent.HP -= damage
 	
+	if parent == Globals.player:
+		Globals.HUD.HP_bar.value = parent.HP
+	
 	if heavy_hit:
 		state_machine.set_state('Flying')
 	

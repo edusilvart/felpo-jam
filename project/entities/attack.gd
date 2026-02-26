@@ -107,7 +107,7 @@ func update_state(delta : float) -> void:
 			
 			parent.move_and_slide()
 
-func custom_movement(delta) -> void:
+func custom_movement(_delta) -> void:
 	pass
 
 func get_transition() -> void:

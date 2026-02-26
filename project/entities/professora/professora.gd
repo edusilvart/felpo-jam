@@ -32,6 +32,9 @@ func _ready() -> void:
 	dodge_timer.timeout.connect(reset_dodge_cooldown)
 	dodge_timer.wait_time = dodge_cooldown
 	dodge_timer.one_shot = true
+	
+	Globals.HUD.HP_bar.max_value = max_HP
+	Globals.HUD.HP_bar.value = HP
 
 func get_dir_input() -> Vector2:
 	var x : float = -Input.get_action_strength('move_left') + Input.get_action_strength('move_right')

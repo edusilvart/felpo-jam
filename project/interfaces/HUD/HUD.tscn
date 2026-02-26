@@ -13,6 +13,33 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_tj14n")
 
+[node name="Aula_Label" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -81.0
+offset_top = 8.0
+offset_right = -16.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "AULA 00"
+
+[node name="Timer_Label" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -107.0
+offset_top = 26.0
+offset_right = -16.0
+offset_bottom = 49.0
+grow_horizontal = 0
+text = "1"
+horizontal_alignment = 2
+
 [node name="HP_Bar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 30)

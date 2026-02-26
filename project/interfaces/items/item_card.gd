@@ -11,6 +11,7 @@ var discarded_item01 : bool = false
 
 signal selected
 signal item_discarded
+signal item_set
 
 func _input(event: InputEvent) -> void:
 	if waiting_selection:
@@ -29,6 +30,8 @@ func _on_pressed() -> void:
 	
 	var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC).set_parallel()
 	tween.tween_property(self, 'position', position - Vector2(0, 10), 0.2)
+	
+	selected.emit(self)
 	
 	if Globals.player.item01 == null:
 		Globals.player.item01 = new_item
@@ -50,6 +53,6 @@ func _on_pressed() -> void:
 			Globals.player.item02.destroy()
 			Globals.player.item02 = new_item
 			new_item.item_num = 1
+		
 	Globals.player.add_child(new_item)
-	
-	selected.emit(self)
+	item_set.emit()

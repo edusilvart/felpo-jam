@@ -31,16 +31,14 @@ func exit_state() -> void:
 func shoot() -> void:
 	anim_player.play('Shoot')
 	var shoot_angle = 15 # offset by this ammount
-	var direction : Vector3 = (Globals.player.global_position - parent.global_position).normalized()
-	var angle_to_player : float = rad_to_deg(atan2(direction.x, direction.z))
+	var shoot_direction : Vector3 = (Globals.player.global_position - parent.global_position).normalized()
+	var angle_to_player : float = rad_to_deg(atan2(shoot_direction.x, shoot_direction.z))
 	
 	var bola = bolas_scn.instantiate()
 	parent.get_parent().add_child(bola)
 	bola.global_position = parent.global_position + Vector3(0, 0, 0.1)
 	bola.shoot(angle_to_player + shoot_angle * bolas_shot)
 	bolas_shot += 1
-	
-	print('bola atairada')
 
 func anim_finished(anim_name : String) -> void:
 	if anim_name == 'Shoot_Charge':

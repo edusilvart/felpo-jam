@@ -4,13 +4,17 @@ extends Item
 @onready var heal_vfx : PackedScene = preload('res://vfx/heal_vfx.tscn')
 
 func enter() -> void:
+	parent.HP = clamp(parent.HP + 2, 0, parent.max_HP)
+	Globals.HUD.HP_bar.max_value = parent.max_HP
+	Globals.HUD.HP_bar.value = parent.HP
+	spawn_vfx()
+	destroy()
+
+func can_use() -> bool:
 	if parent.HP == parent.max_HP:
-		cooldown_timer.stop()
-		reset_cooldown()
+		return false
 	else:
-		parent.HP += 1
-		spawn_vfx()
-		destroy()
+		return true
 
 func spawn_vfx() -> void:
 	var vfx = heal_vfx.instantiate()

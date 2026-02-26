@@ -586,6 +586,7 @@ _data = {
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_cqe05")
+attack_cooldown = 4.0
 speed_ratio = 0.6
 acceleration_ratio = 0.3
 weight_ratio = 0.5
@@ -630,6 +631,9 @@ script = ExtResource("6_6k2ra")
 
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("7_lr34d")
+damage = 1
+knockback_power = 5.0
+movement_speed = Vector2(1, 0)
 movement_duration = 0.533
 movement_curve = SubResource("Curve_lejwo")
 

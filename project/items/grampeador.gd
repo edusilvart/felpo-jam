@@ -2,11 +2,10 @@ extends Item
 
 
 @onready var grampo_scene : PackedScene = preload("res://items/grampo.tscn")
-var num_grampos : int = 6 # numero de grampos
+var num_grampos : float = 6 # numero de grampos
 var grampo_angle : float = 0
 
 func enter() -> void:
-	@warning_ignore("integer_division")
 	grampo_angle = 360 / num_grampos
 	
 	for n in num_grampos:

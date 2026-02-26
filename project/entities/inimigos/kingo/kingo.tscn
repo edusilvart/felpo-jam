@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://52mfuia3olbo"]
+[gd_scene load_steps=53 format=3 uid="uid://52mfuia3olbo"]
 
 [ext_resource type="Script" path="res://entities/inimigos/kingo/kingo.gd" id="1_amgcu"]
 [ext_resource type="PackedScene" uid="uid://12lpbcxnno48" path="res://entities/hitbox.tscn" id="3_guyh5"]
@@ -36,13 +36,14 @@
 [ext_resource type="Texture2D" uid="uid://bkt8kahs5dra6" path="res://entities/inimigos/kingo/pulo/final-4.png" id="33_hibek"]
 [ext_resource type="Texture2D" uid="uid://7qpt8fpkmhcf" path="res://entities/inimigos/kingo/pulo/final-5.png" id="34_gs44j"]
 [ext_resource type="Texture2D" uid="uid://depwxb2x3vs6w" path="res://entities/inimigos/kingo/pulo/final-6.png" id="35_3kjus"]
+[ext_resource type="Texture2D" uid="uid://ih11ijxlwpwo" path="res://vfx/textures/circle.png" id="37_wi7t6"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_d33cd"]
 height = 0.609803
 radius = 0.223465
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yx1wv"]
-size = Vector3(0.649559, 0.529467, 0.65)
+size = Vector3(1.75488, 0.31953, 1.66431)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h0s3f"]
 size = Vector3(0.681274, 0.697412, 0.456055)
@@ -429,7 +430,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0.333333, 0.366667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.5, 0.993244]
+"values": [0.5, 1.2]
 }
 tracks/9/type = "method"
 tracks/9/imported = false
@@ -456,6 +457,18 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Sprite3D:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.366667, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
 }
 
 [sub_resource type="Animation" id="Animation_tchey"]
@@ -587,6 +600,18 @@ tracks/10/path = NodePath("Hurtbox/CollisionShape3D:disabled")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Sprite3D:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -1015,6 +1040,12 @@ shape = SubResource("SphereShape3D_ojt4v")
 libraries = {
 "": SubResource("AnimationLibrary_e6nyf")
 }
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(3.83, 0, 0, 0, -1.67415e-07, 3.83, 0, -3.83, -1.67415e-07, 0, -0.284974, 0)
+visible = false
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("37_wi7t6")
 
 [connection signal="body_entered" from="Vision" to="." method="_on_vision_body_entered"]
 [connection signal="body_exited" from="Vision" to="." method="_on_vision_body_exited"]

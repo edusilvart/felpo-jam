@@ -4,3 +4,4 @@
 
 [node name="Maçã" type="Node"]
 script = ExtResource("1_3dmxo")
+cooldown = -1.0
