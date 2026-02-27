@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bhv87mknlc6s3"]
+[gd_scene load_steps=29 format=3 uid="uid://bhv87mknlc6s3"]
 
 [ext_resource type="Script" path="res://entities/cachorro/cachorro.gd" id="1_iyfwv"]
 [ext_resource type="Texture2D" uid="uid://cu3nbif0eheoe" path="res://entities/cachorro/Cachorro01.png" id="2_rbds2"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://entities/cachorro/enter.gd" id="4_sit32"]
 [ext_resource type="Texture2D" uid="uid://cbdjgyl0gvx4p" path="res://entities/cachorro/Cachorro04.png" id="5_gg6i1"]
 [ext_resource type="Script" path="res://entities/inimigos/chasing.gd" id="5_ropvi"]
+[ext_resource type="Script" path="res://entities/cachorro/fall.gd" id="5_wf375"]
 [ext_resource type="Script" path="res://entities/attack.gd" id="6_4l4er"]
 [ext_resource type="Texture2D" uid="uid://utgghnns6xsh" path="res://entities/cachorro/Cachorro05.png" id="6_720u4"]
 [ext_resource type="Texture2D" uid="uid://buqr06qw5esj6" path="res://entities/cachorro/Cachorro06.png" id="7_5wclp"]
@@ -185,6 +186,9 @@ anim_player_path = NodePath("../AnimationPlayer")
 [node name="Enter" type="Node" parent="StateMachine"]
 script = ExtResource("4_sit32")
 
+[node name="Fall" type="Node" parent="StateMachine"]
+script = ExtResource("5_wf375")
+
 [node name="Chasing" type="Node" parent="StateMachine"]
 script = ExtResource("5_ropvi")
 
@@ -198,6 +202,9 @@ movement_duration = 0.26
 movement_curve = SubResource("Curve_e6864")
 
 [node name="Leave" type="Node" parent="StateMachine"]
+script = ExtResource("7_oclye")
+
+[node name="Waiting" type="Node" parent="StateMachine"]
 script = ExtResource("7_oclye")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

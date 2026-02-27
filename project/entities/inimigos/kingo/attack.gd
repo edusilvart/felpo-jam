@@ -1,6 +1,9 @@
 extends State
 # kingo ATTACK
 
+@export var soundclips : Array[AudioStream]
+@export var voiceclip : AudioStream
+
 @onready var dust_vfx : PackedScene = preload('res://vfx/run_dust.tscn')
 
 var direction : Vector3
@@ -47,12 +50,21 @@ func activate() -> void:
 	var dust = dust_vfx.instantiate()
 	parent.add_child(dust)
 	dust.start(parent.pivot.global_position)
+	
+	parent.paper_trail.emitting = true
+	parent.paper_trail.look_at(direction * 10, Vector3.UP)
+	
+	var sound = soundclips.pick_random()
+	SFX_MANAGER.play_sfx_at(sound, parent.global_position, 0, 1, 1)
+	SFX_MANAGER.play_sfx_at(voiceclip, parent.global_position, 0, 1, 1)
 
 func exit_state() -> void:
 	if tween:
 		tween.kill()
 	parent.pivot.scale = Vector3.ONE
 	parent.attack_timer.start()
+	
+	parent.paper_trail.emitting = false
 
 func anim_finished(anim_name : String) -> void:
 	if anim_name == 'Attack':

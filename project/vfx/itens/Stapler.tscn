@@ -1,0 +1,132 @@
+[gd_scene load_steps=8 format=3 uid="uid://bdg7ks1jby4ms"]
+
+[ext_resource type="Script" path="res://vfx/vfx.gd" id="1_0jmkm"]
+[ext_resource type="Texture2D" uid="uid://o2fyp434jw4p" path="res://vfx/itens/sprites/stapler01.png" id="2_nwcf2"]
+[ext_resource type="Texture2D" uid="uid://6r8q2kt8vve1" path="res://vfx/itens/sprites/stapler02.png" id="3_buse2"]
+
+[sub_resource type="Animation" id="Animation_lbnkj"]
+resource_name = "Activate"
+length = 0.66667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.333333, 0.666667),
+"transitions": PackedFloat32Array(2, 0.5, 2.54912, 1),
+"update": 0,
+"values": [Vector3(-0.116241, 0.591049, 0), Vector3(0.0240496, 0.451599, 0), Vector3(0, 0.50237, 0), Vector3(0, 0.198013, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.333333),
+"transitions": PackedFloat32Array(2, 0.5, 2.54912),
+"update": 0,
+"values": [Vector3(0, 0, 0.267227), Vector3(0, 0, -0.0961851), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.333333, 0.666667),
+"transitions": PackedFloat32Array(2, 0.5, 2.54912, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.2, 0.8, 1), Vector3(1, 1, 1), Vector3(0.1, 0.1, 0.1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/Sprite3D:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_nwcf2"), ExtResource("3_buse2")]
+}
+
+[sub_resource type="Resource" id="Resource_lpftp"]
+metadata/__load_path__ = "res://vfx/itens/sprites/grampeador01.png"
+
+[sub_resource type="Animation" id="Animation_ywl2d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/Sprite3D:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("Resource_lpftp")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_erj7f"]
+_data = {
+"Activate": SubResource("Animation_lbnkj"),
+"RESET": SubResource("Animation_ywl2d")
+}
+
+[node name="Grampeador_VFX" type="Node3D"]
+script = ExtResource("1_0jmkm")
+particles = false
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0534437, 0)
+pixel_size = 0.001
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_erj7f")
+}

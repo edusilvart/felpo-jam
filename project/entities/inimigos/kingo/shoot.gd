@@ -4,6 +4,8 @@ extends State
 
 @onready var bolas_scn = preload('res://entities/inimigos/kingo/paper_ball.tscn')
 
+@export var audioclips : Array[AudioStream]
+
 var direction : Vector2
 var tween : Tween
 var num_shots : int = 3
@@ -39,6 +41,9 @@ func shoot() -> void:
 	bola.global_position = parent.global_position + Vector3(0, 0, 0.1)
 	bola.shoot(angle_to_player + shoot_angle * bolas_shot)
 	bolas_shot += 1
+	
+	var sound = audioclips.pick_random()
+	SFX_MANAGER.play_sfx_at(sound, parent.global_position, 0, 0.95, 1.05)
 
 func anim_finished(anim_name : String) -> void:
 	if anim_name == 'Shoot_Charge':

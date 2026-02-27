@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://bbkqsjqx21art"]
+
+[ext_resource type="Material" uid="uid://cre6rqcb2ktyk" path="res://vfx/materials/paper.tres" id="1_8553x"]
+
+[sub_resource type="Curve" id="Curve_8u087"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_y6rae"]
+curve = SubResource("Curve_8u087")
+
+[sub_resource type="Curve" id="Curve_60ao2"]
+_data = [Vector2(0, 0), 0.0, 18.8044, 0, 0, Vector2(0.130435, 1), 0.0, 0.0, 0, 0, Vector2(0.898551, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -22.7472, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_6ni1g"]
+curve = SubResource("Curve_60ao2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x481v"]
+emission_shape = 3
+emission_box_extents = Vector3(0.1, 0, 0.1)
+angle_min = 1.07288e-05
+angle_max = 360.0
+angle_curve = SubResource("CurveTexture_y6rae")
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.1
+scale_curve = SubResource("CurveTexture_6ni1g")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_m5hso"]
+
+[node name="PaperTrail" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.302397, 0)
+visible = false
+material_override = ExtResource("1_8553x")
+cast_shadow = 0
+emitting = false
+amount = 4
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_x481v")
+draw_pass_1 = SubResource("PlaneMesh_m5hso")

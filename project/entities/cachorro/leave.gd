@@ -1,5 +1,5 @@
 extends State
-# cachorro ENTER
+# cachorro LEAVE
 
 
 var timer := Timer.new()
@@ -22,6 +22,7 @@ func get_transition() -> void:
 	pass
 
 func timer_finished() -> void:
+	parent.poof_vfx()
 	parent.queue_free()
 
 func exit_state() -> void:

@@ -2,8 +2,10 @@ extends Node
 
 
 @onready var wave_manager : Node = get_node('WaveManager')
+@onready var music_player : AudioStreamPlayer = get_node('%MusicPlayer')
 @onready var shop_node : PackedScene = preload("res://interfaces/items/items_selection.tscn")
 var shop : Control
+var main_menu : String = "res://scenes/main_menu.tscn"
 
 var num_waves : int = 5
 var waves_completed : int = 0
@@ -34,6 +36,8 @@ func change_state(new_state : String) -> void:
 func enter_state() -> void:
 	match states[state]:
 		'INTRO':
+			Globals.player.state_machine.set_state('Waiting')
+			await Globals.HUD.play_intro()
 			change_state('BATTLE')
 		'BATTLE':
 			wave_manager.wave_start()
@@ -45,12 +49,12 @@ func enter_state() -> void:
 		'BOSS':
 			Globals.wave_manager.spawn_enemy('kingo', Vector3(0, 0.7, -2.8))
 		'END':
-			pass
+			Globals.player.state_machine.set_state('Waiting')
 
 func exit_state() -> void:
 	match states[state]:
 		'INTRO':
-			pass
+			music_player.play()
 		'BATTLE':
 			pass
 		'SHOP':

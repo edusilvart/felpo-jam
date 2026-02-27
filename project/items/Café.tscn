@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ct7ayjetosrxq"]
-
-[ext_resource type="Script" path="res://items/café.gd" id="1_7kru8"]
-
-[node name="Café" type="Node"]
-script = ExtResource("1_7kru8")
-cooldown = -1.0

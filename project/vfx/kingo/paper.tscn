@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://d3gybk08i2lgj"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n4ram"]
+load_path = "res://.godot/imported/paper.png-207378d54303dce8b7f441baa2a63506.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ct5pm"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+specular_mode = 2
+disable_ambient_light = true
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("CompressedTexture2D_n4ram")
+texture_filter = 0
+texture_repeat = false
+billboard_keep_scale = true
+
+[sub_resource type="Curve" id="Curve_qobkw"]
+max_value = 2.0
+_data = [Vector2(0, 0.967033), 0.0, -2.92465, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2jicg"]
+curve = SubResource("Curve_qobkw")
+
+[sub_resource type="Curve" id="Curve_5xh74"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0144928, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_c0jf2"]
+curve = SubResource("Curve_5xh74")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0mc81"]
+lifetime_randomness = 0.2
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 0.5
+initial_velocity_max = 1.5
+gravity = Vector3(0, -1, 0)
+radial_accel_min = 0.499998
+radial_accel_max = 0.999998
+radial_accel_curve = SubResource("CurveTexture_2jicg")
+scale_min = 0.05
+scale_max = 0.1
+scale_curve = SubResource("CurveTexture_c0jf2")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7gbxf"]
+orientation = 2
+
+[node name="Paper" type="GPUParticles3D"]
+material_override = SubResource("StandardMaterial3D_ct5pm")
+cast_shadow = 0
+emitting = false
+amount = 40
+lifetime = 10.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.21
+process_material = SubResource("ParticleProcessMaterial_0mc81")
+draw_pass_1 = SubResource("PlaneMesh_7gbxf")

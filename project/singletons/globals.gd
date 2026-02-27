@@ -6,6 +6,12 @@ var player : Entity
 var HUD : Control
 var wave_manager : Node
 
+# settings
+var master_vol : float = 100
+var sfx_vol : float = 100
+var music_vol : float = 100
+var fullscreen : bool = false
+
 func hit_stop(duration : float) -> void:
 	Engine.time_scale = 0.3
 	var tween = get_tree().create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)

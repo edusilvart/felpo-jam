@@ -5,6 +5,7 @@ extends State
 
 func enter_state() -> void:
 	anim_player.play('Laying')
+	parent.hurtbox.call_deferred('queue_free')
 
 func update_state(delta : float) -> void:
 	parent.apply_movement(Vector2.ZERO, parent.acceleration, delta)

@@ -1,0 +1,142 @@
+[gd_scene load_steps=24 format=3 uid="uid://dya8lxhy2bknv"]
+
+[ext_resource type="Texture2D" uid="uid://b8feg2ybgkwvi" path="res://vfx/textures/circle_outline.png" id="1_80xmr"]
+[ext_resource type="Script" path="res://vfx/vfx.gd" id="1_qqron"]
+[ext_resource type="Material" uid="uid://ctn5g6fypioqm" path="res://vfx/materials/dust.tres" id="3_xhbaa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i21k7"]
+transparency = 1
+shading_mode = 0
+specular_mode = 2
+disable_ambient_light = true
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_80xmr")
+billboard_keep_scale = true
+
+[sub_resource type="Curve" id="Curve_chl5t"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.071085, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mvfdo"]
+curve = SubResource("Curve_chl5t")
+
+[sub_resource type="Curve" id="Curve_ubowb"]
+_data = [Vector2(0, 0), 0.0, 3.34672, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qj8ie"]
+curve = SubResource("Curve_ubowb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_82k4q"]
+gravity = Vector3(0, 0, 0)
+scale_min = 1.4
+scale_max = 1.4
+scale_curve = SubResource("CurveTexture_qj8ie")
+alpha_curve = SubResource("CurveTexture_mvfdo")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_86mm7"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5rfym"]
+load_path = "res://.godot/imported/circle.png-f0ad6c46e79d409c3e45c4a38ac4749c.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ohdpg"]
+transparency = 1
+shading_mode = 0
+specular_mode = 2
+disable_ambient_light = true
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("CompressedTexture2D_5rfym")
+billboard_keep_scale = true
+
+[sub_resource type="Curve" id="Curve_yr1sw"]
+_data = [Vector2(0, 1), 0.0, -3.30869, 0, 0, Vector2(1, 0), -0.071085, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_nc0x5"]
+curve = SubResource("Curve_yr1sw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l4ees"]
+gravity = Vector3(0, 0, 0)
+scale_min = 1.4
+scale_max = 1.4
+alpha_curve = SubResource("CurveTexture_nc0x5")
+
+[sub_resource type="Gradient" id="Gradient_xn1ww"]
+offsets = PackedFloat32Array(0.163636, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_k7m64"]
+gradient = SubResource("Gradient_xn1ww")
+
+[sub_resource type="Curve" id="Curve_omrky"]
+max_value = 2.0
+_data = [Vector2(0, 0), 0.0, 5.94058, 0, 0, Vector2(1, 2), 0.172592, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_f3we5"]
+curve = SubResource("Curve_omrky")
+
+[sub_resource type="Curve" id="Curve_ji5xn"]
+_data = [Vector2(0, 0.461538), 0.0, 2.55136, 0, 0, Vector2(0.511236, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.186813), -2.60806, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_skjo4"]
+curve = SubResource("Curve_ji5xn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nhhqh"]
+lifetime_randomness = 0.61
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.0
+emission_ring_radius = 0.4
+emission_ring_inner_radius = 0.38
+direction = Vector3(0, 1, 0)
+spread = 0.0
+flatness = 1.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, -1, 0)
+damping_min = 6.0
+damping_max = 10.0
+damping_curve = SubResource("CurveTexture_f3we5")
+scale_min = 0.05
+scale_max = 0.1
+scale_curve = SubResource("CurveTexture_skjo4")
+color_ramp = SubResource("GradientTexture1D_k7m64")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pq4iu"]
+orientation = 2
+
+[node name="Kingo_Land" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00452444, 0)
+script = ExtResource("1_qqron")
+
+[node name="Land_Ring" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_i21k7")
+emitting = false
+amount = 1
+lifetime = 0.4
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_82k4q")
+draw_pass_1 = SubResource("PlaneMesh_86mm7")
+
+[node name="Land_Circle" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_ohdpg")
+emitting = false
+amount = 1
+lifetime = 0.3
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_l4ees")
+draw_pass_1 = SubResource("PlaneMesh_86mm7")
+
+[node name="dust" type="GPUParticles3D" parent="."]
+material_override = ExtResource("3_xhbaa")
+emitting = false
+amount = 16
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 0
+process_material = SubResource("ParticleProcessMaterial_nhhqh")
+draw_pass_1 = SubResource("PlaneMesh_pq4iu")

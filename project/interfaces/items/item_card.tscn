@@ -1,25 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmudxcgcvcrey"]
+[gd_scene load_steps=8 format=3 uid="uid://bmudxcgcvcrey"]
 
 [ext_resource type="Script" path="res://interfaces/items/item_card.gd" id="1_8e62c"]
-[ext_resource type="Texture2D" uid="uid://c0d8krmoocaiu" path="res://interfaces/items/Icons/Café.png" id="1_53u7v"]
+[ext_resource type="Texture2D" uid="uid://c0d8krmoocaiu" path="res://interfaces/items/Icons/Coffee.png" id="1_53u7v"]
+[ext_resource type="Theme" uid="uid://bfj3xe6s2v1jj" path="res://interfaces/items/cards/cards_theme.tres" id="1_tjuu8"]
 [ext_resource type="Texture2D" uid="uid://uypt8xv03rtn" path="res://interfaces/items/cards/card.png" id="2_is72x"]
 [ext_resource type="Texture2D" uid="uid://bicnclslefpgu" path="res://interfaces/items/cards/clipe.png" id="3_s56k1"]
 [ext_resource type="Texture2D" uid="uid://cyqcl4r77g7oi" path="res://interfaces/items/cards/tag.png" id="4_kckgg"]
 [ext_resource type="Texture2D" uid="uid://dddgx2idi5gcc" path="res://interfaces/items/cards/tape.png" id="6_wfl0e"]
 
 [node name="ItemCard" type="Button"]
-self_modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(250, 350)
-offset_right = 250.0
-offset_bottom = 350.0
+offset_right = 246.0
+offset_bottom = 349.0
+theme = ExtResource("1_tjuu8")
+icon = ExtResource("2_is72x")
 script = ExtResource("1_8e62c")
-
-[node name="card_texture" type="TextureRect" parent="."]
-layout_mode = 1
-offset_right = 1966.0
-offset_bottom = 2786.0
-scale = Vector2(0.125, 0.125)
-texture = ExtResource("2_is72x")
 
 [node name="tag" type="TextureRect" parent="."]
 layout_mode = 1
@@ -35,11 +29,13 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -133.0
-offset_top = 16.0
-offset_right = -87.0
-offset_bottom = 39.0
+offset_left = -130.0
+offset_top = 15.0
+offset_right = -84.0
+offset_bottom = 44.0
 grow_horizontal = 2
+theme = ExtResource("1_tjuu8")
+theme_type_variation = &"tag"
 text = "Item"
 horizontal_alignment = 2
 
@@ -62,13 +58,7 @@ offset_top = 38.0
 offset_right = 100.0
 offset_bottom = 80.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.784314, 0.188235, 0.235294, 1)
-theme_override_colors/font_shadow_color = Color(0.635294, 0.392157, 0.0980392, 1)
-theme_override_colors/font_outline_color = Color(0.937255, 0.784314, 0.286275, 1)
-theme_override_constants/shadow_offset_y = 2
-theme_override_constants/outline_size = 8
-theme_override_constants/shadow_outline_size = 9
-theme_override_font_sizes/font_size = 30
+theme = ExtResource("1_tjuu8")
 text = "NOME"
 horizontal_alignment = 1
 
@@ -77,11 +67,12 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -39.0
-offset_top = 88.0
-offset_right = 41.0
-offset_bottom = 168.0
+offset_left = -42.5
+offset_top = 85.0
+offset_right = 82.5
+offset_bottom = 210.0
 grow_horizontal = 2
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("1_53u7v")
 
 [node name="Tape" type="TextureRect" parent="."]
@@ -96,6 +87,7 @@ offset_bottom = 938.0
 grow_horizontal = 2
 scale = Vector2(0.125, 0.125)
 texture = ExtResource("6_wfl0e")
+metadata/_edit_lock_ = true
 
 [node name="Description" type="Label" parent="."]
 layout_mode = 1
@@ -110,26 +102,11 @@ offset_right = 100.0
 offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(0.34902, 0.419608, 0.560784, 1)
-text = "AAAAAAAAAAA"
-autowrap_mode = 3
-
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -70.0
-offset_top = -56.0
-offset_right = 70.0
-offset_bottom = -27.0
-grow_horizontal = 2
-grow_vertical = 0
-rotation = -0.0288025
-pivot_offset = Vector2(70, 14)
-color = Color(0.952941, 0.905882, 0.811765, 1)
+theme = ExtResource("1_tjuu8")
+theme_type_variation = &"description"
+text = "AAAAAAAAAAA AAAAAAAAA A AAA AAAA AAA AAAAAAAAA AAAAAAAA"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Type" type="Label" parent="."]
 layout_mode = 1
@@ -138,24 +115,17 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -100.0
-offset_top = -57.0
-offset_right = 100.0
+offset_left = -36.0
+offset_top = -58.0
+offset_right = 36.0
 offset_bottom = -29.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(0.952941, 0.905882, 0.811765, 1)
-theme_override_colors/font_shadow_color = Color(0.486275, 0.282353, 0.713726, 1)
-theme_override_colors/font_outline_color = Color(0.486275, 0.282353, 0.713726, 1)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 2
-theme_override_constants/outline_size = 6
-theme_override_constants/shadow_outline_size = 3
-theme_override_font_sizes/font_size = 20
+theme = ExtResource("1_tjuu8")
+theme_type_variation = &"type"
 text = "Consumível"
 horizontal_alignment = 1
 vertical_alignment = 2
-autowrap_mode = 3
 
 [node name="Select_Item_Prompt" type="Label" parent="."]
 visible = false

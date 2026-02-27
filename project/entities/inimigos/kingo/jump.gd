@@ -2,6 +2,10 @@ extends State
 # kingo JUMP
 
 
+@onready var land_vfx : PackedScene = preload('res://vfx/kingo_land.tscn')
+
+@export var land_sfx : AudioStream
+
 var follow_speed : float = 5 # follow player on air
 var follow_duration : float = 2
 var timer := Timer.new()
@@ -42,6 +46,11 @@ func timer_finished() -> void:
 
 func landed() -> void:
 	Globals.camera.shake = 1
+	var vfx = land_vfx.instantiate()
+	parent.get_parent().add_child(vfx)
+	vfx.start(parent.pivot.global_position)
+	
+	SFX_MANAGER.play_sfx_at(land_sfx, parent.global_position, 0, 0.85, 1.1)
 
 func anim_finished(anim_name : String) -> void:
 	if anim_name == 'Jump':

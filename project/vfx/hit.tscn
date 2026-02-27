@@ -1,134 +1,129 @@
-[gd_scene load_steps=17 format=3 uid="uid://bdeegrst0x7hm"]
+[gd_scene load_steps=24 format=3 uid="uid://bdeegrst0x7hm"]
 
 [ext_resource type="Script" path="res://vfx/vfx.gd" id="1_v7xu1"]
-[ext_resource type="Texture2D" uid="uid://cdkpswkc5h30g" path="res://vfx/textures/star.png" id="2_aw77o"]
-[ext_resource type="Texture2D" uid="uid://ih11ijxlwpwo" path="res://vfx/textures/circle.png" id="3_2j8n6"]
-[ext_resource type="Texture2D" uid="uid://b8feg2ybgkwvi" path="res://vfx/textures/circle_outline.png" id="3_kmebb"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7uyb4"]
-transparency = 4
-blend_mode = 1
-shading_mode = 0
-specular_mode = 2
-disable_ambient_light = true
-disable_fog = true
-vertex_color_use_as_albedo = true
-albedo_color = Color(1.5, 1.1, 1, 1)
-albedo_texture = ExtResource("2_aw77o")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="QuadMesh" id="QuadMesh_aoraw"]
-material = SubResource("StandardMaterial3D_7uyb4")
+[ext_resource type="Material" uid="uid://bmvmdt6g7bfmk" path="res://vfx/materials/sparkle.tres" id="2_sgscb"]
+[ext_resource type="Material" uid="uid://bry3o34qm6swv" path="res://vfx/materials/hit.tres" id="3_y45a1"]
+[ext_resource type="Material" uid="uid://cqk08ooaj3f1w" path="res://vfx/materials/circle_outline.tres" id="4_fv3bo"]
 
 [sub_resource type="Curve" id="Curve_phm83"]
 _data = [Vector2(0, 0.813187), 0.0, 0.521612, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="Curve" id="Curve_0veiw"]
-_data = [Vector2(0, 0), 0.0, 6.22378, 0, 0, Vector2(0.123596, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.00153, 0.0, 0, 0]
-point_count = 3
+[sub_resource type="CurveTexture" id="CurveTexture_6uyd2"]
+curve = SubResource("Curve_phm83")
 
 [sub_resource type="Gradient" id="Gradient_8mg2x"]
 offsets = PackedFloat32Array(0.606667, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_21vp4"]
-transparency = 4
-blend_mode = 1
-shading_mode = 0
-specular_mode = 2
-disable_ambient_light = true
-disable_fog = true
-vertex_color_use_as_albedo = true
-albedo_color = Color(1, 0.666016, 0.332031, 1)
-albedo_texture = ExtResource("3_2j8n6")
-billboard_keep_scale = true
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4hst7"]
+gradient = SubResource("Gradient_8mg2x")
 
-[sub_resource type="QuadMesh" id="QuadMesh_oms7i"]
-material = SubResource("StandardMaterial3D_21vp4")
-size = Vector2(0.1, 1.6)
+[sub_resource type="Curve" id="Curve_0veiw"]
+_data = [Vector2(0, 0), 0.0, 6.22378, 0, 0, Vector2(0.123596, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.00153, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_r0tfm"]
+curve = SubResource("Curve_0veiw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wnh2f"]
+angle_max = 360.0
+angle_curve = SubResource("CurveTexture_6uyd2")
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_r0tfm")
+color = Color(1.5, 1, 0.8, 1)
+color_ramp = SubResource("GradientTexture1D_4hst7")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ocq2b"]
+orientation = 2
 
 [sub_resource type="Curve" id="Curve_1n81v"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.133367, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wy58b"]
-transparency = 4
-blend_mode = 1
-shading_mode = 0
-specular_mode = 2
-disable_ambient_light = true
-disable_fog = true
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("3_kmebb")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
+[sub_resource type="CurveTexture" id="CurveTexture_tg7ga"]
+curve = SubResource("Curve_1n81v")
 
-[sub_resource type="QuadMesh" id="QuadMesh_e4v3b"]
-material = SubResource("StandardMaterial3D_wy58b")
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_06s6p"]
+particle_flag_align_y = true
+direction = Vector3(1, 1, 0)
+spread = 180.0
+initial_velocity_min = 2.0
+initial_velocity_max = 3.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.04
+scale_max = 0.1
+scale_curve = SubResource("CurveTexture_tg7ga")
+color = Color(1, 0.485809, 0.207031, 1)
 
-[sub_resource type="Curve" id="Curve_ijmu4"]
-_data = [Vector2(0, 0), 0.0, 2.5708, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
+[sub_resource type="PlaneMesh" id="PlaneMesh_v52gt"]
+size = Vector2(0.3, 3)
+orientation = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_eg1ma"]
+curve = SubResource("Curve_phm83")
 
 [sub_resource type="Gradient" id="Gradient_wtdxq"]
 colors = PackedColorArray(1, 1, 1, 0.701961, 1, 1, 1, 0)
 
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jolky"]
+gradient = SubResource("Gradient_wtdxq")
+
+[sub_resource type="Curve" id="Curve_nokl0"]
+_data = [Vector2(0, 0), 0.0, 3.53846, 0, 0, Vector2(0.782609, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qsoli"]
+curve = SubResource("Curve_nokl0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6u4wj"]
+angle_curve = SubResource("CurveTexture_eg1ma")
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_max = 0.35
+scale_curve = SubResource("CurveTexture_qsoli")
+color_ramp = SubResource("GradientTexture1D_jolky")
+turbulence_noise_strength = 6.05
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vordj"]
+orientation = 2
+
 [node name="Hit" type="Node3D"]
 script = ExtResource("1_v7xu1")
 
-[node name="star" type="CPUParticles3D" parent="."]
+[node name="star" type="GPUParticles3D" parent="."]
+material_override = ExtResource("2_sgscb")
 emitting = false
 amount = 1
 lifetime = 0.3
 one_shot = true
+fixed_fps = 0
 local_coords = true
-mesh = SubResource("QuadMesh_aoraw")
-gravity = Vector3(0, 0, 0)
-angle_max = 360.0
-angle_curve = SubResource("Curve_phm83")
-scale_amount_min = 0.3
-scale_amount_max = 0.5
-scale_amount_curve = SubResource("Curve_0veiw")
-color_ramp = SubResource("Gradient_8mg2x")
+process_material = SubResource("ParticleProcessMaterial_wnh2f")
+draw_pass_1 = SubResource("PlaneMesh_ocq2b")
 
-[node name="sparkles" type="CPUParticles3D" parent="."]
+[node name="sparkles" type="GPUParticles3D" parent="."]
+material_override = ExtResource("3_y45a1")
 emitting = false
 amount = 5
 lifetime = 0.3
 one_shot = true
 explosiveness = 1.0
 randomness = 0.36
+fixed_fps = 0
 local_coords = true
-mesh = SubResource("QuadMesh_oms7i")
-particle_flag_align_y = true
-direction = Vector3(1, 1, 0)
-spread = 180.0
-gravity = Vector3(0, 0, 0)
-initial_velocity_min = 2.0
-initial_velocity_max = 3.0
-scale_amount_min = 0.04
-scale_amount_max = 0.1
-scale_amount_curve = SubResource("Curve_1n81v")
+process_material = SubResource("ParticleProcessMaterial_06s6p")
+draw_pass_1 = SubResource("PlaneMesh_v52gt")
 
-[node name="circle" type="CPUParticles3D" parent="."]
+[node name="circle" type="GPUParticles3D" parent="."]
+material_override = ExtResource("4_fv3bo")
 emitting = false
 amount = 1
 lifetime = 0.3
 one_shot = true
+fixed_fps = 0
 local_coords = true
-mesh = SubResource("QuadMesh_e4v3b")
-gravity = Vector3(0, 0, 0)
-angle_max = 360.0
-angle_curve = SubResource("Curve_phm83")
-scale_amount_min = 0.2
-scale_amount_max = 0.35
-scale_amount_curve = SubResource("Curve_ijmu4")
-color_ramp = SubResource("Gradient_wtdxq")
+process_material = SubResource("ParticleProcessMaterial_6u4wj")
+draw_pass_1 = SubResource("PlaneMesh_vordj")

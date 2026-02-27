@@ -34,7 +34,7 @@ func enter_state() -> void:
 
 func update_state(delta : float) -> void:
 	if spinning:
-		direction = (parent.global_position - Globals.player.global_position).normalized()
+		direction = (Globals.player.global_position - parent.global_position).normalized()
 		var motion = Vector2(direction.x, direction.z)
 		
 		parent.apply_gravity(delta)
@@ -59,7 +59,7 @@ func timer_finished() -> void:
 func anim_finished(anim_name : String) -> void:
 	if anim_name == 'Spin_Start':
 		anim_player.play('Spin_Loop')
-		parent.velocity = direction * parent.speed * Vector3(1, 0, 1)
+		parent.velocity = direction * parent.speed * 1.5 * Vector3(1, 0, 1)
 		spinning = true
 		timer.start()
 	if anim_name == 'Spin_End':

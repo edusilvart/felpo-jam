@@ -2,8 +2,11 @@ extends Entity
 
 
 
+
 @onready var HUD_scn = preload("res://interfaces/HUD/kingo_hud.tscn")
 var HUD
+@onready var paper_trail : GPUParticles3D = get_node('PaperTrail')
+@onready var drop_shadow : RayCast3D = get_node('DropShadow')
 
 var player_range : bool = false
 var attack_cooldown : float = 3
@@ -34,14 +37,13 @@ func _ready() -> void:
 	shoot_timer.one_shot = true
 	
 	HUD = HUD_scn.instantiate()
-	await get_tree().create_timer(0.1).timeout
 	get_parent().add_child(HUD)
 	HUD.HP_bar.max_value = max_HP
-	HUD.HP_bar.value = HP
+	HUD.start()
 
 func hit(_instigator, heavy_hit : bool, damage : int, knockback : Vector3) -> void:
 	HP -= damage
-	HUD.HP_bar.value = HP
+	HUD.update_hp(HP)
 	if HP <= 0:
 		state_machine.set_state('Death')
 	

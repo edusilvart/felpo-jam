@@ -1,7 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7gf1v0qrssdr"]
+[gd_scene load_steps=22 format=3 uid="uid://b7gf1v0qrssdr"]
 
 [ext_resource type="Script" path="res://interfaces/HUD/hud.gd" id="1_tj14n"]
 [ext_resource type="PackedScene" uid="uid://0pxw71on3wgg" path="res://items/item_button.tscn" id="2_k3xlh"]
+[ext_resource type="Texture2D" uid="uid://dyhw3thtcw5bb" path="res://interfaces/items/Icons/Carimbo_Icon.png" id="3_exrxs"]
+[ext_resource type="VideoStream" path="res://movies/intro.ogv" id="3_tt460"]
+[ext_resource type="PackedScene" uid="uid://bjhtyh1qe2w0t" path="res://interfaces/input.tscn" id="5_ieajp"]
+[ext_resource type="Texture2D" uid="uid://b13xbn4hcbtq" path="res://interfaces/inputs/pc_i.png" id="5_q0bmr"]
+[ext_resource type="Texture2D" uid="uid://dyse5gxkjyly4" path="res://interfaces/inputs/xbox_lb.png" id="7_uip72"]
+[ext_resource type="Texture2D" uid="uid://f8t7wwd36jle" path="res://interfaces/inputs/ps_l1.png" id="8_833i5"]
+[ext_resource type="Texture2D" uid="uid://0esdlo4cymng" path="res://interfaces/inputs/PS_square.png" id="9_ed6e0"]
+[ext_resource type="Texture2D" uid="uid://dddraxbygvlbd" path="res://interfaces/inputs/pc_o.png" id="9_oat0a"]
+[ext_resource type="Texture2D" uid="uid://houwdn00p5s4" path="res://interfaces/inputs/xbox_rb.png" id="10_45fhs"]
+[ext_resource type="Texture2D" uid="uid://clkvlrgfmhpie" path="res://interfaces/inputs/ps_r1.png" id="11_xw3rb"]
+[ext_resource type="Texture2D" uid="uid://dxiyjy16dv077" path="res://interfaces/inputs/pc_j.png" id="12_6m8b1"]
+[ext_resource type="Texture2D" uid="uid://dq4xbqtpa4kuo" path="res://interfaces/inputs/xbox_x.png" id="13_st30l"]
+[ext_resource type="Texture2D" uid="uid://dbhurww5jsitx" path="res://interfaces/inputs/pc_k.png" id="15_6rldi"]
+[ext_resource type="Texture2D" uid="uid://dimylbhh5rmb0" path="res://interfaces/inputs/xbox_b.png" id="16_d4wub"]
+[ext_resource type="Texture2D" uid="uid://dxg3ufug3nto4" path="res://interfaces/inputs/ps_circle.png" id="17_b3und"]
+[ext_resource type="Theme" uid="uid://cblg4ct5bcghv" path="res://interfaces/menu_theme.tres" id="18_vpj6d"]
+[ext_resource type="Texture2D" uid="uid://bfq2jtc6jp7w0" path="res://interfaces/inputs/pc_spacebar.png" id="19_nxax0"]
+[ext_resource type="Texture2D" uid="uid://dmgfvjocwk6ib" path="res://interfaces/inputs/xbox_a.png" id="20_wkb15"]
+[ext_resource type="Texture2D" uid="uid://dndicqbt8dl0h" path="res://interfaces/inputs/ps_cross.png" id="21_hx3hl"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -12,6 +31,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_tj14n")
+metadata/_edit_horizontal_guides_ = [129.0]
 
 [node name="Aula_Label" type="Label" parent="."]
 unique_name_in_owner = true
@@ -83,39 +103,119 @@ mouse_filter = 2
 [node name="Attack_Icon" parent="VBoxContainer/Attacks_Icon" instance=ExtResource("2_k3xlh")]
 layout_mode = 2
 size_flags_horizontal = 0
+disabled = false
+icon = ExtResource("3_exrxs")
 
 [node name="Dash_Icon" parent="VBoxContainer/Attacks_Icon" instance=ExtResource("2_k3xlh")]
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="Item01_Input_Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 32.0
+[node name="Input" parent="." instance=ExtResource("5_ieajp")]
+layout_mode = 1
+offset_left = 9.0
 offset_top = 111.0
-offset_right = 37.0
-offset_bottom = 134.0
-text = "I"
+offset_right = 98.0
+offset_bottom = 171.0
+PC = ExtResource("5_q0bmr")
+XBOX = ExtResource("7_uip72")
+PS = ExtResource("8_833i5")
 
-[node name="Item02_Input_Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 108.0
-offset_top = 111.0
-offset_right = 121.0
-offset_bottom = 134.0
-text = "O"
+[node name="Input2" parent="." instance=ExtResource("5_ieajp")]
+layout_mode = 1
+offset_left = 79.0
+offset_top = 110.0
+offset_right = 168.0
+offset_bottom = 170.0
+PC = ExtResource("9_oat0a")
+XBOX = ExtResource("10_45fhs")
+PS = ExtResource("11_xw3rb")
 
-[node name="Attack_Input_Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 32.0
+[node name="Input3" parent="." instance=ExtResource("5_ieajp")]
+layout_mode = 1
+offset_left = 9.0
+offset_top = 185.0
+offset_right = 98.0
+offset_bottom = 245.0
+PC = ExtResource("12_6m8b1")
+XBOX = ExtResource("13_st30l")
+PS = ExtResource("9_ed6e0")
+
+[node name="Input4" parent="." instance=ExtResource("5_ieajp")]
+layout_mode = 1
+offset_left = 79.0
 offset_top = 186.0
-offset_right = 45.0
-offset_bottom = 209.0
-text = "J"
+offset_right = 168.0
+offset_bottom = 246.0
+PC = ExtResource("15_6rldi")
+XBOX = ExtResource("16_d4wub")
+PS = ExtResource("17_b3und")
 
-[node name="Dash_Input_Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 109.0
-offset_top = 186.0
-offset_right = 122.0
-offset_bottom = 209.0
-text = "K"
+[node name="Intro_Video" type="VideoStreamPlayer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -544.0
+offset_right = 960.0
+offset_bottom = 544.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("3_tt460")
+bus = &"Soundtrack"
+
+[node name="Skip_Intro" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = -72.0
+offset_right = -32.0
+offset_bottom = -32.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Panel" type="PanelContainer" parent="Skip_Intro"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -87.0
+offset_top = -39.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("18_vpj6d")
+
+[node name="Label" type="Label" parent="Skip_Intro/Panel"]
+layout_mode = 2
+theme = ExtResource("18_vpj6d")
+theme_type_variation = &"title"
+text = "Pular Intro"
+horizontal_alignment = 2
+
+[node name="Input5" parent="Skip_Intro" instance=ExtResource("5_ieajp")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -189.0
+offset_top = -46.0
+offset_right = -100.0
+offset_bottom = 14.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1, 1)
+PC = ExtResource("19_nxax0")
+XBOX = ExtResource("20_wkb15")
+PS = ExtResource("21_hx3hl")

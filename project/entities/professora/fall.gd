@@ -16,6 +16,9 @@ func enter_state() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed('attack'):
 		state_machine.set_state('Air_Attack')
+	if event.is_action_pressed('dodge'):
+		if parent.can_dodge:
+			state_machine.set_state('Dodge')
 	if event.is_action_pressed('item_01'):
 		if parent.item01 != null:
 			parent.item01.activate()

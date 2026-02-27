@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbdjgyl0gvx4p"
-path.s3tc="res://.godot/imported/Cachorro04.png-0bd62ba8e2c7a6e91e05877b00a878ee.s3tc.ctex"
+path="res://.godot/imported/Cachorro04.png-0bd62ba8e2c7a6e91e05877b00a878ee.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://entities/cachorro/Cachorro04.png"
-dest_files=["res://.godot/imported/Cachorro04.png-0bd62ba8e2c7a6e91e05877b00a878ee.s3tc.ctex"]
+dest_files=["res://.godot/imported/Cachorro04.png-0bd62ba8e2c7a6e91e05877b00a878ee.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

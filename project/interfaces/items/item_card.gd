@@ -23,7 +23,7 @@ func _input(event: InputEvent) -> void:
 			item_discarded.emit()
 
 func _on_pressed() -> void:
-	var item_scene = load('res://items/' + name_label.text + '.tscn')
+	var item_scene = load('res://items/' + name + '.tscn')
 	var new_item = item_scene.instantiate()
 	new_item.icon_tex = icon_tex.texture
 	new_item.parent = Globals.player
@@ -56,3 +56,5 @@ func _on_pressed() -> void:
 		
 	Globals.player.add_child(new_item)
 	item_set.emit()
+	
+	release_focus()

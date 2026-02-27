@@ -1,0 +1,77 @@
+[gd_scene load_steps=18 format=3 uid="uid://cacnou0rumc0l"]
+
+[ext_resource type="Script" path="res://scenes/particles_loader.gd" id="1_455u0"]
+[ext_resource type="PackedScene" uid="uid://4itj0bmcrlqt" path="res://vfx/buff_vfx.tscn" id="2_tspj6"]
+[ext_resource type="PackedScene" uid="uid://bdm7uypj2h57c" path="res://vfx/caderno_break.tscn" id="3_37dsx"]
+[ext_resource type="PackedScene" uid="uid://ciww2joquik3y" path="res://vfx/carimbo.tscn" id="4_w3vrg"]
+[ext_resource type="PackedScene" uid="uid://bkyvx6tx7mu1l" path="res://vfx/heal_vfx.tscn" id="5_826pc"]
+[ext_resource type="PackedScene" uid="uid://bdeegrst0x7hm" path="res://vfx/hit.tscn" id="6_vcqim"]
+[ext_resource type="PackedScene" uid="uid://dqkpyjr72g4y3" path="res://vfx/hit_heavy.tscn" id="7_04hac"]
+[ext_resource type="PackedScene" uid="uid://bc80m0mt6f5be" path="res://vfx/jump_dust.tscn" id="8_vyy8j"]
+[ext_resource type="PackedScene" uid="uid://dya8lxhy2bknv" path="res://vfx/kingo_land.tscn" id="9_6p6d0"]
+[ext_resource type="PackedScene" uid="uid://dk46s2twmb82a" path="res://vfx/land_dust.tscn" id="10_b7uvu"]
+[ext_resource type="PackedScene" uid="uid://edhohnuugwu5" path="res://vfx/run_dust.tscn" id="11_riyvd"]
+[ext_resource type="PackedScene" uid="uid://myivuh4evukr" path="res://vfx/spawn_explosion.tscn" id="12_f6k3v"]
+[ext_resource type="PackedScene" uid="uid://d3gybk08i2lgj" path="res://vfx/kingo/paper.tscn" id="13_yecis"]
+[ext_resource type="PackedScene" uid="uid://bbkqsjqx21art" path="res://vfx/kingo/paper_trail.tscn" id="14_gcwcx"]
+[ext_resource type="PackedScene" uid="uid://bfi6sxtqfla7j" path="res://vfx/kingo/smoke.tscn" id="15_4676d"]
+[ext_resource type="PackedScene" uid="uid://cx5h3vpoxa3bw" path="res://vfx/kingo/sparkles.tscn" id="16_nhs8e"]
+[ext_resource type="PackedScene" uid="uid://dpevjhp10cp78" path="res://vfx/kingo/sparkles_reverse.tscn" id="17_fep6d"]
+
+[node name="ParticlesLoader" type="Node3D"]
+script = ExtResource("1_455u0")
+
+[node name="Particles" type="Node" parent="."]
+
+[node name="Buff_VFX" parent="Particles" instance=ExtResource("2_tspj6")]
+
+[node name="caderno_break" parent="Particles" instance=ExtResource("3_37dsx")]
+
+[node name="Carimbo_VFX" parent="Particles" instance=ExtResource("4_w3vrg")]
+
+[node name="Heal_VFX" parent="Particles" instance=ExtResource("5_826pc")]
+
+[node name="Hit" parent="Particles" instance=ExtResource("6_vcqim")]
+
+[node name="Hit_Heavy" parent="Particles" instance=ExtResource("7_04hac")]
+
+[node name="Jump_Dust" parent="Particles" instance=ExtResource("8_vyy8j")]
+
+[node name="Kingo_Land" parent="Particles" instance=ExtResource("9_6p6d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Dust" parent="Particles" instance=ExtResource("10_b7uvu")]
+
+[node name="Run_Dust" parent="Particles" instance=ExtResource("11_riyvd")]
+
+[node name="spawn_explosion" parent="Particles" instance=ExtResource("12_f6k3v")]
+
+[node name="Particles02" type="Node" parent="."]
+
+[node name="Paper" parent="Particles02" instance=ExtResource("13_yecis")]
+
+[node name="PaperTrail" parent="Particles02" instance=ExtResource("14_gcwcx")]
+visible = true
+
+[node name="smoke" parent="Particles02" instance=ExtResource("15_4676d")]
+
+[node name="Sparkles" parent="Particles02" instance=ExtResource("16_nhs8e")]
+
+[node name="Sparkles_Reverse" parent="Particles02" instance=ExtResource("17_fep6d")]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

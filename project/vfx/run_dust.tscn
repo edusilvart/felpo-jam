@@ -1,56 +1,57 @@
-[gd_scene load_steps=8 format=3 uid="uid://edhohnuugwu5"]
+[gd_scene load_steps=11 format=3 uid="uid://edhohnuugwu5"]
 
 [ext_resource type="Script" path="res://vfx/vfx.gd" id="1_2cihh"]
-[ext_resource type="Texture2D" uid="uid://d4nssxl56ygmg" path="res://vfx/textures/oval.png" id="2_vs1q0"]
+[ext_resource type="Material" uid="uid://1v6qxvsynvbm" path="res://vfx/materials/oval.tres" id="2_yr6et"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gim48"]
-transparency = 1
-shading_mode = 0
-specular_mode = 2
-disable_ambient_light = true
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("2_vs1q0")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
+[sub_resource type="Gradient" id="Gradient_mtm1v"]
+offsets = PackedFloat32Array(0.373333, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="QuadMesh" id="QuadMesh_p1a4p"]
-material = SubResource("StandardMaterial3D_gim48")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2vc5f"]
+gradient = SubResource("Gradient_mtm1v")
 
 [sub_resource type="Curve" id="Curve_qpueb"]
 max_value = 2.0
 _data = [Vector2(0, 0), 0.0, 5.94058, 0, 0, Vector2(1, 2), 0.172592, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="CurveTexture" id="CurveTexture_3ont3"]
+curve = SubResource("Curve_qpueb")
+
 [sub_resource type="Curve" id="Curve_fpoix"]
 _data = [Vector2(0, 0.461538), 0.0, 2.93407, 0, 0, Vector2(1, 0), -2.60806, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="Gradient" id="Gradient_mtm1v"]
-offsets = PackedFloat32Array(0.373333, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+[sub_resource type="CurveTexture" id="CurveTexture_ibh3k"]
+curve = SubResource("Curve_fpoix")
 
-[node name="Run_Dust" type="Node3D"]
-script = ExtResource("1_2cihh")
-
-[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0720705, 0)
-emitting = false
-amount = 16
-lifetime = 0.3
-one_shot = true
-explosiveness = 0.4
-mesh = SubResource("QuadMesh_p1a4p")
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7376p"]
 emission_shape = 1
 emission_sphere_radius = 0.2
 direction = Vector3(0, 0, 0)
 gravity = Vector3(0, -10, 0)
 damping_min = 6.0
 damping_max = 10.0
-damping_curve = SubResource("Curve_qpueb")
-scale_amount_min = 0.0
-scale_amount_max = 0.6
-scale_amount_curve = SubResource("Curve_fpoix")
-color_ramp = SubResource("Gradient_mtm1v")
+damping_curve = SubResource("CurveTexture_3ont3")
+scale_min = 0.0
+scale_max = 0.6
+scale_curve = SubResource("CurveTexture_ibh3k")
+color_ramp = SubResource("GradientTexture1D_2vc5f")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vsx32"]
+orientation = 2
+
+[node name="Run_Dust" type="Node3D"]
+script = ExtResource("1_2cihh")
+
+[node name="CPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0720705, 0)
+material_override = ExtResource("2_yr6et")
+emitting = false
+amount = 16
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.4
+fixed_fps = 0
+process_material = SubResource("ParticleProcessMaterial_7376p")
+draw_pass_1 = SubResource("PlaneMesh_vsx32")

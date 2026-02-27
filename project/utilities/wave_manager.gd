@@ -2,6 +2,8 @@ extends Node
 
 
 
+@onready var spawn_vfx : PackedScene = preload("res://vfx/spawn_explosion.tscn")
+
 var ENEMY_TYPES := {
 	"avião": {
 		"scene": preload('res://entities/inimigos/Avião/avião.tscn'),
@@ -40,7 +42,7 @@ var wave_cost : int = 1
 var max_enemies_per_wave : int = 2 # + number of wave
 var num_enemies : int = 0 # num de inimigos q vai spawnar no inicio da wave
 var min_enemies_ammount : int = 2 # quando chegar nesse numero de inimigo vai spawnar mais
-var wave_duration : float = 30 # duração de cada wave em segundos
+@export var wave_duration : float = 30 # duração de cada wave em segundos
 var wave_timer := Timer.new()
 
 signal wave_ended
@@ -84,12 +86,16 @@ func spawn_enemy(enemy_type: String, spawn_point : Vector3) -> void:
 		get_parent().add_child(enemy)
 		enemy.global_position = spawn_point
 		living_enemies += 1
+		
+		var vfx = spawn_vfx.instantiate()
+		get_parent().add_child(vfx)
+		vfx.start(spawn_point)
 
 func random_point(radius: float) -> Vector3: # retorna ponto aleatorio no ciecleuo
 	var angle : float = randf() * TAU
 	var r : float = radius * sqrt(randf())
 	var point2D : Vector2 = Vector2(cos(angle), sin(angle)) * r
-	return Vector3(point2D.x, 1, point2D.y)
+	return Vector3(point2D.x, 0.5, point2D.y)
 
 func _process(_delta: float) -> void:
 	Globals.HUD.timer_label.text = str(int(wave_timer.time_left))

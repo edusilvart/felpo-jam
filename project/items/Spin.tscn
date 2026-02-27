@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbqimvh5yhsy2"]
+
+[ext_resource type="Script" path="res://items/spin.gd" id="1_lc2bk"]
+
+[node name="Spin" type="Node"]
+script = ExtResource("1_lc2bk")
+cooldown = 4.0

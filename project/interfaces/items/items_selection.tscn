@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxhe01i10td6u"]
+[gd_scene load_steps=3 format=3 uid="uid://cxhe01i10td6u"]
 
 [ext_resource type="Script" path="res://interfaces/items/items_selection.gd" id="1_128ld"]
+[ext_resource type="Theme" uid="uid://cblg4ct5bcghv" path="res://interfaces/menu_theme.tres" id="2_qyikj"]
 
 [node name="Powerups" type="Control"]
 layout_mode = 3
@@ -20,32 +21,47 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.25)
 
-[node name="Title_Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -390.0
-offset_top = 107.0
-offset_right = 390.0
-offset_bottom = 130.0
-grow_horizontal = 2
-text = "SELECIONE UM ITEM"
-horizontal_alignment = 1
-
-[node name="Cards_Container" type="HBoxContainer" parent="."]
-unique_name_in_owner = true
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -390.0
-offset_top = -175.0
-offset_right = 390.0
-offset_bottom = 175.0
+offset_left = -80.5
+offset_top = -66.0
+offset_right = 80.5
+offset_bottom = 66.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 30
+theme_override_constants/separation = 40
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource("2_qyikj")
+
+[node name="Title_Label" type="Label" parent="VBoxContainer/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_qyikj")
+theme_type_variation = &"title"
+text = "SELECIONE UM ITEM"
+horizontal_alignment = 1
+
+[node name="Cards_Container" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 35
 alignment = 1
+
+[node name="Back_Button" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("2_qyikj")
+text = "Voltar"
+
+[connection signal="pressed" from="VBoxContainer/Back_Button" to="." method="_on_back_button_pressed"]

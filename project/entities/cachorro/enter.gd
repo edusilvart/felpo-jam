@@ -9,6 +9,7 @@ func enter_state() -> void:
 		anim_player.play('Idle')
 		parent.assign_target()
 		state_machine.get_node('Chasing').target = parent.target
+		state_machine.get_node('Chasing').max_chasing_duration = 4
 		state_machine.set_state('Chasing')
 
 func update_state(delta : float) -> void:

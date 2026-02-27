@@ -6,9 +6,10 @@ extends State
 @onready var run_dust = preload('res://vfx/run_dust.tscn')
 
 func enter_state() -> void:
-	var dust = run_dust.instantiate()
-	parent.add_child(dust)
-	dust.start(parent.pivot.global_position)
+	if parent.is_on_floor():
+		var dust = run_dust.instantiate()
+		parent.add_child(dust)
+		dust.start(parent.pivot.global_position)
 	
 	var dir_input : Vector2 = parent.get_dir_input()
 	if dir_input == Vector2.ZERO:
@@ -33,16 +34,15 @@ func enter_state() -> void:
 
 func update_state(delta : float) -> void:
 	parent.apply_movement(Vector2.ZERO, parent.acceleration * 0.7, delta)
-	parent.apply_gravity(delta)
 
 func get_transition() -> void:
-	if not parent.is_on_floor():
-		state_machine.set_state('Fall')
+	pass
 
 func exit_state() -> void:
-	var dust = run_dust.instantiate()
-	parent.get_parent().add_child(dust)
-	dust.start(parent.pivot.global_position)
+	if parent.is_on_floor():
+		var dust = run_dust.instantiate()
+		parent.get_parent().add_child(dust)
+		dust.start(parent.pivot.global_position)
 	
 	parent.hurtbox.get_node('CollisionShape3D').disabled = false
 

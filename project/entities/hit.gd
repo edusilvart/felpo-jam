@@ -32,7 +32,7 @@ func enter_state() -> void:
 	parent.HP -= damage
 	
 	if parent == Globals.player:
-		Globals.HUD.HP_bar.value = parent.HP
+		Globals.HUD.update_hp(parent.HP)
 	
 	if heavy_hit:
 		state_machine.set_state('Flying')

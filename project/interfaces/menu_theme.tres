@@ -1,0 +1,120 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://cblg4ct5bcghv"]
+
+[ext_resource type="FontFile" uid="uid://bpqc7iaqdq0qm" path="res://interfaces/fonts/Schoolbell-Regular.ttf" id="1_hasbg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64h81"]
+bg_color = Color(0.699219, 0.499235, 0.338684, 1)
+corner_radius_top_right = 10
+corner_detail = 1
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 2.0
+shadow_color = Color(0.27, 0.153675, 0.1215, 0.243137)
+shadow_size = 1
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_knetc"]
+bg_color = Color(0.925781, 0.861365, 0.513519, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.239258, 0.620575, 0.957031, 1)
+border_blend = true
+corner_radius_top_right = 10
+corner_detail = 1
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+shadow_color = Color(0.27, 0.153675, 0.1215, 0.243137)
+shadow_size = 1
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v35b2"]
+bg_color = Color(0.945313, 0.902501, 0.553894, 1)
+corner_radius_top_right = 10
+corner_detail = 1
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+shadow_color = Color(0.27, 0.153675, 0.1215, 0.243137)
+shadow_size = 1
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tb2fn"]
+bg_color = Color(0.925781, 0.861365, 0.513519, 1)
+corner_radius_top_right = 10
+corner_detail = 1
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+shadow_color = Color(0.27, 0.153675, 0.1215, 0.243137)
+shadow_size = 1
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rwpfk"]
+bg_color = Color(0.875, 0.780525, 0.458008, 1)
+corner_radius_top_right = 10
+corner_detail = 1
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 3.0
+shadow_color = Color(0.27, 0.153675, 0.1215, 0.243137)
+shadow_size = 1
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qxvp6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vvhx6"]
+bg_color = Color(1, 1, 1, 1)
+draw_center = false
+border_width_bottom = 2
+border_color = Color(0.806641, 0.844559, 0.875, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wqlgb"]
+bg_color = Color(0.921875, 0.883473, 0.846252, 1)
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+shadow_color = Color(0, 0, 0, 0.238)
+shadow_size = 3
+shadow_offset = Vector2(-2, 3)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rs8ly"]
+
+[resource]
+Button/colors/font_color = Color(0.115433, 0.205118, 0.332031, 1)
+Button/colors/font_disabled_color = Color(0.0882263, 0.147494, 0.230469, 0.560784)
+Button/colors/font_focus_color = Color(0.168627, 0.298039, 0.427451, 1)
+Button/colors/font_hover_color = Color(0.169647, 0.299715, 0.425781, 1)
+Button/colors/font_hover_pressed_color = Color(0.168627, 0.298039, 0.427451, 1)
+Button/colors/font_pressed_color = Color(0.113725, 0.203922, 0.333333, 1)
+Button/fonts/font = ExtResource("1_hasbg")
+Button/styles/disabled = SubResource("StyleBoxFlat_64h81")
+Button/styles/focus = SubResource("StyleBoxFlat_knetc")
+Button/styles/hover = SubResource("StyleBoxFlat_v35b2")
+Button/styles/normal = SubResource("StyleBoxFlat_tb2fn")
+Button/styles/pressed = SubResource("StyleBoxFlat_rwpfk")
+HSeparator/constants/separation = 9
+HSeparator/styles/separator = SubResource("StyleBoxEmpty_qxvp6")
+Label/colors/font_color = Color(0.147705, 0.47574, 0.859375, 1)
+Label/font_sizes/font_size = 18
+Label/fonts/font = ExtResource("1_hasbg")
+Label/styles/normal = SubResource("StyleBoxFlat_vvhx6")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_wqlgb")
+VSeparator/styles/separator = SubResource("StyleBoxEmpty_rs8ly")
+subtitle/base_type = &"Label"
+subtitle/colors/font_color = Color(0.322144, 0.368796, 0.40625, 1)
+subtitle/colors/font_outline_color = Color(0.133333, 0.180392, 0.219608, 1)
+subtitle/constants/outline_size = 1
+title/base_type = &"Label"
+title/colors/font_color = Color(0.753906, 0.212036, 0.212036, 1)
+title/colors/font_outline_color = Color(0.752941, 0.211765, 0.211765, 1)
+title/constants/outline_size = 2
+title/font_sizes/font_size = 20

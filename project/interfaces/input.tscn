@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjhtyh1qe2w0t"]
+
+[ext_resource type="Texture2D" uid="uid://b13xbn4hcbtq" path="res://interfaces/inputs/pc_i.png" id="1_o0xd7"]
+[ext_resource type="Script" path="res://interfaces/HUD/input.gd" id="2_6014x"]
+
+[node name="Input" type="TextureRect"]
+offset_right = 89.0
+offset_bottom = 60.0
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_o0xd7")
+script = ExtResource("2_6014x")

@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://bfi6sxtqfla7j"]
+
+[ext_resource type="Material" uid="uid://ctn5g6fypioqm" path="res://vfx/materials/dust.tres" id="1_nwqnn"]
+
+[sub_resource type="Curve" id="Curve_yyhii"]
+_data = [Vector2(0, 1), 0.0, 0.0229769, 0, 0, Vector2(1, 0), -0.544379, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_eb3tk"]
+curve = SubResource("Curve_yyhii")
+
+[sub_resource type="Curve" id="Curve_kuxcg"]
+max_value = 100.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wbt3d"]
+curve = SubResource("Curve_kuxcg")
+
+[sub_resource type="Curve" id="Curve_341v4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.44594, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_snw3j"]
+curve = SubResource("Curve_341v4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cqjdo"]
+emission_shape = 1
+emission_sphere_radius = 0.3
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, 1, 0)
+spread = 20.0
+initial_velocity_min = 3.0
+initial_velocity_max = 6.0
+gravity = Vector3(0, -8, 0)
+damping_min = 1.0
+damping_max = 1.0
+damping_curve = SubResource("CurveTexture_wbt3d")
+scale_min = 0.4
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_snw3j")
+alpha_curve = SubResource("CurveTexture_eb3tk")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7li3t"]
+orientation = 2
+
+[node name="smoke" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.292362, 0)
+material_override = ExtResource("1_nwqnn")
+emitting = false
+amount = 32
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_cqjdo")
+draw_pass_1 = SubResource("PlaneMesh_7li3t")

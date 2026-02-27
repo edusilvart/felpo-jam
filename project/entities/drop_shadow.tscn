@@ -10,7 +10,7 @@ script = ExtResource("1_sk6i2")
 
 [node name="ShadowSprite" type="Sprite3D" parent="."]
 transform = Transform3D(0.875, 0, 0, 0, -3.82475e-08, 0.875, 0, -0.875, -3.82475e-08, 0, 0, 0)
-modulate = Color(0, 0, 0, 0.227451)
+modulate = Color(0.0976563, 0.0858545, 0.0839233, 0.503)
 double_sided = false
 texture = ExtResource("2_404tn")
 

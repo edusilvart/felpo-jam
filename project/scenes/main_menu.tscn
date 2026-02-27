@@ -1,0 +1,124 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7dup5na68ojg"]
+
+[ext_resource type="Script" path="res://interfaces/main_menu.gd" id="1_m7ovs"]
+[ext_resource type="Theme" uid="uid://cblg4ct5bcghv" path="res://interfaces/menu_theme.tres" id="2_7m7lb"]
+[ext_resource type="PackedScene" uid="uid://cgbgia2e7vacn" path="res://interfaces/options.tscn" id="3_43afy"]
+[ext_resource type="PackedScene" uid="uid://jenv10mdt303" path="res://interfaces/credits.tscn" id="4_sj46q"]
+[ext_resource type="PackedScene" uid="uid://usiyla4c08mq" path="res://environment/background.tscn" id="5_y0tvl"]
+[ext_resource type="Environment" uid="uid://dn2blwum42g72" path="res://world_environment.tres" id="6_im22v"]
+[ext_resource type="PackedScene" uid="uid://bjhtyh1qe2w0t" path="res://interfaces/input.tscn" id="7_fd03t"]
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("first_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m7ovs")
+first_button = NodePath("Menu/VBoxContainer/Play")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -492.0
+offset_top = 39.0
+offset_right = 492.0
+offset_bottom = 214.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 128
+text = "NOME DO JOGO"
+
+[node name="Menu" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -62.5
+offset_top = -216.0
+offset_right = 62.5
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_7m7lb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+layout_mode = 2
+theme = ExtResource("2_7m7lb")
+theme_override_constants/separation = 18
+
+[node name="Play" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("2_7m7lb")
+text = "JOGAR"
+alignment = 0
+
+[node name="Options" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("2_7m7lb")
+text = "CONFIGURAÇÕES"
+alignment = 0
+
+[node name="Credits" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("2_7m7lb")
+text = "CRÉDITOS"
+alignment = 0
+
+[node name="Exit" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("2_7m7lb")
+text = "SAIR DO JOGO"
+alignment = 0
+
+[node name="Options" parent="." instance=ExtResource("3_43afy")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+offset_left = -125.0
+offset_top = -127.5
+offset_right = 125.0
+offset_bottom = 127.5
+
+[node name="Credits" parent="." instance=ExtResource("4_sj46q")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+offset_top = -208.0
+offset_bottom = 208.0
+
+[node name="background" parent="." instance=ExtResource("5_y0tvl")]
+
+[node name="Camera3D" type="Camera3D" parent="background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.021, -2.348)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="background"]
+environment = ExtResource("6_im22v")
+
+[node name="Input" parent="." instance=ExtResource("7_fd03t")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -792.0
+offset_top = -100.0
+offset_right = -614.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[connection signal="pressed" from="Menu/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

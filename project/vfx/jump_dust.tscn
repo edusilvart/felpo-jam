@@ -1,51 +1,50 @@
-[gd_scene load_steps=7 format=3 uid="uid://bc80m0mt6f5be"]
+[gd_scene load_steps=9 format=3 uid="uid://bc80m0mt6f5be"]
 
 [ext_resource type="Script" path="res://vfx/vfx.gd" id="1_wfdco"]
-[ext_resource type="Texture2D" uid="uid://d4nssxl56ygmg" path="res://vfx/textures/oval.png" id="2_10w8b"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_03nh1"]
-transparency = 1
-shading_mode = 0
-specular_mode = 2
-disable_ambient_light = true
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("2_10w8b")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="QuadMesh" id="QuadMesh_yutej"]
-material = SubResource("StandardMaterial3D_03nh1")
-
-[sub_resource type="Curve" id="Curve_7y44f"]
-_data = [Vector2(0, 0.461538), 0.0, 2.55136, 0, 0, Vector2(0.511236, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.60806, 0.0, 0, 0]
-point_count = 3
+[ext_resource type="Material" uid="uid://1v6qxvsynvbm" path="res://vfx/materials/oval.tres" id="2_cc5ar"]
 
 [sub_resource type="Gradient" id="Gradient_8w7me"]
 offsets = PackedFloat32Array(0.373333, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_a5tlv"]
+gradient = SubResource("Gradient_8w7me")
+
+[sub_resource type="Curve" id="Curve_7y44f"]
+_data = [Vector2(0, 0.461538), 0.0, 2.55136, 0, 0, Vector2(0.511236, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.60806, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_qhau3"]
+curve = SubResource("Curve_7y44f")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qdt6t"]
+lifetime_randomness = 0.61
+direction = Vector3(0, 1, 0)
+spread = 15.0
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 10, 0)
+damping_max = 10.0
+scale_min = 0.2
+scale_max = 0.4
+scale_curve = SubResource("CurveTexture_qhau3")
+color_ramp = SubResource("GradientTexture1D_a5tlv")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nij8w"]
+size = Vector2(1, 2)
+orientation = 2
+
 [node name="Jump_Dust" type="Node3D"]
 script = ExtResource("1_wfdco")
 
-[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+[node name="CPUParticles3D" type="GPUParticles3D" parent="."]
+material_override = ExtResource("2_cc5ar")
 emitting = false
 amount = 3
 lifetime = 0.35
 one_shot = true
 explosiveness = 1.0
 randomness = 1.0
-lifetime_randomness = 0.61
-mesh = SubResource("QuadMesh_yutej")
-direction = Vector3(0, 1, 0)
-spread = 15.0
-gravity = Vector3(0, 10, 0)
-initial_velocity_min = 2.0
-initial_velocity_max = 2.0
-damping_max = 10.0
-scale_amount_min = 0.2
-scale_amount_max = 0.4
-scale_amount_curve = SubResource("Curve_7y44f")
-color_ramp = SubResource("Gradient_8w7me")
+fixed_fps = 0
+process_material = SubResource("ParticleProcessMaterial_qdt6t")
+draw_pass_1 = SubResource("PlaneMesh_nij8w")

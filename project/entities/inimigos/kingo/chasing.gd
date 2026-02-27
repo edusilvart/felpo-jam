@@ -17,6 +17,8 @@ func _ready() -> void:
 func enter_state() -> void:
 	anim_player.play('Run')
 	timer.start()
+	
+	parent.paper_trail.emitting = true
 
 func update_state(delta : float) -> void:
 	var direction : Vector3 = (Globals.player.global_position - parent.global_position).normalized()
@@ -28,6 +30,8 @@ func update_state(delta : float) -> void:
 		parent.flip(true)
 	if Globals.player.global_position.x < parent.global_position.x and parent.looking_right:
 		parent.flip(false)
+	
+	parent.paper_trail.look_at(direction * 10, Vector3.UP)
 
 func get_transition() -> void:
 	if parent.player_range:
@@ -38,6 +42,7 @@ func get_transition() -> void:
 
 func exit_state() -> void:
 	timer.stop()
+	parent.paper_trail.emitting = false
 
 func timer_finished() -> void:
 	state_machine.set_state('Idle')

@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://dpevjhp10cp78"]
+
+[ext_resource type="Texture2D" uid="uid://d4nssxl56ygmg" path="res://vfx/textures/oval.png" id="1_yoc3c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rmhii"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+specular_mode = 2
+disable_ambient_light = true
+disable_fog = true
+albedo_texture = ExtResource("1_yoc3c")
+billboard_keep_scale = true
+
+[sub_resource type="Curve" id="Curve_5fxy0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.43872, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_krt2x"]
+curve = SubResource("Curve_5fxy0")
+
+[sub_resource type="Curve" id="Curve_5ht7o"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ew6uj"]
+curve = SubResource("Curve_5ht7o")
+
+[sub_resource type="Curve" id="Curve_8jgoc"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.210145, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_qkp1g"]
+curve = SubResource("Curve_8jgoc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h78rt"]
+particle_flag_align_y = true
+emission_shape = 1
+emission_sphere_radius = 1.4
+direction = Vector3(0, 0, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -70.0
+radial_accel_max = -4.0
+damping_min = 25.0
+damping_max = 50.0
+damping_curve = SubResource("CurveTexture_ew6uj")
+scale_min = 0.3
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_qkp1g")
+color = Color(5, 5, 5, 1)
+alpha_curve = SubResource("CurveTexture_krt2x")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_3xwfv"]
+size = Vector2(0.5, 1)
+
+[node name="Sparkles_Reverse" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0433297)
+material_override = SubResource("StandardMaterial3D_rmhii")
+emitting = false
+amount = 32
+lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_h78rt")
+draw_pass_1 = SubResource("QuadMesh_3xwfv")

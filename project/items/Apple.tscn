@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://rerqogq8868w"]
+
+[ext_resource type="Script" path="res://items/Apple.gd" id="1_3dmxo"]
+
+[node name="Apple" type="Node"]
+script = ExtResource("1_3dmxo")
+cooldown = -1.0
