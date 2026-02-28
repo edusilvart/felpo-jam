@@ -40,7 +40,7 @@ window/size/mode=2
 
 movie_writer/mjpeg_quality=1.0
 movie_writer/movie_file="E:/GameDev/felpo-jam/assets/movies/frames.png"
-movie_writer/fps=8
+movie_writer/fps=15
 
 [gui]
 

@@ -2,13 +2,13 @@ Input,pt,en
 Café,Café,Coffee
 Aumente a velocidade de movimento e ataque em 40% por 8s.,Aumente a velocidade de movimento e ataque em 40% por 8s.,Increase your movement and attack speed by 40% for 8s.
 Cachorro,Cachorro,Dog
-Morde uma lição aleatória.,Morde uma lição aleatória.,Bites a random lesson.
+Morde uma lição aleatória.,Morde uma lição aleatória.,Bites a random assignment.
 Maçã,Maçã,Apple
 Cure +3 de vida.,Cure +3 de vida.,Heals +3 HP
 Carimbada,Carimbada,Stamp Stomp
-Acerte o chão empurrando inimigos para longe.,Acerte o chão empurrando inimigos para longe.,Hit the ground knockbacking enemies away.
+Acerte o chão empurrando inimigos para longe.,Acerte o chão empurrando inimigos para longe.,Hit the ground knocking back enemies away.
 Clipe de Papel,Clipe de Papel,Paperclip
-Lance um clipe que agrupa inimigos próximos.,Lance um clipe que agrupa inimigos próximos.,Put a paperclip that groups together nearby enemies.
+Lance um clipe que agrupa inimigos próximos.,Lance um clipe que agrupa inimigos próximos.,Put a paperclip that groups nearby enemies together.
 Rodopio,Rodopio,Spin
 Rodopie girando o carimbo e acertando quem estiver no caminho.,Rodopie girando o carimbo e acertando quem estiver no caminho.,Spin around hitting everyone in the way with your stamp.
 Grampeador,Grampeador,Stapler
@@ -45,9 +45,9 @@ Voz da professora,Voz da professora,Teacher's voice
 - Pressione qualquer tecla para começar -,- Pressione qualquer tecla para começar -,- Press any key to start -
 VITÓRIA!,VITÓRIA!,VICTORY!
 DERROTA,DERROTA,DEFEAT
-lições carimbadas,lições carimbadas,stamped lessons
+lições carimbadas,lições carimbadas,stamped assignments
 golpes tomados,golpes tomados,hits taken
-para derrotar o Kingo,para derrotar o Kingo,to defeat the Kingo
+para derrotar o Kingo,para derrotar o Kingo,to defeat Kingo
 Voltar ao menu,Voltar ao menu,Back to menu
 Pular Intro,Pular Intro,Skip Intro
 Aula 01,Aula 01,Class 01
