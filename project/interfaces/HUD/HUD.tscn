@@ -1,11 +1,16 @@
-[gd_scene load_steps=22 format=3 uid="uid://b7gf1v0qrssdr"]
+[gd_scene load_steps=27 format=3 uid="uid://b7gf1v0qrssdr"]
 
 [ext_resource type="Script" path="res://interfaces/HUD/hud.gd" id="1_tj14n"]
+[ext_resource type="Texture2D" uid="uid://ctayfu25kw566" path="res://interfaces/HUD/SchoolGame_UI_HealthBar_Backer.png" id="2_1erpl"]
 [ext_resource type="PackedScene" uid="uid://0pxw71on3wgg" path="res://items/item_button.tscn" id="2_k3xlh"]
+[ext_resource type="Texture2D" uid="uid://cjtuxlsf1m8ci" path="res://interfaces/HUD/SchoolGame_UI_HealthBar_Frame.png" id="3_1y2hn"]
 [ext_resource type="Texture2D" uid="uid://dyhw3thtcw5bb" path="res://interfaces/items/Icons/Carimbo_Icon.png" id="3_exrxs"]
 [ext_resource type="VideoStream" path="res://movies/intro.ogv" id="3_tt460"]
+[ext_resource type="Texture2D" uid="uid://costrk8j4olde" path="res://interfaces/items/Icons/Rolada_Icon.png" id="4_1fob2"]
+[ext_resource type="Texture2D" uid="uid://cxypurcyqduoo" path="res://interfaces/HUD/SchoolGame_UI_HealthBar_Vida.png" id="4_6ys5d"]
 [ext_resource type="PackedScene" uid="uid://bjhtyh1qe2w0t" path="res://interfaces/input.tscn" id="5_ieajp"]
 [ext_resource type="Texture2D" uid="uid://b13xbn4hcbtq" path="res://interfaces/inputs/pc_i.png" id="5_q0bmr"]
+[ext_resource type="Texture2D" uid="uid://dau8ribaq5ekl" path="res://interfaces/HUD/SchoolGame_UI_HealthBar_Cabeca.png" id="6_5pmyu"]
 [ext_resource type="Texture2D" uid="uid://dyse5gxkjyly4" path="res://interfaces/inputs/xbox_lb.png" id="7_uip72"]
 [ext_resource type="Texture2D" uid="uid://f8t7wwd36jle" path="res://interfaces/inputs/ps_l1.png" id="8_833i5"]
 [ext_resource type="Texture2D" uid="uid://0esdlo4cymng" path="res://interfaces/inputs/PS_square.png" id="9_ed6e0"]
@@ -33,61 +38,74 @@ mouse_filter = 2
 script = ExtResource("1_tj14n")
 metadata/_edit_horizontal_guides_ = [129.0]
 
-[node name="Aula_Label" type="Label" parent="."]
-unique_name_in_owner = true
+[node name="Panel3" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -81.0
-offset_top = 8.0
-offset_right = -16.0
-offset_bottom = 31.0
-grow_horizontal = 0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -29.0
+offset_top = 10.0
+offset_right = 29.0
+offset_bottom = 93.0
+grow_horizontal = 2
+theme = ExtResource("18_vpj6d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel3"]
+layout_mode = 2
+alignment = 1
+
+[node name="Aula_Label" type="Label" parent="Panel3/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("18_vpj6d")
+theme_type_variation = &"subtitle"
 text = "AULA 00"
+horizontal_alignment = 1
 
-[node name="Timer_Label" type="Label" parent="."]
+[node name="Timer_Label" type="Label" parent="Panel3/VBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -107.0
-offset_top = 26.0
-offset_right = -16.0
-offset_bottom = 49.0
-grow_horizontal = 0
+layout_mode = 2
+theme = ExtResource("18_vpj6d")
+theme_override_font_sizes/font_size = 36
 text = "1"
-horizontal_alignment = 2
+horizontal_alignment = 1
 
-[node name="HP_Bar" type="ProgressBar" parent="."]
+[node name="HP_Bar" type="TextureProgressBar" parent="."]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 30)
-layout_mode = 2
-offset_left = 24.0
-offset_top = 16.0
-offset_right = 174.0
-offset_bottom = 46.0
+layout_mode = 1
+offset_right = 344.0
+offset_bottom = 94.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 max_value = 3.0
-step = 1.0
+step = 0.02
 value = 3.0
-show_percentage = false
+nine_patch_stretch = true
+texture_under = ExtResource("2_1erpl")
+texture_over = ExtResource("3_1y2hn")
+texture_progress = ExtResource("4_6ys5d")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 344.0
+offset_bottom = 94.0
+texture = ExtResource("6_5pmyu")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 64.0
-offset_right = 172.0
-offset_bottom = 212.0
+offset_left = 34.0
+offset_top = 90.0
+offset_right = 193.0
+offset_bottom = 238.0
 alignment = 2
 
 [node name="ItemsIcon" type="HBoxContainer" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
+theme_override_constants/separation = 15
 
 [node name="Item01_Button" parent="VBoxContainer/ItemsIcon" instance=ExtResource("2_k3xlh")]
 layout_mode = 2
@@ -99,6 +117,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
+theme_override_constants/separation = 15
 
 [node name="Attack_Icon" parent="VBoxContainer/Attacks_Icon" instance=ExtResource("2_k3xlh")]
 layout_mode = 2
@@ -109,43 +128,45 @@ icon = ExtResource("3_exrxs")
 [node name="Dash_Icon" parent="VBoxContainer/Attacks_Icon" instance=ExtResource("2_k3xlh")]
 layout_mode = 2
 size_flags_horizontal = 0
+disabled = false
+icon = ExtResource("4_1fob2")
 
 [node name="Input" parent="." instance=ExtResource("5_ieajp")]
 layout_mode = 1
-offset_left = 9.0
-offset_top = 111.0
-offset_right = 98.0
-offset_bottom = 171.0
+offset_left = 19.0
+offset_top = 137.0
+offset_right = 108.0
+offset_bottom = 197.0
 PC = ExtResource("5_q0bmr")
 XBOX = ExtResource("7_uip72")
 PS = ExtResource("8_833i5")
 
 [node name="Input2" parent="." instance=ExtResource("5_ieajp")]
 layout_mode = 1
-offset_left = 79.0
-offset_top = 110.0
-offset_right = 168.0
-offset_bottom = 170.0
+offset_left = 106.0
+offset_top = 136.0
+offset_right = 195.0
+offset_bottom = 196.0
 PC = ExtResource("9_oat0a")
 XBOX = ExtResource("10_45fhs")
 PS = ExtResource("11_xw3rb")
 
 [node name="Input3" parent="." instance=ExtResource("5_ieajp")]
 layout_mode = 1
-offset_left = 9.0
-offset_top = 185.0
-offset_right = 98.0
-offset_bottom = 245.0
+offset_left = 19.0
+offset_top = 211.0
+offset_right = 108.0
+offset_bottom = 271.0
 PC = ExtResource("12_6m8b1")
 XBOX = ExtResource("13_st30l")
 PS = ExtResource("9_ed6e0")
 
 [node name="Input4" parent="." instance=ExtResource("5_ieajp")]
 layout_mode = 1
-offset_left = 79.0
-offset_top = 186.0
-offset_right = 168.0
-offset_bottom = 246.0
+offset_left = 106.0
+offset_top = 212.0
+offset_right = 195.0
+offset_bottom = 272.0
 PC = ExtResource("15_6rldi")
 XBOX = ExtResource("16_d4wub")
 PS = ExtResource("17_b3und")
@@ -164,8 +185,10 @@ offset_right = 960.0
 offset_bottom = 544.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 stream = ExtResource("3_tt460")
 bus = &"Soundtrack"
+metadata/_edit_lock_ = true
 
 [node name="Skip_Intro" type="Control" parent="."]
 unique_name_in_owner = true
@@ -209,9 +232,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -189.0
+offset_left = -190.0
 offset_top = -46.0
-offset_right = -100.0
+offset_right = -101.0
 offset_bottom = 14.0
 grow_horizontal = 0
 grow_vertical = 0

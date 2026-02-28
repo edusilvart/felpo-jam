@@ -6,6 +6,7 @@ extends Node
 @onready var shop_node : PackedScene = preload("res://interfaces/items/items_selection.tscn")
 var shop : Control
 var main_menu : String = "res://scenes/main_menu.tscn"
+var end_screen : String = "res://scenes/game_over.tscn"
 
 var num_waves : int = 5
 var waves_completed : int = 0
@@ -15,7 +16,9 @@ var states = [
 	'BATTLE',
 	'SHOP',
 	'BOSS',
-	'END'
+	'END',
+	'WIN',
+	'LOSE'
 ]
 var state
 
@@ -26,6 +29,11 @@ func _ready() -> void:
 	add_child(shop)
 	
 	Globals.wave_manager.wave_ended.connect(wave_ended)
+	Globals.kills = 0
+	Globals.total_kills = 0
+	Globals.boss_duration = 0
+	Globals.hits_taken = 0
+	Globals.win = false
 
 func change_state(new_state : String) -> void:
 	if state != null:
@@ -50,6 +58,15 @@ func enter_state() -> void:
 			Globals.wave_manager.spawn_enemy('kingo', Vector3(0, 0.7, -2.8))
 		'END':
 			Globals.player.state_machine.set_state('Waiting')
+		'WIN':
+			Globals.win = true
+			ScenesManager.change_scene(end_screen, self)
+		'LOSE':
+			for enemy in get_tree().get_nodes_in_group('Enemies'):
+				enemy.queue_free()
+			Globals.win = false
+			Globals.total_kills += Globals.kills
+			ScenesManager.change_scene(end_screen, self)
 
 func exit_state() -> void:
 	match states[state]:
@@ -62,6 +79,10 @@ func exit_state() -> void:
 		'BOSS':
 			pass
 		'END':
+			pass
+		'WIN':
+			pass
+		'LOSE':
 			pass
 
 func shop_finished() -> void:

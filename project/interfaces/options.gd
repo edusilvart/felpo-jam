@@ -43,6 +43,8 @@ func _on_master_pressed() -> void:
 	AudioServer.set_bus_volume_db(0, volume)
 	
 	master_button.text = str(int(Globals.master_vol)) + '%'
+	
+	SFX_MANAGER.select()
 
 func _on_music_pressed() -> void:
 	var volume : float = 0
@@ -57,6 +59,8 @@ func _on_music_pressed() -> void:
 	AudioServer.set_bus_volume_db(1, volume)
 	
 	music_button.text = str(int(Globals.music_vol)) + '%'
+	
+	SFX_MANAGER.select()
 
 func _on_sfx_pressed() -> void:
 	var volume : float = 0
@@ -71,8 +75,11 @@ func _on_sfx_pressed() -> void:
 	AudioServer.set_bus_volume_db(2, volume)
 	
 	sfx_button.text = str(int(Globals.sfx_vol)) + '%'
+	
+	SFX_MANAGER.select()
 
 func _on_back_pressed() -> void:
+	SFX_MANAGER.cancel()
 	leave()
 
 func _on_fullscreen_pressed() -> void:
@@ -84,3 +91,5 @@ func _on_fullscreen_pressed() -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		Globals.fullscreen = true
 		fullscreen_button.text = 'SIM'
+	
+	SFX_MANAGER.select()

@@ -18,6 +18,8 @@ var jump_timer := Timer.new()
 var shout_timer := Timer.new()
 var shoot_timer := Timer.new()
 
+var boss_runtime : float = 0
+
 func _ready() -> void:
 	state_machine.set_state('Intro')
 	add_child(attack_timer)
@@ -40,6 +42,8 @@ func _ready() -> void:
 	get_parent().add_child(HUD)
 	HUD.HP_bar.max_value = max_HP
 	HUD.start()
+	
+	Globals.HUD.boss_start()
 
 func hit(_instigator, heavy_hit : bool, damage : int, knockback : Vector3) -> void:
 	HP -= damage
@@ -63,3 +67,7 @@ func _on_vision_body_entered(body: Node3D) -> void:
 func _on_vision_body_exited(body: Node3D) -> void:
 	if body == Globals.player:
 		player_range = false
+
+func _physics_process(delta: float) -> void:
+	boss_runtime += delta
+	Globals.HUD.boss_runtime = boss_runtime

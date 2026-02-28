@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmudxcgcvcrey"]
+[gd_scene load_steps=9 format=3 uid="uid://bmudxcgcvcrey"]
 
 [ext_resource type="Script" path="res://interfaces/items/item_card.gd" id="1_8e62c"]
 [ext_resource type="Texture2D" uid="uid://c0d8krmoocaiu" path="res://interfaces/items/Icons/Coffee.png" id="1_53u7v"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bicnclslefpgu" path="res://interfaces/items/cards/clipe.png" id="3_s56k1"]
 [ext_resource type="Texture2D" uid="uid://cyqcl4r77g7oi" path="res://interfaces/items/cards/tag.png" id="4_kckgg"]
 [ext_resource type="Texture2D" uid="uid://dddgx2idi5gcc" path="res://interfaces/items/cards/tape.png" id="6_wfl0e"]
+[ext_resource type="Theme" uid="uid://cblg4ct5bcghv" path="res://interfaces/menu_theme.tres" id="8_q5kpe"]
 
 [node name="ItemCard" type="Button"]
 offset_right = 246.0
@@ -127,31 +128,62 @@ text = "Consumível"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Select_Item_Prompt" type="Label" parent="."]
+[node name="select_item" type="Panel" parent="."]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_top = -58.0
-offset_right = 20.0
-offset_bottom = -35.0
+offset_left = -130.0
+offset_top = -54.0
+offset_right = 130.0
+offset_bottom = -26.0
 grow_horizontal = 2
+theme = ExtResource("8_q5kpe")
+
+[node name="Select_Item_Prompt" type="Label" parent="select_item"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -135.5
+offset_top = -13.0
+offset_right = 135.5
+offset_bottom = 17.0
+grow_horizontal = 2
+theme = ExtResource("8_q5kpe")
+theme_type_variation = &"title"
+theme_override_colors/font_color = Color(0.15358, 0.194607, 0.238281, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
 text = "Selecione um item para descartar"
 horizontal_alignment = 1
 
-[node name="Select_Item_Prompt2" type="Label" parent="Select_Item_Prompt"]
+[node name="Select_Item_Prompt2" type="Label" parent="select_item/Select_Item_Prompt"]
 modulate = Color(0.710938, 0.710938, 0.710938, 1)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -130.0
-offset_top = 21.0
+offset_top = 27.0
 offset_right = 130.0
-offset_bottom = 44.0
+offset_bottom = 54.0
 grow_horizontal = 2
+theme = ExtResource("8_q5kpe")
+theme_type_variation = &"subtitle"
+theme_override_colors/font_color = Color(0.0468, 0.06696, 0.09, 0.701961)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
 text = "(pressione a tecla do item)"
 horizontal_alignment = 1
 

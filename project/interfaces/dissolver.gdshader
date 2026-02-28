@@ -1,20 +1,21 @@
 shader_type canvas_item;
 
-uniform sampler2D dissolve_texture : source_color;
-uniform float dissolve_value : hint_range(0,1);
-uniform float burn_size: hint_range(0.0, 1.0, 0.01);
-uniform vec4 burn_color: source_color;
+uniform sampler2D noise_texture : hint_default_white;
+uniform float progress : hint_range(0.0, 1.0) = 0.0;
+uniform float edge_size : hint_range(0.0, 0.2) = 0.05;
+uniform vec4 edge_color : source_color = vec4(1.0, 0.5, 0.0, 1.0);
 
-void fragment(){
-    vec4 main_texture = texture(TEXTURE, UV);
-    vec4 noise_texture = texture(dissolve_texture, UV);
+void fragment() {
+	vec4 base_color = COLOR;
+	float noise = texture(noise_texture, UV).r;
 	
-	// This is needed to avoid keeping a small burn_color dot with dissolve being 0 or 1
-	// is there another way to do it?
-	float burn_size_step = burn_size * step(0.001, dissolve_value) * step(dissolve_value, 0.999);
-	float threshold = smoothstep(noise_texture.x-burn_size_step, noise_texture.x, dissolve_value);
-	float border = smoothstep(noise_texture.x, noise_texture.x + burn_size_step, dissolve_value);
+	float dissolve = smoothstep(progress, progress + edge_size, noise);
+	float edge = smoothstep(progress - edge_size, progress, noise);
 	
-	COLOR.a *= threshold;
-	COLOR.rgb = mix(burn_color.rgb, main_texture.rgb, border);
+	base_color.a *= dissolve;
+	
+	base_color.rgb = mix(edge_color.rgb, base_color.rgb, dissolve);
+	base_color.rgb += edge * edge_color.rgb;
+	
+	COLOR = base_color;
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://btteseblrb4u7"]
+[gd_scene load_steps=19 format=3 uid="uid://btteseblrb4u7"]
 
 [ext_resource type="Script" path="res://vfx/itens/clipe.gd" id="1_rd4ge"]
 [ext_resource type="PackedScene" uid="uid://12lpbcxnno48" path="res://entities/hitbox.tscn" id="2_m21i6"]
@@ -86,9 +86,6 @@ tracks/5/keys = {
 "values": [ExtResource("4_3ilhr"), ExtResource("5_fjooo")]
 }
 
-[sub_resource type="Resource" id="Resource_uskpy"]
-metadata/__load_path__ = "res://vfx/itens/sprites/Clipe de Papel01.png"
-
 [sub_resource type="Animation" id="Animation_mo6h6"]
 resource_name = "Intro"
 tracks/0/type = "value"
@@ -113,7 +110,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [SubResource("Resource_uskpy")]
+"values": [ExtResource("4_3ilhr")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -288,6 +285,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263194, 0)
 [node name="Sprite3D2" type="Sprite3D" parent="Pivot"]
 transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 0, -0.00940871, 0)
 pixel_size = 0.001
+double_sided = false
 
 [node name="ShadowSprite" type="Sprite3D" parent="."]
 transform = Transform3D(0.225, 0, 0, 0, -9.83506e-09, 0.225, 0, -0.225, -9.83506e-09, 0, 0.003, 0)

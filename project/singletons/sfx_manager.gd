@@ -1,6 +1,7 @@
 extends Node
 
-
+@onready var select_sfx : AudioStream = preload('res://interfaces/menu1.mp3')
+@onready var cancel_sfx : AudioStream = preload('res://interfaces/menu2.mp3')
 
 var rng = RandomNumberGenerator.new()
 
@@ -28,3 +29,9 @@ func play_sfx_at(audio, position : Vector3, volume : float, pitch_min : float, p
 	player.global_position = position
 	player.play(0.0)
 	
+
+func select() -> void:
+	play_sfx(select_sfx, 0, 0.5, 1.5)
+
+func cancel() -> void:
+	play_sfx(cancel_sfx, 0, 0.5, 1.5)

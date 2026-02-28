@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxn3n7llcumdy"
-path.s3tc="res://.godot/imported/final-389.png-2d4f868cb1704679f372a5d29f26715d.s3tc.ctex"
+path="res://.godot/imported/final-389.png-2d4f868cb1704679f372a5d29f26715d.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://entities/professora/sprites/sleeping/final-389.png"
-dest_files=["res://.godot/imported/final-389.png-2d4f868cb1704679f372a5d29f26715d.s3tc.ctex"]
+dest_files=["res://.godot/imported/final-389.png-2d4f868cb1704679f372a5d29f26715d.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbqimvh5yhsy2"]
+[gd_scene load_steps=3 format=3 uid="uid://cbqimvh5yhsy2"]
 
 [ext_resource type="Script" path="res://items/spin.gd" id="1_lc2bk"]
+[ext_resource type="AudioStream" uid="uid://bt6lu5aqf8ayx" path="res://interfaces/menu1.mp3" id="2_x3rx6"]
 
 [node name="Spin" type="Node"]
 script = ExtResource("1_lc2bk")
-cooldown = 4.0
+soundclip = ExtResource("2_x3rx6")
+cooldown = 5.0

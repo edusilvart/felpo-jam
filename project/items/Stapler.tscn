@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://r0vya1ufu5bf"]
+[gd_scene load_steps=3 format=3 uid="uid://r0vya1ufu5bf"]
 
 [ext_resource type="Script" path="res://items/stapler.gd" id="1_v8nvm"]
+[ext_resource type="AudioStream" uid="uid://cwx76c548apv" path="res://items/sfx/Pedro_Carimbo__itemgrampeador.mp3" id="2_xldle"]
 
 [node name="Stapler" type="Node"]
 script = ExtResource("1_v8nvm")
-cooldown = 3.0
+soundclip = ExtResource("2_xldle")
+cooldown = 4.0

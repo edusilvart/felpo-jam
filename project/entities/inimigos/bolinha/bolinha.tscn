@@ -748,6 +748,7 @@ script = ExtResource("8_rhnhm")
 
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("8_8kj1b")
+damage = 1.0
 
 [node name="Hit" type="Node" parent="StateMachine"]
 script = ExtResource("9_7v1v3")

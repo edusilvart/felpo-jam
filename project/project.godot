@@ -10,10 +10,15 @@ config_version=5
 
 [application]
 
-config/name="FELPO JAM"
+config/name="VISTO!"
 run/main_scene="res://scenes/language_select.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.0435791, 0.0820313, 0.0710449, 1)
+boot_splash/image="res://interfaces/logo-boot.png"
+boot_splash/fullsize=false
+config/icon="res://icons/SchoolGame_Icon_Carimbo.png"
+config/windows_native_icon="res://icons/SchoolGame_Icon_Carimbo.ico"
+boot_splash/minimum_display_time=100
 
 [audio]
 
@@ -30,6 +35,12 @@ ScenesManager="*res://utilities/scenes_manager.gd"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/mode=2
+
+[editor]
+
+movie_writer/mjpeg_quality=1.0
+movie_writer/movie_file="E:/GameDev/felpo-jam/assets/movies/frames.png"
+movie_writer/fps=8
 
 [gui]
 
@@ -154,7 +165,7 @@ dodge={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://localization.csv", "res://localization.en.translation", "res://localization.pt.translation")
+locale/translations=PackedStringArray("res://localization.en.translation", "res://localization.pt.translation")
 
 [layer_names]
 

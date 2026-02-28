@@ -1,12 +1,59 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7dup5na68ojg"]
+[gd_scene load_steps=21 format=3 uid="uid://b7dup5na68ojg"]
 
 [ext_resource type="Script" path="res://interfaces/main_menu.gd" id="1_m7ovs"]
+[ext_resource type="PackedScene" uid="uid://08qvnirylhxp" path="res://utilities/sway.tscn" id="2_6s0lb"]
 [ext_resource type="Theme" uid="uid://cblg4ct5bcghv" path="res://interfaces/menu_theme.tres" id="2_7m7lb"]
+[ext_resource type="Texture2D" uid="uid://6c7rorowtq26" path="res://interfaces/Jogo_Logo.png" id="2_ddxm6"]
 [ext_resource type="PackedScene" uid="uid://cgbgia2e7vacn" path="res://interfaces/options.tscn" id="3_43afy"]
 [ext_resource type="PackedScene" uid="uid://jenv10mdt303" path="res://interfaces/credits.tscn" id="4_sj46q"]
 [ext_resource type="PackedScene" uid="uid://usiyla4c08mq" path="res://environment/background.tscn" id="5_y0tvl"]
 [ext_resource type="Environment" uid="uid://dn2blwum42g72" path="res://world_environment.tres" id="6_im22v"]
 [ext_resource type="PackedScene" uid="uid://bjhtyh1qe2w0t" path="res://interfaces/input.tscn" id="7_fd03t"]
+[ext_resource type="Texture2D" uid="uid://upci6j6osaj" path="res://interfaces/inputs/pc_wasd.png" id="8_g17r5"]
+[ext_resource type="Texture2D" uid="uid://bhwbp5h410c1j" path="res://interfaces/inputs/xbox_dpad.png" id="9_n1lu3"]
+[ext_resource type="Texture2D" uid="uid://biuupxgiqytd5" path="res://interfaces/inputs/ps_dpad.png" id="10_so0b5"]
+[ext_resource type="Texture2D" uid="uid://bfq2jtc6jp7w0" path="res://interfaces/inputs/pc_spacebar.png" id="11_nhodp"]
+[ext_resource type="Texture2D" uid="uid://dmgfvjocwk6ib" path="res://interfaces/inputs/xbox_a.png" id="12_nt3pm"]
+[ext_resource type="Texture2D" uid="uid://dndicqbt8dl0h" path="res://interfaces/inputs/ps_cross.png" id="13_mc3af"]
+[ext_resource type="AudioStream" uid="uid://oi810j5wjghs" path="res://soundtrack/Pedro_Carimbo__Musica Part1.mp3" id="15_numy7"]
+[ext_resource type="Script" path="res://interfaces/press_any_key.gd" id="16_fk0uj"]
+
+[sub_resource type="Animation" id="Animation_0kdg5"]
+resource_name = "End"
+length = 0.66667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.166667, 0.266667, 0.366667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_wn5j8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2fa4t"]
+_data = {
+"End": SubResource("Animation_0kdg5"),
+"RESET": SubResource("Animation_wn5j8")
+}
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("first_button")]
 layout_mode = 3
@@ -16,22 +63,38 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_m7ovs")
-first_button = NodePath("Menu/VBoxContainer/Play")
+first_button = NodePath("Menu/panel/VBoxContainer/Play")
 
-[node name="Label" type="Label" parent="."]
+[node name="Game_title_holder" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -492.0
-offset_top = 39.0
-offset_right = 492.0
-offset_bottom = 214.0
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 128
-text = "NOME DO JOGO"
 
-[node name="Menu" type="PanelContainer" parent="."]
+[node name="logo" type="TextureRect" parent="Game_title_holder"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1920.0
+offset_top = -911.0
+offset_right = 1920.0
+offset_bottom = 1249.0
+grow_horizontal = 2
+scale = Vector2(0.15, 0.15)
+pivot_offset = Vector2(1923, 1080)
+texture = ExtResource("2_ddxm6")
+
+[node name="Sway" parent="Game_title_holder/logo" instance=ExtResource("2_6s0lb")]
+power = 2.0
+rot_speed = 1.12
+rot_power = 0.02
+
+[node name="Menu" type="Control" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
@@ -39,46 +102,99 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -62.5
-offset_top = -216.0
-offset_right = 62.5
-offset_bottom = -56.0
+offset_left = -20.0
+offset_top = -208.0
+offset_right = 20.0
+offset_bottom = -168.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="panel" type="PanelContainer" parent="Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.5
+offset_top = -80.0
+offset_right = 62.5
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("2_7m7lb")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/panel"]
 layout_mode = 2
 theme = ExtResource("2_7m7lb")
 theme_override_constants/separation = 18
 
-[node name="Play" type="Button" parent="Menu/VBoxContainer"]
+[node name="Play" type="Button" parent="Menu/panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("2_7m7lb")
 text = "JOGAR"
 alignment = 0
 
-[node name="Options" type="Button" parent="Menu/VBoxContainer"]
+[node name="Options" type="Button" parent="Menu/panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("2_7m7lb")
 text = "CONFIGURAÇÕES"
 alignment = 0
 
-[node name="Credits" type="Button" parent="Menu/VBoxContainer"]
+[node name="Credits" type="Button" parent="Menu/panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("2_7m7lb")
 text = "CRÉDITOS"
 alignment = 0
 
-[node name="Exit" type="Button" parent="Menu/VBoxContainer"]
+[node name="Exit" type="Button" parent="Menu/panel/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("2_7m7lb")
 text = "SAIR DO JOGO"
 alignment = 0
+
+[node name="Input2" parent="Menu" instance=ExtResource("7_fd03t")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.5
+offset_top = -5.00003
+offset_right = -50.5
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.735, 0.735)
+texture = ExtResource("8_g17r5")
+PC = ExtResource("8_g17r5")
+XBOX = ExtResource("9_n1lu3")
+PS = ExtResource("10_so0b5")
+
+[node name="Input" parent="Menu" instance=ExtResource("7_fd03t")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.5
+offset_top = 42.0
+offset_right = -50.5
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.735, 0.735)
+texture = ExtResource("11_nhodp")
+PC = ExtResource("11_nhodp")
+XBOX = ExtResource("12_nt3pm")
+PS = ExtResource("13_mc3af")
 
 [node name="Options" parent="." instance=ExtResource("3_43afy")]
 unique_name_in_owner = true
@@ -104,21 +220,61 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.021, -2.348)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="background"]
 environment = ExtResource("6_im22v")
 
-[node name="Input" parent="." instance=ExtResource("7_fd03t")]
+[node name="PressKey_Holder" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -792.0
-offset_top = -100.0
-offset_right = -614.0
-offset_bottom = 20.0
-grow_horizontal = 0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
 grow_vertical = 0
 
-[connection signal="pressed" from="Menu/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[node name="PressAnyKey" type="PanelContainer" parent="PressKey_Holder"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -171.0
+offset_top = -136.0
+offset_right = 172.0
+offset_bottom = -106.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_7m7lb")
+script = ExtResource("16_fk0uj")
+
+[node name="Label2" type="Label" parent="PressKey_Holder/PressAnyKey"]
+layout_mode = 2
+theme = ExtResource("2_7m7lb")
+theme_type_variation = &"title"
+text = "- Pressione qualquer tecla para começar -"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PressKey_Holder/PressAnyKey"]
+libraries = {
+"": SubResource("AnimationLibrary_2fa4t")
+}
+
+[node name="Sway" parent="PressKey_Holder/PressAnyKey" instance=ExtResource("2_6s0lb")]
+speed = 8.0
+power = 1.2
+rot_speed = 0.0
+rot_power = 0.0
+
+[node name="musica" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_numy7")
+autoplay = true
+bus = &"Soundtrack"
+
+[connection signal="pressed" from="Menu/panel/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Menu/panel/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Menu/panel/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Menu/panel/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="animation_finished" from="PressKey_Holder/PressAnyKey/AnimationPlayer" to="PressKey_Holder/PressAnyKey" method="_on_animation_player_animation_finished"]

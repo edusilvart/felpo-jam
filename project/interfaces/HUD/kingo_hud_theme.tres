@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cd6xpryjmgy0c"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cd6xpryjmgy0c"]
+
+[ext_resource type="FontFile" uid="uid://5pcpyltu3trj" path="res://interfaces/fonts/DynaPuff-SemiBold.ttf" id="1_ptbq2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sa6tg"]
 bg_color = Color(0.136719, 0.114288, 0.114288, 1)
@@ -31,8 +33,12 @@ shadow_offset = Vector2(3, 0)
 
 [resource]
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
-Label/colors/font_shadow_color = Color(0.113281, 0.0535431, 0.0535431, 0.816)
-Label/constants/shadow_offset_x = 0
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 7
+Label/constants/shadow_offset_x = -2
+Label/constants/shadow_offset_y = 3
 Label/constants/shadow_outline_size = 5
+Label/font_sizes/font_size = 20
+Label/fonts/font = ExtResource("1_ptbq2")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_sa6tg")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_vd1so")

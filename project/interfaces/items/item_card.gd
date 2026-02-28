@@ -5,7 +5,7 @@ extends Button
 @onready var icon_tex : TextureRect = get_node('Icon')
 @onready var description_label : Label = get_node('Description')
 @onready var type_label : Label = get_node('Type')
-@onready var discard_prompt : Label = get_node('Select_Item_Prompt')
+@onready var discard_prompt : Panel = get_node('%select_item')
 var waiting_selection : bool = false
 var discarded_item01 : bool = false
 
@@ -18,11 +18,14 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("item_01"):
 			discarded_item01 = true
 			item_discarded.emit()
+			SFX_MANAGER.select()
 		if event.is_action_pressed('item_02'):
 			discarded_item01 = false
 			item_discarded.emit()
+			SFX_MANAGER.select()
 
 func _on_pressed() -> void:
+	SFX_MANAGER.select()
 	var item_scene = load('res://items/' + name + '.tscn')
 	var new_item = item_scene.instantiate()
 	new_item.icon_tex = icon_tex.texture

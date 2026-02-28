@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://ct7ayjetosrxq"]
+[gd_scene load_steps=3 format=3 uid="uid://ct7ayjetosrxq"]
 
 [ext_resource type="Script" path="res://items/coffee.gd" id="1_7kru8"]
+[ext_resource type="AudioStream" uid="uid://ccv1x1cxd2psy" path="res://items/sfx/Pedro_Carimbo__itemcafe.mp3" id="2_ju3km"]
 
 [node name="Coffee" type="Node"]
 script = ExtResource("1_7kru8")
+soundclip = ExtResource("2_ju3km")
 cooldown = -1.0

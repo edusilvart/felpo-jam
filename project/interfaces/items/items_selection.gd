@@ -3,11 +3,10 @@ extends Control
 
 @onready var fade : ColorRect = get_node('Fade')
 @onready var card_scene : PackedScene = preload("res://interfaces/items/item_card.tscn")
-@onready var title_label : Label = get_node('%Title_Label')
+@onready var title_label : PanelContainer = get_node('%Title')
 @onready var cards_container : HBoxContainer = get_node('%Cards_Container')
 @onready var back_button : Button = get_node('%Back_Button')
-
-@onready var title_pos = title_label.position
+@onready var points : PanelContainer = get_node('%Points')
 
 # ITEM ID, ITEM NAME, ITEM DESCRIPTION
 var items = [
@@ -29,23 +28,30 @@ func _ready() -> void:
 
 func enter() -> void:
 	visible = true
+	
+	var tween := get_tree().create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC).set_parallel()
+	fade.color = Color(0, 0, 0, 0)
+	tween.tween_property(fade, "color", Color(0, 0, 0, 0.4), 0.3)
+	
+	title_label.modulate = Color(1, 1, 1, 0)
+	cards_container.modulate = Color(1, 1, 1, 0)
+	back_button.modulate = Color(1, 1, 1, 0)
+	
+	points.enter()
+	await points.done
+	start_shop()
+
+func start_shop() -> void:
 	items.shuffle()
 	for n in 3:
 		build_card(n)
 	
-	title_pos = title_label.position
 	var tween := get_tree().create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC).set_parallel()
 	
-	title_label.position.y = title_pos.y - 250
-	tween.tween_property(title_label, "position", title_pos, 0.2)
+	tween.tween_property(title_label, "modulate", Color(1, 1, 1, 1), 0.3)
 	
-	cards_container.modulate = Color(1, 1, 1, 0)
 	tween.tween_property(cards_container, "modulate", Color(1, 1, 1, 1), 0.5)
 	
-	fade.color = Color(0, 0, 0, 0)
-	tween.tween_property(fade, "color", Color(0, 0, 0, 0.4), 0.3)
-	
-	back_button.modulate = Color(0, 0, 0, 0)
 	tween.tween_property(back_button, 'modulate', Color(1, 1, 1, 1), 0.3)
 	
 	cards_container.get_child(1).grab_focus()
@@ -97,4 +103,5 @@ func exit() -> void:
 	ended.emit()
 
 func _on_back_button_pressed() -> void:
+	SFX_MANAGER.cancel()
 	exit()

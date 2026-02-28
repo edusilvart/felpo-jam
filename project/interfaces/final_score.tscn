@@ -1,0 +1,93 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbskbtloaeqx4"]
+
+[ext_resource type="Theme" uid="uid://cblg4ct5bcghv" path="res://interfaces/menu_theme.tres" id="1_t2m0w"]
+[ext_resource type="Script" path="res://interfaces/final_score.gd" id="2_reqma"]
+
+[node name="Points" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = -91.5
+offset_right = 116.0
+offset_bottom = 91.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_t2m0w")
+script = ExtResource("2_reqma")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_t2m0w")
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_t2m0w")
+theme_type_variation = &"title"
+text = "VITÓRIA!"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_t2m0w")
+alignment = 1
+
+[node name="kills" type="Label" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("1_t2m0w")
+text = "00"
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_t2m0w")
+text = "lições carimbadas"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_t2m0w")
+alignment = 1
+
+[node name="hits" type="Label" parent="VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("1_t2m0w")
+text = "00"
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("1_t2m0w")
+text = "golpes tomados"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_t2m0w")
+alignment = 1
+
+[node name="boss" type="Label" parent="VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("1_t2m0w")
+text = "00"
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("1_t2m0w")
+text = "para derrotar o Kingo"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Back_Button" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Voltar ao menu"
+
+[connection signal="pressed" from="VBoxContainer/Back_Button" to="." method="_on_back_button_pressed"]

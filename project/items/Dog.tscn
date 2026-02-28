@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://og7ir6ru0w7d"]
+[gd_scene load_steps=3 format=3 uid="uid://og7ir6ru0w7d"]
 
 [ext_resource type="Script" path="res://items/dog.gd" id="1_uykpa"]
+[ext_resource type="AudioStream" uid="uid://bbbppu3u66rln" path="res://items/sfx/Pedro_Carimbo__itemdog.mp3" id="2_77l6d"]
 
 [node name="Dog" type="Node"]
 script = ExtResource("1_uykpa")
+soundclip = ExtResource("2_77l6d")
 cooldown = 6.0

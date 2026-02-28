@@ -1,0 +1,28 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://d2p18a14uq1xx"]
+
+[ext_resource type="FontFile" uid="uid://5pcpyltu3trj" path="res://interfaces/fonts/DynaPuff-SemiBold.ttf" id="1_xb6qv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mj7tp"]
+bg_color = Color(0.23, 0.21275, 0.2093, 0.196078)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.500122, 0.520307, 0.53125, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 1
+
+[resource]
+Button/colors/font_disabled_color = Color(0.917969, 0.901216, 0.824738, 1)
+Button/colors/icon_disabled_color = Color(0.386719, 0.349897, 0.3414, 1)
+Button/constants/outline_size = 10
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_xb6qv")
+Button/styles/disabled = SubResource("StyleBoxFlat_mj7tp")
+Button/styles/focus = SubResource("StyleBoxFlat_mj7tp")
+Button/styles/hover = SubResource("StyleBoxFlat_mj7tp")
+Button/styles/normal = SubResource("StyleBoxFlat_mj7tp")
+Button/styles/pressed = SubResource("StyleBoxFlat_mj7tp")

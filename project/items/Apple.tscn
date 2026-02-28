@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://rerqogq8868w"]
+[gd_scene load_steps=3 format=3 uid="uid://rerqogq8868w"]
 
 [ext_resource type="Script" path="res://items/Apple.gd" id="1_3dmxo"]
+[ext_resource type="AudioStream" uid="uid://cyuj2i41wnern" path="res://items/sfx/Pedro_Carimbo__itemmaça.mp3" id="2_iag3m"]
 
 [node name="Apple" type="Node"]
 script = ExtResource("1_3dmxo")
+soundclip = ExtResource("2_iag3m")
 cooldown = -1.0

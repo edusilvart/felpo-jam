@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=11 format=3 uid="uid://cblg4ct5bcghv"]
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://cblg4ct5bcghv"]
 
 [ext_resource type="FontFile" uid="uid://bpqc7iaqdq0qm" path="res://interfaces/fonts/Schoolbell-Regular.ttf" id="1_hasbg"]
 
@@ -21,7 +21,6 @@ border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0.239258, 0.620575, 0.957031, 1)
-border_blend = true
 corner_radius_top_right = 10
 corner_detail = 1
 expand_margin_left = 5.0
@@ -76,8 +75,20 @@ draw_center = false
 border_width_bottom = 2
 border_color = Color(0.806641, 0.844559, 0.875, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tqar"]
+bg_color = Color(0.921875, 0.883473, 0.846252, 1)
+skew = Vector2(0.01, 0.003)
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+shadow_color = Color(0, 0, 0, 0.238)
+shadow_size = 3
+shadow_offset = Vector2(-2, 3)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wqlgb"]
 bg_color = Color(0.921875, 0.883473, 0.846252, 1)
+skew = Vector2(0.01, 0.003)
 expand_margin_left = 15.0
 expand_margin_top = 15.0
 expand_margin_right = 15.0
@@ -107,6 +118,7 @@ Label/colors/font_color = Color(0.147705, 0.47574, 0.859375, 1)
 Label/font_sizes/font_size = 18
 Label/fonts/font = ExtResource("1_hasbg")
 Label/styles/normal = SubResource("StyleBoxFlat_vvhx6")
+Panel/styles/panel = SubResource("StyleBoxFlat_5tqar")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_wqlgb")
 VSeparator/styles/separator = SubResource("StyleBoxEmpty_rs8ly")
 subtitle/base_type = &"Label"

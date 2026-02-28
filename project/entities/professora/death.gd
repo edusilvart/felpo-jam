@@ -4,6 +4,7 @@ extends State
 
 
 func enter_state() -> void:
+	parent.get_parent().change_state('LOSE')
 	anim_player.play('Laying')
 	parent.hurtbox.call_deferred('queue_free')
 

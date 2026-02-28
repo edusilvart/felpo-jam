@@ -1,6 +1,7 @@
 class_name Item extends Node
 
 
+@export var soundclip : AudioStream
 var parent : Entity
 @export var cooldown : float = 0 # -1 = consumable
 var cooldown_timer := Timer.new()
@@ -30,6 +31,9 @@ func activate() -> void:
 			vfx.start(parent.global_position - Vector3(0, 0, 0.02))
 			icon.disabled = true
 			enter()
+			
+			if soundclip != null:
+				SFX_MANAGER.play_sfx_at(soundclip, parent.global_position, 0, 1, 1)
 	else:
 		if can_use():
 			var vfx = vfx_scene.instantiate()
@@ -37,6 +41,9 @@ func activate() -> void:
 			vfx.start(parent.global_position - Vector3(0, 0, 0.02))
 			icon.disabled = true
 			enter()
+			
+			if soundclip != null:
+				SFX_MANAGER.play_sfx_at(soundclip, parent.global_position, 0, 1, 1)
 
 func can_use() -> bool:
 	return true

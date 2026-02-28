@@ -11,6 +11,9 @@ func enter_state() -> void:
 	
 	parent.died.emit()
 	parent.call_deferred('queue_free')
+	
+	if not parent == Globals.player:
+		Globals.kills += 1
 
 func update_state(delta : float) -> void:
 	parent.apply_movement(Vector2.ZERO, parent.acceleration * 2, delta)

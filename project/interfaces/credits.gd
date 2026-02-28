@@ -18,15 +18,20 @@ func leave() -> void:
 
 func _on_corsi_social_pressed() -> void:
 	OS.shell_open('https://www.instagram.com/kupts')
+	SFX_MANAGER.select()
 
 func _on_beto_social_pressed() -> void:
 	OS.shell_open('https://www.instagram.com/betonesio')
+	SFX_MANAGER.select()
 
 func _on_pedro_social_pressed() -> void:
 	OS.shell_open('https://www.instagram.com/pedrosinskicarneiro')
+	SFX_MANAGER.select()
 
 func _on_eduardo_social_pressed() -> void:
 	OS.shell_open('https://www.instagram.com/edusilvart')
+	SFX_MANAGER.select()
 
 func _on_back_pressed() -> void:
+	SFX_MANAGER.cancel()
 	leave()

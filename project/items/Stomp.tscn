@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dubjw6eudjeif"]
+[gd_scene load_steps=3 format=3 uid="uid://dubjw6eudjeif"]
 
 [ext_resource type="Script" path="res://items/stomp.gd" id="1_okwhs"]
+[ext_resource type="AudioStream" uid="uid://bt6lu5aqf8ayx" path="res://interfaces/menu1.mp3" id="2_6fsrx"]
 
 [node name="Stomp" type="Node"]
 script = ExtResource("1_okwhs")
-cooldown = 2.0
+soundclip = ExtResource("2_6fsrx")
+cooldown = 3.0

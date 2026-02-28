@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://08qvnirylhxp"]
+
+[ext_resource type="Script" path="res://utilities/sway.gd" id="1_hp4xa"]
+
+[node name="Sway" type="Node"]
+script = ExtResource("1_hp4xa")

@@ -59,7 +59,7 @@ func timer_finished() -> void:
 func anim_finished(anim_name : String) -> void:
 	if anim_name == 'Spin_Start':
 		anim_player.play('Spin_Loop')
-		parent.velocity = direction * parent.speed * 1.5 * Vector3(1, 0, 1)
+		parent.velocity = direction * parent.speed * 1.1 * Vector3(1, 0, 1)
 		spinning = true
 		timer.start()
 	if anim_name == 'Spin_End':

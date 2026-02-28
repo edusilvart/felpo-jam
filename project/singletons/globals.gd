@@ -5,6 +5,11 @@ var camera : Node3D
 var player : Entity
 var HUD : Control
 var wave_manager : Node
+var kills : int = 0
+var total_kills : int = 51
+var hits_taken : int = 3
+var boss_duration : float = 10.476
+var win : bool = true
 
 # settings
 var master_vol : float = 100

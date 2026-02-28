@@ -24,9 +24,11 @@ func enter_state() -> void:
 	
 	Globals.hit_stop(1)
 	anim_player.play('Death')
-	parent.get_parent().change_state('End')
 	SFX_MANAGER.play_sfx_at(audioclip, parent.global_position, 0, 1, 1)
 	SFX_MANAGER.play_sfx_at(voiceclip, parent.global_position, 0, 0.9, 1.1)
+	
+	Globals.boss_duration = parent.boss_runtime
+	Globals.kills += 1
 
 func small_shake() -> void:
 	Globals.camera.shake = 0.2
@@ -45,7 +47,7 @@ func exit_state() -> void:
 	pass
 
 func end() -> void:
-	parent.get_parent().change_state('END')
+	parent.get_parent().change_state('WIN')
 
 func anim_finished(anim_name : String) -> void:
 	if anim_name == 'Death':

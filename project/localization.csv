@@ -12,7 +12,7 @@ Lance um clipe que agrupa inimigos próximos.,Lance um clipe que agrupa inimigos
 Rodopio,Rodopio,Spin
 Rodopie girando o carimbo e acertando quem estiver no caminho.,Rodopie girando o carimbo e acertando quem estiver no caminho.,Spin around hitting everyone in the way with your stamp.
 Grampeador,Grampeador,Stapler
-Atira 8 grampos em volta.,Atira 8 grampos em volta.,Shoots 8 staples around your.
+Atira 8 grampos em volta.,Atira 8 grampos em volta.,Shoots 8 staples around you.
 Consumível,Consumível,Consumable
 Habilidade,Habilidade,Ability
 SELECIONE UM ITEM,SELECIONE UM ITEM,SELECT AN ITEM
@@ -20,7 +20,7 @@ Selecione um item para descartar,Selecione um item para descartar,Select an item
 (pressione a tecla do item),(pressione a tecla do item),(press the item key)
 CONFIGURAÇÕES,CONFIGURAÇÕES,SETTINGS
 Volume,Volume,Volume
-Geral:,Geral:,Master:
+Geral: ,Geral: ,Master: 
 Música:,Música:,Music:
 Efeitos Sonoros:,Efeitos Sonoros:,Sound Effects:
 Tela Cheia:,Tela Cheia:,Fullscreen:
@@ -32,4 +32,27 @@ Carregando...,Carregando...,Loading...
 Carregando..,Carregando..,Loading...
 Carregando.,Carregando.,Loading.
 Carregando,Carregando,Loading
-PLAY,JOGAR,PLAY
+JOGAR,JOGAR,PLAY
+CONFIGURAÇÕES,CONFIGURAÇÕES,SETTINGS
+SAIR DO JOGO,SAIR DO JOGO,EXIT GAME
+CRÉDITOS,CRÉDITOS,CREDITS
+Equipe: os cabecinha,Equipe: os cabecinha,Team: os cabecinha
+Animação e Design de Personagem,Animação e Design de Personagem,Animation and Character Design
+Arte e 3D,Arte e 3D,Art and 3D
+Som e Música Original,Som e Música Original,Sound and Original Soundtrack
+Programação,Programação,Programming
+Voz da professora,Voz da professora,Teacher's voice
+- Pressione qualquer tecla para começar -,- Pressione qualquer tecla para começar -,- Press any key to start -
+VITÓRIA!,VITÓRIA!,VICTORY!
+DERROTA,DERROTA,DEFEAT
+lições carimbadas,lições carimbadas,stamped lessons
+golpes tomados,golpes tomados,hits taken
+para derrotar o Kingo,para derrotar o Kingo,to defeat the Kingo
+Voltar ao menu,Voltar ao menu,Back to menu
+Pular Intro,Pular Intro,Skip Intro
+Aula 01,Aula 01,Class 01
+Aula 02,Aula 02,Class 02
+Aula 03,Aula 03,Class 03
+Aula 04,Aula 04,Class 04
+Aula 05,Aula 05,Class 05
+Aula completa!,Aula completa!,Class complete!
